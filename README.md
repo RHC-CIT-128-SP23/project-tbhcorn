@@ -11,11 +11,9 @@ CIT 128 Student Directed Project
 
 ## Program Description
 
-My program will involve a character that can go into multiple math themed rooms. Each room will have a dedicated challenger in it, and each challenger will have a different subsection of math questions in a given topic. Each challenger will have their own challenge questions, and the goal is to answer each question in each room correctly to win the math championship(defeat all challengers).
+My program will involve a character that can go into multiple math themed rooms. Each room will have a dedicated challenger in it, and each challenger will have a different subsection of math questions in a given topic. Each challenger will have their own challenge questions, and the goal is to answer each question in each room correctly to win the math championship (defeat all challengers).
 
 My goals are to correctly import graphics and use unique character designs for each character. I need to make sure that the player's character moves correspondingly to the arrow keys on the keyboard. I also need to make sure that I can have a unique set of problems for each challenging character (potentially not repeating) and make the test cases work properly so that the player can move on when the answer is correct and get reverted back when it isn't.
-
-Describe your individual project program and include the goals of the program.
 
 ### Video Demonstration
 
