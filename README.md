@@ -5,9 +5,9 @@ CIT 128 Student Directed Project
 
 ## Student Info
 
-*Daniel Grilli
-*37902
-*Spring 2023
+* Daniel Grilli
+* 37902
+* Spring 2023
 
 ## Program Description
 
