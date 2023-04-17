@@ -21,7 +21,7 @@ Add a Link to your video demonstration
 
 ### Install Instructions
 
-pip install pygame
+pip install pygame in your code terminal of choice
 
 
 Add any install instructions, if needed. This includes how to install included modules or libraries as well as configurations. You may remove this section if no special instructions are required.
