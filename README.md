@@ -21,6 +21,9 @@ Add a Link to your video demonstration
 
 ### Install Instructions
 
+pip install pygame
+
+
 Add any install instructions, if needed. This includes how to install included modules or libraries as well as configurations. You may remove this section if no special instructions are required.
 
 ## Software Engineering
