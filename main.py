@@ -5,3 +5,5 @@
     Student Directed Project
 '''
 import pygame
+
+pygame.init()
