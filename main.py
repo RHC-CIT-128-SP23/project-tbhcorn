@@ -19,7 +19,7 @@ clock = pygame.time.Clock()
 functioning = True
 while functioning:
 
-    for i in pygame.event.get():
+    for event in pygame.event.get():
         if event.type == pygame.QUIT:
             functioning = False
 
