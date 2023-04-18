@@ -10,12 +10,10 @@ pygame.init()
 
 background = pygame.image.load("Hotpot.jpg")
 
-# Set up the game window
 gameWindowWidth = background.get_width()
 gameWindowHeight = background.get_height()
 gameWindow = pygame.display.set_mode((gameWindowWidth, gameWindowHeight))
 
-# Set up the game clock
 clock = pygame.time.Clock()
 
 functioning = True
