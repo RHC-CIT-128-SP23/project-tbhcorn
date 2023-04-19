@@ -8,7 +8,7 @@ import pygame
 
 pygame.init()
 
-background = pygame.image.load("Hotpot.jpg")
+background = pygame.image.load("Viridian_Forest_PE.jpg")
 
 gameWindowWidth = background.get_width()
 gameWindowHeight = background.get_height()
