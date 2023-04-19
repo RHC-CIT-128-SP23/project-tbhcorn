@@ -45,11 +45,11 @@ The student provided rubric is worth 75 points and is specific to the individual
     * Student verbally describes how to start and use the application. (5pt)
     * Student discusses the testing process as part of the project and the verbal description matches the written description. (5pt)
 * **Student Grading Rubric (75pt)**
-  * Sub Grading Description 1 (X pt)
-  * Sub Grading Description 2 (X pt)
-  * Sub Grading Description 3 (X pt)
-  * Sub Grading Description 4 (X pt)
-  * Sub Grading Description 5 (X pt)
+  * Minimum of 4 Opponents, and these characters all exist in their own room with different room designs (10 pt)
+  * The User can navigate the game with no struggle, whether this be through a mousepad or arrow keys (15 pt)
+  * The game properly increments/decrements when the user answers correctly/incorrectly with corresponding output messages(20 pt)
+  * Different categories of math are tested by different characters, with unique questions and possible randomization of questions (10 pt)
+  * Each character has unique graphics, dialogue, and (potentially corresponding) sound effects (20 pt)
 
 Total Points: 200
 
