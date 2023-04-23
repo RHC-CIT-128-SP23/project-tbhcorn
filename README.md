@@ -23,10 +23,14 @@ Add a Link to your video demonstration
 
 pip install pygame in your code terminal of choice
 
+[potentially installing images with this too?]
+
 
 Add any install instructions, if needed. This includes how to install included modules or libraries as well as configurations. You may remove this section if no special instructions are required.
 
 ## Software Engineering
+
+I am trying to engineer this program with OOP techniques that are clear, with code that will be easy to read (heavily commented). More on this to come
 
 Describe the software engineering techniques used for the design and development of this program.
 
