@@ -21,6 +21,8 @@ gameWindowHeight = background.get_height()
 gameWindow = pygame.display.set_mode((gameWindowWidth, gameWindowHeight))
 
 Red = Character("Red.png")
+Red.rect.x = 100
+Red.rect.y = 100
 all_sprites = pygame.sprite.Group()
 all_sprites.add(Red)
 
