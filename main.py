@@ -20,6 +20,10 @@ gameWindowWidth = background.get_width()
 gameWindowHeight = background.get_height()
 gameWindow = pygame.display.set_mode((gameWindowWidth, gameWindowHeight))
 
+Red = Character("Red.png")
+all_sprites = pygame.sprite.Group()
+all_sprites.add(Red)
+
 clock = pygame.time.Clock()
 
 functioning = True
@@ -28,8 +32,12 @@ while functioning:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             functioning = False
+    
+    all_sprites.update()
 
     gameWindow.blit(background, (0, 0))
+    all_sprites.draw(gameWindow)
+
 
     pygame.display.update()
 
