@@ -45,7 +45,7 @@ The student provided rubric is worth 75 points and is specific to the individual
     * Student verbally describes how to start and use the application. (5pt)
     * Student discusses the testing process as part of the project and the verbal description matches the written description. (5pt)
 * **Student Grading Rubric (75pt)**
-  * Characters and Rooms (10 pt)
+  * Characters and Rooms (30 pt)
     * Minimum of 4 Opponents (2pt)
     * Each character will exist in their own room (4 pt)
     * Each room will have a different room design (4 pt)
