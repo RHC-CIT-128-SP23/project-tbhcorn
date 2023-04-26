@@ -31,7 +31,7 @@ class Door(pygame.sprite.Sprite):
         self.image.fill(color)
         knob_width = 10
         knob_height = 10
-        knob_x = width // 2 - knob_width // 2
+        knob_x = width - knob_width
         knob_y = height // 2 - knob_height // 2
         pygame.draw.ellipse(self.image, knob_color, [knob_x, knob_y, knob_width, knob_height])
         self.rect = self.image.get_rect()
