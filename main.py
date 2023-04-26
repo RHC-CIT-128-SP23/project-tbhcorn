@@ -15,16 +15,18 @@ class Character(pygame.sprite.Sprite):
 pygame.init()
 
 background = pygame.image.load("Viridian_Forest_PE.jpg")
+background = pygame.transform.scale(background, (800, 600))
+
 
 gameWindowWidth = background.get_width()
 gameWindowHeight = background.get_height()
 gameWindow = pygame.display.set_mode((gameWindowWidth, gameWindowHeight))
 
-Red = Character("Red.png")
-Red.rect.x = 100
-Red.rect.y = 100
+Char1 = Character("DragoniteMC1.png")
+Char1.rect.x = 100
+Char1.rect.y = 100
 all_sprites = pygame.sprite.Group()
-all_sprites.add(Red)
+all_sprites.add(Char1)
 
 clock = pygame.time.Clock()
 
@@ -36,13 +38,9 @@ while functioning:
             functioning = False
     
     all_sprites.update()
-
     gameWindow.blit(background, (0, 0))
     all_sprites.draw(gameWindow)
-
-
     pygame.display.update()
-
     clock.tick(60)
 
 pygame.quit()
