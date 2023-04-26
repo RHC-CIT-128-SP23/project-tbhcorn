@@ -41,6 +41,17 @@ font = pygame.font.SysFont("comicsansms", 36)
 text = font.render("Choose a room!", True, (0, 0, 0))
 background.blit(text, (287, 50))
 
+Char1 = Character("DragoniteMC1.png")
+Char1.rect.x = 400
+Char1.rect.y = 300
+all_sprites = pygame.sprite.Group()
+all_sprites.add(Char1)
+
+clock = pygame.time.Clock()
+
+# The character that will be controlled by the user is given an initial position, 
+# and added to the game as a sprite. The game clock is also set.
+
 #Adds text to the Home Screen of the game
 
 door_color = (0, 0, 255)  # blue
@@ -63,17 +74,6 @@ pygame.draw.ellipse(gameWindow, knob_color, knob_rect)
 
 #Both components of the door are created and placed into
 #our pygame window
-
-Char1 = Character("DragoniteMC1.png")
-Char1.rect.x = 400
-Char1.rect.y = 300
-all_sprites = pygame.sprite.Group()
-all_sprites.add(Char1)
-
-clock = pygame.time.Clock()
-
-# The character that will be controlled by the user is given an initial position, 
-# and added to the game as a sprite. The game clock is also set.
 
 functioning = True
 while functioning:
