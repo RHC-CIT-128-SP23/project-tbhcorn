@@ -43,6 +43,15 @@ background.blit(text, (287, 50))
 
 #Adds text to the Home Screen of the game
 
+door_color = (0, 0, 255)  # blue
+door_width = 100
+door_height = 200
+door_x = (screen_width - door_width) // 2
+door_y = (screen_height - door_height) // 2
+
+#creates color, size, and position of the door
+
+
 Char1 = Character("DragoniteMC1.png")
 Char1.rect.x = 400
 Char1.rect.y = 300
