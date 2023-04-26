@@ -14,6 +14,9 @@ class Character(pygame.sprite.Sprite):
 
 pygame.init()
 
+pygame.display.set_caption("The Math Maze")
+
+
 background = pygame.image.load("Viridian_Forest_PE.jpg")
 background = pygame.transform.scale(background, (800, 600))
 
@@ -23,8 +26,8 @@ gameWindowHeight = background.get_height()
 gameWindow = pygame.display.set_mode((gameWindowWidth, gameWindowHeight))
 
 Char1 = Character("DragoniteMC1.png")
-Char1.rect.x = 100
-Char1.rect.y = 100
+Char1.rect.x = 0
+Char1.rect.y = 0
 all_sprites = pygame.sprite.Group()
 all_sprites.add(Char1)
 
