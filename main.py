@@ -52,7 +52,7 @@ door_y = (gameWindowHeight - door_height) // 2
 #creates color, size, and position of the door
 
 door_rect = pygame.Rect(door_x, door_y, door_width, door_height)
-pygame.draw.rect(screen, door_color, door_rect)
+pygame.draw.rect(gameWindow, door_color, door_rect)
 knob_color = (255, 255, 255)  # white
 knob_width = 10
 knob_height = 10
