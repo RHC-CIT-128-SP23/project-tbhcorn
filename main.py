@@ -37,6 +37,12 @@ gameWindow = pygame.display.set_mode((gameWindowWidth, gameWindowHeight))
 
 # The game window within python is set with an image, as pygame is initialized
 
+font = pygame.font.Font(None, 48)
+text = font.render("Choose your opponent.", True, (255, 255, 255))
+background.blit(text, (400, 200))
+
+#Adds text to the Home Screen of the game
+
 Char1 = Character("DragoniteMC1.png")
 Char1.rect.x = 400
 Char1.rect.y = 300
