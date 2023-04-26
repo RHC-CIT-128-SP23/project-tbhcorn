@@ -37,9 +37,9 @@ gameWindow = pygame.display.set_mode((gameWindowWidth, gameWindowHeight))
 
 # The game window within python is set with an image, as pygame is initialized
 
-font = pygame.font.Font(Arial, 48)
-text = font.render("Choose your opponent.", True, (255, 255, 255))
-background.blit(text, (300, 200))
+font = pygame.font.SysFont("comicsansms", 36)
+text = font.render("Choose a room!", True, (0, 0, 0))
+background.blit(text, (50, 50))
 
 #Adds text to the Home Screen of the game
 
