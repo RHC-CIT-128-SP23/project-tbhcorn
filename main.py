@@ -103,6 +103,8 @@ while functioning:
     all_sprites.update()
     gameWindow.blit(background, (0, 0))
     all_sprites.draw(gameWindow)
+    pygame.draw.rect(gameWindow, door_color, door_rect)
+    pygame.draw.ellipse(gameWindow, knob_color, knob_rect)
     pygame.display.update()
     clock.tick(60)
     
