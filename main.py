@@ -26,8 +26,8 @@ gameWindowHeight = background.get_height()
 gameWindow = pygame.display.set_mode((gameWindowWidth, gameWindowHeight))
 
 Char1 = Character("DragoniteMC1.png")
-Char1.rect.x = 0
-Char1.rect.y = 0
+Char1.rect.x = 400
+Char1.rect.y = 300
 all_sprites = pygame.sprite.Group()
 all_sprites.add(Char1)
 
