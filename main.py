@@ -66,10 +66,10 @@ all_sprites.add(Char1)
 # The character that will be controlled by the user is given an initial position, 
 # and added to the game as a sprite. 
 
-door1 = Door(gameWindowWidth // 2 - 150, gameWindowHeight // 2 - 100, 100, 200, (0, 0, 255), (255, 255, 255))
-door2 = Door(gameWindowWidth // 2 + 50, gameWindowHeight // 2 - 100, 100, 200, (255, 0, 0), (255, 255, 255))
-door3 = Door(gameWindowWidth // 2 - 150, gameWindowHeight // 2 - 300, 100, 200, (0, 255, 0), (255, 255, 255))
-door4 = Door(gameWindowWidth // 2 + 50, gameWindowHeight // 2 - 300, 100, 200, (255, 255, 0), (255, 255, 255))
+door1 = Door(50, 50, 100, 200, (0, 0, 255), (255, 255, 255))  
+door2 = Door(gameWindowWidth - 150, 50, 100, 200, (255, 0, 0), (255, 255, 255))  
+door3 = Door(50, gameWindowHeight - 250, 100, 200, (0, 255, 0), (255, 255, 255)) 
+door4 = Door(gameWindowWidth - 150, gameWindowHeight - 250, 100, 200, (255, 255, 0), (255, 255, 255))  
 
 all_sprites.add(door1)
 all_sprites.add(door2)
@@ -79,6 +79,7 @@ all_sprites.add(door4)
 clock = pygame.time.Clock()
 
 #The doors that will lead the user to 4 different rooms are placed on our game board.
+#These doors are at different corners, respectively.
 #The game clock is also set.
 
 #Adds text to the Home Screen of the game
