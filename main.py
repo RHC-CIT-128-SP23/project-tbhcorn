@@ -28,7 +28,7 @@ pygame.init()
 
 pygame.display.set_caption("The Math Maze")
 
-background = pygame.image.load("Viridian_Forest_PE.jpg")
+background = pygame.image.load("BotwEntry.jpg")
 background = pygame.transform.scale(background, (800, 600))
 
 gameWindowWidth = background.get_width()
@@ -39,7 +39,7 @@ gameWindow = pygame.display.set_mode((gameWindowWidth, gameWindowHeight))
 
 font = pygame.font.SysFont("comicsansms", 36)
 text = font.render("Choose a room!", True, (0, 0, 0))
-background.blit(text, (50, 50))
+background.blit(text, (287, 50))
 
 #Adds text to the Home Screen of the game
 
