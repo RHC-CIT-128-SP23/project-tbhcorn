@@ -24,6 +24,22 @@ class Character(pygame.sprite.Sprite):
 
 #creates Character class for following characters
 
+class Door(pygame.sprite.Sprite):
+    def __init__(self, x, y, width, height, color, knob_color):
+        super().__init__()
+        self.image = pygame.Surface((width, height))
+        self.image.fill(color)
+        knob_width = 10
+        knob_height = 10
+        knob_x = width // 2 - knob_width // 2
+        knob_y = height // 2 - knob_height // 2
+        pygame.draw.ellipse(self.image, knob_color, [knob_x, knob_y, knob_width, knob_height])
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+
+#Creates door class for doors to be used later
+
 pygame.init()
 
 pygame.display.set_caption("The Math Maze")
@@ -47,33 +63,25 @@ Char1.rect.y = 300
 all_sprites = pygame.sprite.Group()
 all_sprites.add(Char1)
 
+# The character that will be controlled by the user is given an initial position, 
+# and added to the game as a sprite. 
+
+door1 = Door(gameWindowWidth // 2 - 150, gameWindowHeight // 2 - 100, 100, 200, (0, 0, 255), (255, 255, 255))
+door2 = Door(gameWindowWidth // 2 + 50, gameWindowHeight // 2 - 100, 100, 200, (255, 0, 0), (255, 255, 255))
+door3 = Door(gameWindowWidth // 2 - 150, gameWindowHeight // 2 - 300, 100, 200, (0, 255, 0), (255, 255, 255))
+door4 = Door(gameWindowWidth // 2 + 50, gameWindowHeight // 2 - 300, 100, 200, (255, 255, 0), (255, 255, 255))
+
+all_sprites.add(door1)
+all_sprites.add(door2)
+all_sprites.add(door3)
+all_sprites.add(door4)
+
 clock = pygame.time.Clock()
 
-# The character that will be controlled by the user is given an initial position, 
-# and added to the game as a sprite. The game clock is also set.
+#The doors that will lead the user to 4 different rooms are placed on our game board.
+#The game clock is also set.
 
 #Adds text to the Home Screen of the game
-
-door_color = (0, 0, 255)  # blue
-door_width = 100
-door_height = 200
-door_x = (gameWindowWidth - door_width) // 2
-door_y = (gameWindowHeight - door_height) // 2
-
-#creates color, size, and position of the door
-
-door_rect = pygame.Rect(door_x, door_y, door_width, door_height)
-pygame.draw.rect(gameWindow, door_color, door_rect)
-knob_color = (255, 255, 255)  # white
-knob_width = 10
-knob_height = 10
-knob_x = door_x + door_width // 2 - knob_width // 2
-knob_y = door_y + door_height // 2 - knob_height // 2
-knob_rect = pygame.Rect(knob_x, knob_y, knob_width, knob_height)
-pygame.draw.ellipse(gameWindow, knob_color, knob_rect)
-
-#Both components of the door are created and placed into
-#our pygame window
 
 functioning = True
 while functioning:
