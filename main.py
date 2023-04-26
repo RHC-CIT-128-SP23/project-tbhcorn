@@ -51,6 +51,18 @@ door_y = (screen_height - door_height) // 2
 
 #creates color, size, and position of the door
 
+door_rect = pygame.Rect(door_x, door_y, door_width, door_height)
+pygame.draw.rect(screen, door_color, door_rect)
+knob_color = (255, 255, 255)  # white
+knob_width = 10
+knob_height = 10
+knob_x = door_x + door_width // 2 - knob_width // 2
+knob_y = door_y + door_height // 2 - knob_height // 2
+knob_rect = pygame.Rect(knob_x, knob_y, knob_width, knob_height)
+pygame.draw.ellipse(screen, knob_color, knob_rect)
+
+#Both components of the door are created and placed into
+#our pygame window
 
 Char1 = Character("DragoniteMC1.png")
 Char1.rect.x = 400
