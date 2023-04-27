@@ -62,13 +62,13 @@ def detect_collisions():
 
 def CharacterSwitch():
     global background
-    if background == "ArceusLocation.jpg":
+    if background == ("ArceusLocation.jpg"):
         gameWindow.blit(Char2)
-    elif background == "GiratinaLocation.jpg":
+    elif background == ("GiratinaLocation.jpg"):
         gameWindow.blit(Char3)
-    elif background == "RayquazaLocation.jpg":
+    elif background == ("RayquazaLocation.jpg"):
         gameWindow.blit(Char4)
-    elif background == "DeoxysLocation.jpg":
+    elif background == ("DeoxysLocation.jpg"):
         gameWindow.blit(Char5)
         
 #Characters are triggered when a certain background is.
@@ -116,8 +116,8 @@ Char4.rect.y = 100
 all_sprites.add(Char4)
 
 Char5 = Character("DeoxysC5.png")
-Char5.rect.x = 400
-Char5.rect.y = 625
+Char5.rect.x = 300
+Char5.rect.y = 325
 all_sprites.add(Char5)
 
 #All character opponents are given a position and 
