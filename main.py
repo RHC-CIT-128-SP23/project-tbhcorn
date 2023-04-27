@@ -61,17 +61,18 @@ def detect_collisions():
 #Collision Detection function, to change rooms.
 
 def CharacterSwitch():
-    global background
-    if background == ("ArceusLocation.jpg"):
-        gameWindow.blit(Char2)
-    elif background == ("GiratinaLocation.jpg"):
-        gameWindow.blit(Char3)
-    elif background == ("RayquazaLocation.jpg"):
-        gameWindow.blit(Char4)
-    elif background == ("DeoxysLocation.jpg"):
-        gameWindow.blit(Char5)
+    global background, gameWindow
+    if background == pygame.image.load("ArceusLocation.jpg"):
+        gameWindow.blit(pygame.image.load("ArceusC2.png"), (Char2.rect.x, Char2.rect.y))
+    elif background == pygame.image.load("GiratinaLocation.jpg"):
+        gameWindow.blit(pygame.image.load("GiratinaC3.png"), (Char3.rect.x, Char3.rect.y))
+    elif background == pygame.image.load("RayquazaLocation.jpg"):
+        gameWindow.blit(pygame.image.load("RayquazaC4.png"), (Char4.rect.x, Char4.rect.y))
+    elif background == pygame.image.load("DeoxysLocation.jpg"):
+        gameWindow.blit(pygame.image.load("DeoxysC5.png"), (Char5.rect.x, Char5.rect.y))
+
         
-#Characters are triggered when a certain background is.
+#Characters are triggered when a certain background is displayed, regarding positions.
 
 pygame.init()
 
