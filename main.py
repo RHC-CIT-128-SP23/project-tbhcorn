@@ -60,6 +60,19 @@ def detect_collisions():
 
 #Collision Detection function, to change rooms.
 
+def CharacterSwitch():
+    global background
+    if background == "ArceusLocation.jpg":
+        gameWindow.blit(Char2)
+    elif background == "GiratinaLocation.jpg":
+        gameWindow.blit(Char3)
+    elif background == "RayquazaLocation.jpg":
+        gameWindow.blit(Char4)
+    elif background == "DeoxysLocation.jpg":
+        gameWindow.blit(Char5)
+        
+#Characters are triggered when a certain background is.
+
 pygame.init()
 
 pygame.display.set_caption("The Math Maze")
