@@ -72,6 +72,8 @@ font = pygame.font.SysFont("comicsansms", 36)
 text = font.render("Choose a room!", True, (0, 0, 0))
 background.blit(text, (287, 50))
 
+all_sprites = pygame.sprite.Group()
+
 Char1 = Character("DragoniteMC1.png")
 Char1.rect.x = 400
 Char1.rect.y = 300
