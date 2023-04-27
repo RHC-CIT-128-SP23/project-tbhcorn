@@ -46,12 +46,17 @@ def detect_collisions():
         if Char1.rect.colliderect(door.rect):
             if door == door1:
                 background = pygame.image.load("ArceusLocation.jpg")
+                background = pygame.transform.scale(background, (800, 600))
             elif door == door2:
                 background = pygame.image.load("GiratinaLocation.jpg")
+                background = pygame.transform.scale(background, (800, 600))
             elif door == door3:
                 background = pygame.image.load("RayquazaLocation.jpg")
+                background = pygame.transform.scale(background, (800, 600))
             elif door == door4:
                 background = pygame.image.load("DeoxysLocation.jpg")
+                background = pygame.transform.scale(background, (800, 600))
+
 
 #Collision Detection function, to change rooms.
 
