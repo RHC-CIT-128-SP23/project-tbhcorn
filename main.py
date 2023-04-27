@@ -40,6 +40,21 @@ class Door(pygame.sprite.Sprite):
 
 #Creates door class for doors to be used later
 
+def detect_collisions():
+    global background
+    for door in doors:
+        if Char1.rect.colliderect(door.rect):
+            if door == door1:
+                background = pygame.image.load("ArceusLocation.jpg")
+            elif door == door2:
+                background = pygame.image.load("GiratinaLocation.jpg")
+            elif door == door3:
+                background = pygame.image.load("RayquazaLocation.jpg")
+            elif door == door4:
+                background = pygame.image.load("DeoxysLocation.jpg")
+
+#Collision Detection function, to change rooms.
+
 pygame.init()
 
 pygame.display.set_caption("The Math Maze")
@@ -135,11 +150,9 @@ while functioning:
     else:
         Char1.vel_y = 0
         
-    for door in doors:
-        if Char1.rect.colliderect(door.rect):
-            background = pygame.image.load("room1.jpg")
-            background = pygame.transform.scale(background, (800, 600))
-            
+    detect_collisions()
+
+
 
 # A loop is set to run pygame and close it when X is pressed.
 #In addition to this, we have now given our character movement through 
