@@ -66,10 +66,40 @@ all_sprites.add(Char1)
 # The character that will be controlled by the user is given an initial position, 
 # and added to the game as a sprite. 
 
+Char2 = Character("ArceusC2.png")
+Char2.rect.x = 500
+Char2.rect.y = 400
+all_sprites = pygame.sprite.Group()
+all_sprites.add(Char2)
+
+Char3 = Character("GiratinaC3.png")
+Char3.rect.x = 300
+Char3.rect.y = 200
+all_sprites = pygame.sprite.Group()
+all_sprites.add(Char3)
+
+Char4 = Character("RayquazaC4.png")
+Char4.rect.x = 200
+Char4.rect.y = 100
+all_sprites = pygame.sprite.Group()
+all_sprites.add(Char4)
+
+Char5 = Character("DeoxysC5.png")
+Char5.rect.x = 400
+Char5.rect.y = 625
+all_sprites = pygame.sprite.Group()
+all_sprites.add(Char5)
+
+#All character opponents are given a position and 
+#initialized as sprites.
+
 door1 = Door(50, 50, 100, 200, (0, 0, 255), (255, 255, 255))  
 door2 = Door(gameWindowWidth - 150, 50, 100, 200, (255, 0, 0), (255, 255, 255))  
 door3 = Door(50, gameWindowHeight - 250, 100, 200, (0, 255, 0), (255, 255, 255)) 
 door4 = Door(gameWindowWidth - 150, gameWindowHeight - 250, 100, 200, (255, 255, 0), (255, 255, 255))  
+
+doors = [door1, door2, door3, door4]
+#doors placed in a list for collision detection
 
 all_sprites.add(door1)
 all_sprites.add(door2)
@@ -104,6 +134,12 @@ while functioning:
         Char1.vel_y = 3
     else:
         Char1.vel_y = 0
+        
+    for door in doors:
+        if Char1.rect.colliderect(door.rect):
+            background = pygame.image.load("room1.jpg")
+            background = pygame.transform.scale(background, (800, 600))
+            
 
 # A loop is set to run pygame and close it when X is pressed.
 #In addition to this, we have now given our character movement through 
