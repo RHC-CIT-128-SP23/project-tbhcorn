@@ -151,6 +151,10 @@ while functioning:
         Char1.vel_y = 0
         
     detect_collisions()
+    
+    all_sprites.update()
+
+
 
 
 
