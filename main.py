@@ -167,11 +167,9 @@ while functioning:
         
     detect_collisions()
     
+    CharacterSwitch()
+    
     all_sprites.update()
-
-
-
-
 
 # A loop is set to run pygame and close it when X is pressed.
 #In addition to this, we have now given our character movement through 
