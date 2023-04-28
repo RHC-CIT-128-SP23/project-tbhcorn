@@ -61,7 +61,7 @@ def detect_collisions():
 #Collision Detection function, to change rooms.
 
 def CharacterSwitch():
-    global background, gameWindow
+    global background, gameWindow, Char2, Char3, Char4, Char5
     if background == pygame.image.load("ArceusLocation.jpg"):
         gameWindow.blit(pygame.image.load("ArceusC2.png"), (Char2.rect.x, Char2.rect.y))
     elif background == pygame.image.load("GiratinaLocation.jpg"):
@@ -154,15 +154,15 @@ while functioning:
     
     keys = pygame.key.get_pressed()
     if keys[pygame.K_LEFT]:
-        Char1.vel_x = -3
+        Char1.vel_x = -5
     elif keys[pygame.K_RIGHT]:
-        Char1.vel_x = 3
+        Char1.vel_x = 5
     else:
         Char1.vel_x = 0
     if keys[pygame.K_UP]:
-        Char1.vel_y = -3
+        Char1.vel_y = -5
     elif keys[pygame.K_DOWN]:
-        Char1.vel_y = 3
+        Char1.vel_y = 5
     else:
         Char1.vel_y = 0
         
