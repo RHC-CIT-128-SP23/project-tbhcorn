@@ -40,6 +40,24 @@ class Door(pygame.sprite.Sprite):
 
 #Creates door class for doors to be used later
 
+def CharacterMovement():
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_LEFT]:
+        Char1.vel_x = -5
+    elif keys[pygame.K_RIGHT]:
+        Char1.vel_x = 5
+    else:
+        Char1.vel_x = 0
+    if keys[pygame.K_UP]:
+        Char1.vel_y = -5
+    elif keys[pygame.K_DOWN]:
+        Char1.vel_y = 5
+    else:
+        Char1.vel_y = 0
+    
+#We have now given our character movement through 
+#the arrow keys
+
 def detect_collisions():
     global background
     for door in doors:
@@ -61,15 +79,27 @@ def detect_collisions():
 #Collision Detection function, to change rooms.
 
 def CharacterSwitch():
-    global background, gameWindow, Char2, Char3, Char4, Char5
+    global background, gameWindow, Char1, Char2, Char3, Char4, Char5
+    
+    # hide all characters initially
+    Char1.image.set_alpha(0)
+    Char2.image.set_alpha(0)
+    Char3.image.set_alpha(0)
+    Char4.image.set_alpha(0)
+    Char5.image.set_alpha(0)
+    
+    # check current background and show respective character
     if background == pygame.image.load("ArceusLocation.jpg"):
-        gameWindow.blit(pygame.image.load("ArceusC2.png"), (Char2.rect.x, Char2.rect.y))
+        Char2.image.set_alpha(255)  # show Char2
     elif background == pygame.image.load("GiratinaLocation.jpg"):
-        gameWindow.blit(pygame.image.load("GiratinaC3.png"), (Char3.rect.x, Char3.rect.y))
+        Char3.image.set_alpha(255)  # show Char3
     elif background == pygame.image.load("RayquazaLocation.jpg"):
-        gameWindow.blit(pygame.image.load("RayquazaC4.png"), (Char4.rect.x, Char4.rect.y))
+        Char4.image.set_alpha(255)  # show Char4
     elif background == pygame.image.load("DeoxysLocation.jpg"):
-        gameWindow.blit(pygame.image.load("DeoxysC5.png"), (Char5.rect.x, Char5.rect.y))
+        Char5.image.set_alpha(255)  # show Char5
+    
+    # blit characters on the game window
+    all_sprites.draw(gameWindow)
 
         
 #Characters are triggered when a certain background is displayed, regarding positions.
@@ -145,36 +175,33 @@ clock = pygame.time.Clock()
 
 #Adds text to the Home Screen of the game
 
-functioning = True
-while functioning:
-
+# main loop
+while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            functioning = False
+            pygame.quit()
+            sys.exit()
     
-    keys = pygame.key.get_pressed()
-    if keys[pygame.K_LEFT]:
-        Char1.vel_x = -5
-    elif keys[pygame.K_RIGHT]:
-        Char1.vel_x = 5
-    else:
-        Char1.vel_x = 0
-    if keys[pygame.K_UP]:
-        Char1.vel_y = -5
-    elif keys[pygame.K_DOWN]:
-        Char1.vel_y = 5
-    else:
-        Char1.vel_y = 0
-        
+    CharacterMovement(Char1)
+    
+    # update Char1 position
+    Char1.update()
+    
+    # check for collisions and update background
     detect_collisions()
     
+    # clear the screen and blit the background
+    gameWindow.blit(background, (0, 0))
+    
+    # show/hide characters based on current background
     CharacterSwitch()
     
-    all_sprites.update()
+    # update the display
+    pygame.display.update()
+
 
 # A loop is set to run pygame and close it when X is pressed.
-#In addition to this, we have now given our character movement through 
-#the arrow keys
+
     
     all_sprites.update()
     gameWindow.blit(background, (0, 0))
