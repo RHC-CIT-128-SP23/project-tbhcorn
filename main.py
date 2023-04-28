@@ -110,8 +110,8 @@ Char4.rect.y = 100
 all_sprites.add(Char4)
 
 Char5 = Character("DeoxysC5.png")
-Char5.rect.x = 400
-Char5.rect.y = 625
+Char5.rect.x = 150
+Char5.rect.y = 250
 all_sprites.add(Char5)
 
 #All character opponents are initialized as sprites.
@@ -141,15 +141,15 @@ while functioning:
     
     keys = pygame.key.get_pressed()
     if keys[pygame.K_LEFT]:
-        Char1.vel_x = -10
+        Char1.vel_x = -5
     elif keys[pygame.K_RIGHT]:
-        Char1.vel_x = 10
+        Char1.vel_x = 5
     else:
         Char1.vel_x = 0
     if keys[pygame.K_UP]:
-        Char1.vel_y = -10
+        Char1.vel_y = -5
     elif keys[pygame.K_DOWN]:
-        Char1.vel_y = 10
+        Char1.vel_y = 5
     else:
         Char1.vel_y = 0
         
