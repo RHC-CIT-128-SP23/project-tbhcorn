@@ -89,7 +89,9 @@ def CharacterSwitch():
     Char5.image.set_alpha(0)
     
     # check current background and show respective character
-    if background == pygame.image.load("ArceusLocation.jpg"):
+    if background == pygame.image.load("BotwEntry.jpg"):
+        Char1.image.set_alpha(255)  # show Char1
+    elif background == pygame.image.load("ArceusLocation.jpg"):
         Char2.image.set_alpha(255)  # show Char2
     elif background == pygame.image.load("GiratinaLocation.jpg"):
         Char3.image.set_alpha(255)  # show Char3
@@ -97,6 +99,7 @@ def CharacterSwitch():
         Char4.image.set_alpha(255)  # show Char4
     elif background == pygame.image.load("DeoxysLocation.jpg"):
         Char5.image.set_alpha(255)  # show Char5
+
     
     # blit characters on the game window
     all_sprites.draw(gameWindow)
@@ -174,8 +177,8 @@ clock = pygame.time.Clock()
 #The game clock is also set.
 
 #Adds text to the Home Screen of the game
-
-while True:
+functioning = True
+while functioning:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
