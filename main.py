@@ -141,15 +141,15 @@ while functioning:
     
     keys = pygame.key.get_pressed()
     if keys[pygame.K_LEFT]:
-        Char1.vel_x = -3
+        Char1.vel_x = -10
     elif keys[pygame.K_RIGHT]:
-        Char1.vel_x = 3
+        Char1.vel_x = 10
     else:
         Char1.vel_x = 0
     if keys[pygame.K_UP]:
-        Char1.vel_y = -3
+        Char1.vel_y = -10
     elif keys[pygame.K_DOWN]:
-        Char1.vel_y = 3
+        Char1.vel_y = 10
     else:
         Char1.vel_y = 0
         
