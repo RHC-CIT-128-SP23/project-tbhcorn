@@ -61,7 +61,7 @@ def CharacterMovement():
 #the arrow keys
 
 def detect_collisions():
-    global background
+    global background, doors
     for door in doors:
         if Char1.rect.colliderect(door.rect):
             if door == door1:
@@ -163,13 +163,10 @@ door2 = Door(gameWindowWidth - 150, 50, 100, 200, (255, 0, 0), (255, 255, 255))
 door3 = Door(50, gameWindowHeight - 250, 100, 200, (0, 255, 0), (255, 255, 255)) 
 door4 = Door(gameWindowWidth - 150, gameWindowHeight - 250, 100, 200, (255, 255, 0), (255, 255, 255))  
 
-doors = [door1, door2, door3, door4]
-#doors placed in a list for collision detection
+doors = pygame.sprite.Group(door1, door2, door3, door4)
 
-all_sprites.add(door1)
-all_sprites.add(door2)
-all_sprites.add(door3)
-all_sprites.add(door4)
+all_sprites = pygame.sprite.Group(Char1, Char2, Char3, Char4, Char5, doors)
+
 
 clock = pygame.time.Clock()
 
@@ -188,6 +185,7 @@ while functioning:
     
     # update Char1 position
     Char1.update()
+    gameWindow.blit(Char1.image,Char1.rect)
     
     # check for collisions and update background
     detect_collisions()
