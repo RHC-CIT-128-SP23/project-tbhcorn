@@ -8,6 +8,8 @@
 #Note - all comments within the following program will be below the code that they are commenting on
 
 import pygame
+
+pygame.init()
 #imports pygame module
 
 class Character(pygame.sprite.Sprite):
@@ -106,8 +108,6 @@ def CharacterSwitch():
 
         
 #Characters are triggered when a certain background is displayed, regarding positions.
-
-pygame.init()
 
 pygame.display.set_caption("The Math Maze")
 
