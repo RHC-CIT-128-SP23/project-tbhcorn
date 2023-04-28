@@ -68,7 +68,16 @@ def detect_collisions():
                 background = pygame.image.load("DeoxysLocation.jpg")
                 background = pygame.transform.scale(background, (800, 600))
                 all_sprites.add(Char5)
-                draw_character_on_background("DeoxysLocation", Char5, 390, 280) 
+                draw_character_on_background("DeoxysLocation", Char5, 390, 280)
+        else: 
+            if door != door1:
+                all_sprites.remove(Char2)
+            elif door != door2:
+                all_sprites.remove(Char3)
+            elif door != door3:
+                all_sprites.remove(Char4)
+            elif door != door4:
+                all_sprites.remove(Char5)
 
 #Collision Detection function, to change rooms.
 
@@ -176,4 +185,4 @@ while functioning:
 #within pygame. Time is also measured
 
 pygame.quit()
-#Ends the game that we are running.i
+#Ends the game that we are running.
