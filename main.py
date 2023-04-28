@@ -173,43 +173,27 @@ clock = pygame.time.Clock()
 #The game clock is also set.
 
 #Adds text to the Home Screen of the game
-functioning = True
-while functioning:
+# game loop
+running = True
+while running:
+    # event handling
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            pygame.quit()
-    
+            running = False
+        
+    # update game state
     CharacterMovement()
-    
-    # update Char1 position
-    Char1.update()
-    gameWindow.blit(Char1.image,Char1.rect)
-    
-    # check for collisions and update background
     detect_collisions()
-    
-    # clear the screen and blit the background
-    gameWindow.blit(background, (0, 0))
-    
-    # show/hide characters based on current background
     CharacterSwitch()
-    
-    # update the display
-    pygame.display.update()
-
-
-# A loop is set to run pygame and close it when X is pressed.
-
-    
     all_sprites.update()
+    
+    # draw the game window
     gameWindow.blit(background, (0, 0))
     all_sprites.draw(gameWindow)
     pygame.display.update()
-    clock.tick(60)
     
-#Sprites are drawn and set into the game window
-#within pygame. Time is also measured
-
+# exit game
 pygame.quit()
+
 
 #Ends the game that we are running.
