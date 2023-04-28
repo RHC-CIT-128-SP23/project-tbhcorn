@@ -84,16 +84,14 @@ def CharacterSwitch():
     global background, gameWindow, Char1, Char2, Char3, Char4, Char5
     
     # hide all characters initially
-    Char1.image.set_alpha(0)
+    Char1.image.set_alpha(255)
     Char2.image.set_alpha(0)
     Char3.image.set_alpha(0)
     Char4.image.set_alpha(0)
     Char5.image.set_alpha(0)
     
     # check current background and show respective character
-    if background == pygame.image.load("BotwEntry.jpg"):
-        Char1.image.set_alpha(255)  # show Char1
-    elif background == pygame.image.load("ArceusLocation.jpg"):
+    if background == pygame.image.load("ArceusLocation.jpg"):
         Char2.image.set_alpha(255)  # show Char2
     elif background == pygame.image.load("GiratinaLocation.jpg"):
         Char3.image.set_alpha(255)  # show Char3
