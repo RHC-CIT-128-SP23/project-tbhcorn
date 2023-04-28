@@ -180,7 +180,7 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
     
-    CharacterMovement(Char1)
+    CharacterMovement()
     
     # update Char1 position
     Char1.update()
