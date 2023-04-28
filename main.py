@@ -129,6 +129,7 @@ all_sprites = pygame.sprite.Group()
 Char1 = Character("DragoniteMC1.png")
 Char1.rect.x = 400
 Char1.rect.y = 300
+Char1.image.set_alpha(255) # set alpha value to 255
 all_sprites.add(Char1)
 
 # The character that will be controlled by the user is given an initial position, 
