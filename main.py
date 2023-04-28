@@ -152,15 +152,15 @@ while functioning:
 #In addition to this, we have now given our character movement through 
 #the arrow keys
 
-    current_background = pygame.image.load("BotwEntry").convert()
-    if current_background == backgrounds["ArceusLocation"]:
-        draw_character_on_background("ArceusLocation", Char2, 500, 400)  
-    elif current_background == backgrounds["GiratinaLocation"]:
-        draw_character_on_background("GiratinaLocation", Char3, 300, 200)  
-    elif current_background == backgrounds["RayquazaLocation"]:
-        draw_character_on_background("RayquazaLocation", Char4, 200, 100) 
-    elif current_background == backgrounds["DeoxysLocation"]:
-        draw_character_on_background("DeoxysLocation", Char5, 400, 625) 
+    current_background = pygame.image.load("BotwEntry.jpg").convert()
+    if current_background == backgrounds["ArceusLocation.jpg"]:
+        draw_character_on_background("ArceusLocation.jpg", Char2, 500, 400)  
+    elif current_background == backgrounds["GiratinaLocation.jpg"]:
+        draw_character_on_background("GiratinaLocation.jpg", Char3, 300, 200)  
+    elif current_background == backgrounds["RayquazaLocation,jpg"]:
+        draw_character_on_background("RayquazaLocation.jpg", Char4, 200, 100) 
+    elif current_background == backgrounds["DeoxysLocation".jpg]:
+        draw_character_on_background("DeoxysLocation.jpg", Char5, 400, 625) 
     
     # Update the display
     pygame.display.update()
