@@ -52,15 +52,24 @@ def detect_collisions():
             if door == door1:
                 background = pygame.image.load("ArceusLocation.jpg")
                 background = pygame.transform.scale(background, (800, 600))
+                all_sprites.add(Char2)
+                draw_character_on_background("ArceusLocation", Char2, 500, 400)  
             elif door == door2:
                 background = pygame.image.load("GiratinaLocation.jpg")
                 background = pygame.transform.scale(background, (800, 600))
+                all_sprites.add(Char3)
+                draw_character_on_background("GiratinaLocation", Char3, 300, 200)
             elif door == door3:
                 background = pygame.image.load("RayquazaLocation.jpg")
                 background = pygame.transform.scale(background, (800, 600))
+                all_sprites.add(Char4)
+                draw_character_on_background("RayquazaLocation", Char4, 200, 100) 
             elif door == door4:
                 background = pygame.image.load("DeoxysLocation.jpg")
                 background = pygame.transform.scale(background, (800, 600))
+                all_sprites.add(Char5)
+                draw_character_on_background("DeoxysLocation", Char5, 400, 625) 
+
 #Collision Detection function, to change rooms.
 
 # Define a function to draw a character on a background
@@ -86,10 +95,10 @@ gameWindow = pygame.display.set_mode((gameWindowWidth, gameWindowHeight))
 font = pygame.font.SysFont("comicsansms", 36)
 text = font.render("Choose a room!", True, (0, 0, 0))
 background.blit(text, (287, 50))
-all_sprites = pygame.sprite.Group()
 Char1 = Character("DragoniteMC1.png")
 Char1.rect.x = 400
 Char1.rect.y = 300
+all_sprites = pygame.sprite.Group(Char1)
 all_sprites.add(Char1)
 
 # The character that will be controlled by the user is given an initial position, 
@@ -97,22 +106,18 @@ all_sprites.add(Char1)
 Char2 = Character("ArceusC2.png")
 Char2.rect.x = 500
 Char2.rect.y = 400
-all_sprites.add(Char2)
 
 Char3 = Character("GiratinaC3.png")
 Char3.rect.x = 300
 Char3.rect.y = 200
-all_sprites.add(Char3)
 
 Char4 = Character("RayquazaC4.png")
 Char4.rect.x = 200
 Char4.rect.y = 100
-all_sprites.add(Char4)
 
 Char5 = Character("DeoxysC5.png")
 Char5.rect.x = 150
 Char5.rect.y = 250
-all_sprites.add(Char5)
 
 #All character opponents are initialized as sprites.
 
@@ -159,17 +164,6 @@ while functioning:
 # A loop is set to run pygame and close it when X is pressed.
 #In addition to this, we have now given our character movement through 
 #the arrow keys
-
-    current_background = pygame.image.load("BotwEntry.jpg").convert()
-    if current_background == backgrounds["ArceusLocation"]:
-        draw_character_on_background("ArceusLocation", Char2, 500, 400)  
-    elif current_background == backgrounds["GiratinaLocation"]:
-        draw_character_on_background("GiratinaLocation", Char3, 300, 200)
-    elif current_background == backgrounds["RayquazaLocation"]:
-        draw_character_on_background("RayquazaLocation", Char4, 200, 100) 
-    elif current_background == backgrounds["DeoxysLocation"]:
-        draw_character_on_background("DeoxysLocation", Char5, 400, 625) 
-    
     # Update the display
     pygame.display.update()
     
@@ -182,4 +176,4 @@ while functioning:
 #within pygame. Time is also measured
 
 pygame.quit()
-#Ends the game that we are running.
+#Ends the game that we are running.i
