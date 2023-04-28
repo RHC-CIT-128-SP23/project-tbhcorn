@@ -138,7 +138,6 @@ while functioning:
 #In addition to this, we have now given our character movement through 
 #the arrow keys
     
-    all_sprites.update()
     gameWindow.blit(background, (0, 0))
     all_sprites.draw(gameWindow)
     pygame.display.update()
