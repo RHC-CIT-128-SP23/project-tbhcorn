@@ -53,6 +53,17 @@ def detect_collisions():
                 background = pygame.transform.scale(background, (800, 600))
 #Collision Detection function, to change rooms.
 
+# Define a function to draw a character on a background
+def draw_character_on_background(background_name, character, x, y):
+    background = backgrounds[background_name]
+    character_image = character.image
+    character_rect = character.rect
+    character_rect.x = x
+    character_rect.y = y
+    screen.blit(background, (0, 0))
+    all_sprites.draw(screen)  # draw all sprites, including the character
+#draw character
+
 pygame.display.set_caption("The Math Maze")
 background = pygame.image.load("BotwEntry.jpg")
 background = pygame.transform.scale(background, (800, 600))
@@ -137,6 +148,19 @@ while functioning:
 # A loop is set to run pygame and close it when X is pressed.
 #In addition to this, we have now given our character movement through 
 #the arrow keys
+
+    current_background = pygame.image.load("BotwEntry.png").convert()
+        if current_background == backgrounds["ArceusLocation.jpg"]:
+            draw_character_on_background("ArceusLocation.jpg", Char2, 100, 200)  # Replace 100 and 200 with the character's coordinates
+        elif current_background == backgrounds["GiratinaLocation.jpg"]:
+            draw_character_on_background("GiratinaLocation.jpg", Char3, 300, 400)  # Replace 300 and 400 with the character's coordinates
+        elif current_background == backgrounds["RayquazaLocation.jpg"]:
+            draw_character_on_background("RayquazaLocation.jpg", Char4, 500, 600)  # Replace 500 and 600 with the character's coordinates
+        elif current_background == backgrounds["DeoxysLocation.jpg"]:
+            draw_character_on_background("DeoxysLocation.jpg", Char5, 700, 800)  # Replace 700 and 800 with the character's coordinates
+    
+    # Update the display
+    pygame.display.update()
     
     gameWindow.blit(background, (0, 0))
     all_sprites.draw(gameWindow)
@@ -145,5 +169,6 @@ while functioning:
     
 #Sprites are drawn and set into the game window
 #within pygame. Time is also measured
+
 pygame.quit()
 #Ends the game that we are running.
