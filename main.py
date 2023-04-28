@@ -175,12 +175,10 @@ clock = pygame.time.Clock()
 
 #Adds text to the Home Screen of the game
 
-# main loop
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
-            sys.exit()
     
     CharacterMovement(Char1)
     
