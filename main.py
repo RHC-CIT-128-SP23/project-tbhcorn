@@ -6,8 +6,10 @@
 '''
 #Note - all comments within the following program will be below the code that they are commenting on
 import pygame
+import random
 pygame.init()
-#imports pygame module and initializes it
+pygame.font.init()
+#imports pygame, random and pygame font modules and initializes them
 
 backgrounds = {
     "BotwEntry": pygame.transform.scale(pygame.image.load("BotwEntry.jpg"), (800, 600)),
@@ -144,10 +146,11 @@ all_sprites.add(door1)
 all_sprites.add(door2)
 all_sprites.add(door3)
 all_sprites.add(door4)
-clock = pygame.time.Clock()
 #The doors that will lead the user to 4 different rooms are placed on our game board.
 #These doors are at different corners, respectively.
-#The game clock is also set.
+clock = pygame.time.Clock()
+font = pygame.font.SysFont('Arial',30)
+#The game clock and font are also set.
 
 #Adds text to the Home Screen of the game
 functioning = True
