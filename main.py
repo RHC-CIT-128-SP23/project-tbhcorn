@@ -18,7 +18,7 @@ backgrounds = {
     "RayquazaLocation": pygame.transform.scale(pygame.image.load("RayquazaLocation.jpg"), (800, 600)),
     "DeoxysLocation": pygame.transform.scale(pygame.image.load("DeoxysLocation.jpg"), (800, 600))
 }
-#All rooms "backgrounds"
+#All rooms are initialized as backgrounds, and are scaled to fit the game window.
 
 class Character(pygame.sprite.Sprite):
     def __init__(self, image_path):
@@ -121,17 +121,33 @@ Char2 = Character("ArceusC2.png")
 Char2.rect.x = 500
 Char2.rect.y = 400
 
+Char2Questions = {
+    
+}
+
 Char3 = Character("GiratinaC3.png")
 Char3.rect.x = 300
 Char3.rect.y = 200
+
+Char3Questions = {
+    
+}
 
 Char4 = Character("RayquazaC4.png")
 Char4.rect.x = 200
 Char4.rect.y = 100
 
+Char4Questions = {
+    
+}
+
 Char5 = Character("DeoxysC5.png")
 Char5.rect.x = 150
 Char5.rect.y = 250
+
+Char5Questions = {
+    
+}
 
 #All character opponents are initialized as sprites.
 
