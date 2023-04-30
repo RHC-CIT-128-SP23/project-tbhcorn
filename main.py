@@ -4,11 +4,14 @@
     CIT 128: Python Programming II
     Student Directed Project
 '''
-#Note - all comments within the following program will be below the code that they are commenting on
+#Note - all comments within the following program will be 
+#below the code that they are commenting on
+
 import pygame
 import random
 pygame.init()
 pygame.font.init()
+
 #imports pygame, random and pygame font modules and initializes them
 
 backgrounds = {
@@ -18,6 +21,7 @@ backgrounds = {
     "RayquazaLocation": pygame.transform.scale(pygame.image.load("RayquazaLocation.jpg"), (800, 600)),
     "DeoxysLocation": pygame.transform.scale(pygame.image.load("DeoxysLocation.jpg"), (800, 600))
 }
+
 #All rooms are initialized as backgrounds, and are scaled to fit the game window.
 
 class Character(pygame.sprite.Sprite):
@@ -32,6 +36,7 @@ class Character(pygame.sprite.Sprite):
         self.rect.x += self.vel_x
         self.rect.y += self.vel_y
 #creates Character class for following characters
+#with position and velocity
 class Door(pygame.sprite.Sprite):
     def __init__(self, x, y, width, height, color, knob_color):
         super().__init__()
@@ -84,9 +89,9 @@ def detect_collisions():
                 all_sprites.remove(Char3)
                 all_sprites.remove(Char4)
 
-#Collision Detection function, to change rooms.
+#Collision detection function, which keeps only the 
+#the user and the character from the room on the screen.
 
-# Define a function to draw a character on a background
 def draw_character_on_background(background_name, character, x, y):
     global background
     background = backgrounds[background_name]
@@ -95,8 +100,10 @@ def draw_character_on_background(background_name, character, x, y):
     character_rect.x = x
     character_rect.y = y
     gameWindow.blit(background, (0, 0))
-    all_sprites.draw(gameWindow)  # draw all sprites, including the character
-#draw character
+    all_sprites.draw(gameWindow)  
+
+#Character drawing function, which draws the character 
+#on our background in the game window.
 
 pygame.display.set_caption("The Math Maze")
 background = pygame.image.load("BotwEntry.jpg")
@@ -104,7 +111,8 @@ background = pygame.transform.scale(background, (800, 600))
 gameWindowWidth = background.get_width()
 gameWindowHeight = background.get_height()
 gameWindow = pygame.display.set_mode((gameWindowWidth, gameWindowHeight))
-# The game window within python is set with an image, as pygame is initialized
+#Initial background is set with a caption
+#Game Window is initialized with the same dimensions as the background.
 
 font = pygame.font.SysFont("comicsansms", 36)
 text = font.render("Choose a room!", True, (0, 0, 0))
@@ -115,60 +123,93 @@ Char1.rect.y = 300
 all_sprites = pygame.sprite.Group(Char1)
 all_sprites.add(Char1)
 
-# The character that will be controlled by the user is given an initial position, 
+#The user's character is initialized, and is placed in the center of the screen.
+#The scree also has text on it.
 
 Char2 = Character("ArceusC2.png")
 Char2.rect.x = 500
 Char2.rect.y = 400
 
+#Our first opponent is given a position.
+
 Char2Questions = {
-    
+    "What is 87,300/900?" : "97" ,
+    "What is 2,456,789/7?" : "350,984" ,
+    "What is 3,829,875/25?" : "153,195" ,
+    "What is 9,876,543/81?" : "121,969" ,
+    "What is 7,432,561/99?" : "75,065" 
 }
+
+#These are the questions for my division room. 
+#The questions are stored in a dictionary, with the key being the question,
+#and the value being the answer. This will be the case for all characters.
 
 Char3 = Character("GiratinaC3.png")
 Char3.rect.x = 300
 Char3.rect.y = 200
 
+#Our second opponent is given a position.
+
 Char3Questions = {
-    
+    "What is 79 * 96?" : "7,584" ,
+    "What is 6,247 * 82?" : "512,654" ,
+    "What is 15,729 * 81?" : " 1,275,849" ,
+    "What is 8,712 * 56?" : "488,832" ,
+    "What is 3,246 * 225?" : "730,250" 
 }
+
+#These are the questions for the multiplication room.
 
 Char4 = Character("RayquazaC4.png")
 Char4.rect.x = 200
 Char4.rect.y = 100
 
+#Our third opponent is given a position.
+
 Char4Questions = {
-    
+    "What is 1,000,000 - 123,456?" : "876,544" ,
+    "What is 6,543,210 - 3,210,987?" : "3,332,223" ,
+    "What is 89,654 - 34,567?" : "55,087" ,
+    "What is 986,543 - 543,210?" : "443,333" ,
+    "What is 127,896 - 89,654?" : "38,242" 
 }
+
+#These are the questions for the subtraction room.
 
 Char5 = Character("DeoxysC5.png")
 Char5.rect.x = 150
 Char5.rect.y = 250
 
+#Our fourth opponent is given a position.
+
 Char5Questions = {
-    
+    "What is 123,456 + 654,321?" : "777,777" ,
+    "What is 23,456 + 98,765?" : "122,221" ,
+    "What is 765,432 + 876,543?" : "1,642,975" ,
+    "What is 987,654 + 345,678?" : "1,333,332" ,
+    "What is 987,654 + 123,456?" : " 1,111,110" 
 }
 
-#All character opponents are initialized as sprites.
+#These are the questions for the addition room.
 
 door1 = Door(50, 50, 100, 200, (0, 0, 255), (255, 255, 255))  
 door2 = Door(gameWindowWidth - 150, 50, 100, 200, (255, 0, 0), (255, 255, 255))  
 door3 = Door(50, gameWindowHeight - 250, 100, 200, (0, 255, 0), (255, 255, 255)) 
 door4 = Door(gameWindowWidth - 150, gameWindowHeight - 250, 100, 200, (255, 255, 0), (255, 255, 255))  
 doors = [door1, door2, door3, door4]
-#doors placed in a list for collision detection
+#Our doors are given a position and placed in a list.
 
 all_sprites.add(door1)
 all_sprites.add(door2)
 all_sprites.add(door3)
 all_sprites.add(door4)
 #The doors that will lead the user to 4 different rooms are placed on our game board.
-#These doors are at different corners, respectively.
+#These doors are at four different corners, respectively.
+
 clock = pygame.time.Clock()
 font = pygame.font.SysFont('Arial',30)
 #The game clock and font are also set.
 
-#Adds text to the Home Screen of the game
 functioning = True
 while functioning:
     for event in pygame.event.get():
@@ -192,19 +233,18 @@ while functioning:
     detect_collisions()
     
     all_sprites.update()
-# A loop is set to run pygame and close it when X is pressed.
+# Our game loop is set to run pygame and close it when X is pressed.
 #In addition to this, we have now given our character movement through 
-#the arrow keys
-    # Update the display
+#the arrow keys.
+
     pygame.display.update()
-    
     gameWindow.blit(background, (0, 0))
     all_sprites.draw(gameWindow)
     pygame.display.update()
     clock.tick(60)
     
 #Sprites are drawn and set into the game window
-#within pygame. Time is also measured
+#within pygame. Time is also measured.
 
 pygame.quit()
 #Ends the game that we are running.
