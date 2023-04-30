@@ -50,13 +50,12 @@ The student provided rubric is worth 75 points and is specific to the individual
     * Each character will exist in their own room (4 pt)
     * Each room will have a different room design (4 pt)
     * Each character has unique graphics, dialogue, and (potentially corresponding) sound effects (20 pt)
-  * User Interaction (15 pt)
-    * The User can navigate the game with out struggle (5 pt)
-    * The user can navigate using the mouse (5 pt)
+  * User Interaction (10 pt)
+    * The User can navigate the game without struggle (5 pt)
     * The user can navigate using the arrow keys (5 pt)
-  * Game Mechanics (30 pt)
+  * Game Mechanics (35 pt)
     * The game properly increments/decrements when the user answers correctly/incorrectly with corresponding output messages(20 pt)
-    * Different categories of math are tested by different characters, with unique questions and possible randomization of questions (10 pt)  
+    * Different categories of math are tested by varying opponents, with unique questions and possible randomization of questions (15 pt)  
 
 Total Points: 200
 
