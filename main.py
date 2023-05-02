@@ -244,6 +244,7 @@ while functioning:
         Char1.vel_y = 0
         
     Door_Collisions()
+    CharCollisions()
     
     all_sprites.update()
 # Our game loop is set to run pygame and close it when X is pressed.
