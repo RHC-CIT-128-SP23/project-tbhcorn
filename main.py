@@ -91,8 +91,29 @@ def TextBoxOutput(words, graphics):
     text_surface = font.render(text, True, (0, 0, 0))
     text_rect = text_surface.get_rect(center=gameWindow.get_rect().center)
     gameWindow.blit(text_surface, text_rect)
-    # Return the surface
-    return gameWindow
+    user_input = ""
+    input_rect = pygame.Rect(10, 300, 200, 25)
+    active = True
+    
+    while active:
+        for event in pygame.event.get():
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RETURN:
+                    active = False
+                elif event.key == pygame.K_BACKSPACE:
+                    user_input = user_input[:-1]
+                else:
+                    user_input += event.unicode
+                    
+        pygame.draw.rect(gameWindow, (255, 255, 255), input_rect)
+        font = pygame.font.SysFont('Comic Sans', 20)
+        text_surface = font.render(user_input, True, (0, 0, 0))
+        gameWindow.blit(text_surface, input_rect)
+        input_rect.w = max(200, text_surface.get_width()+10)
+        pygame.display.flip()
+        
+    # Return the user's input
+    return user_input
 ## Creates a textbox output for the math questions  
                 
 def CharCollisions():
@@ -137,14 +158,17 @@ def draw_character_on_background(background_name, character, x, y):
     all_sprites.draw(gameWindow)  
 #Character drawing function, which draws the character 
 #on our background in the game window.    
+
 pygame.display.set_caption("The Math Maze")
 background = pygame.image.load("BotwEntry.jpg")
 background = pygame.transform.scale(background, (800, 600))
 gameWindowWidth = background.get_width()
 gameWindowHeight = background.get_height()
 gameWindow = pygame.display.set_mode((gameWindowWidth, gameWindowHeight))
+
 #Initial background is set with a caption
 #Game Window is initialized with the same dimensions as the background.
+
 font = pygame.font.SysFont("comicsansms", 36)
 text = font.render("Choose a room!", True, (0, 0, 0))
 background.blit(text, (287, 50))
