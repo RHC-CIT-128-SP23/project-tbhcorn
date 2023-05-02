@@ -100,6 +100,9 @@ def TextBoxOutput(words, graphics):
     # Return the surface
     return gameWindow
 
+def DisplayTextbox(text_surface):
+    gameWindow.blit(text_surface, (200, 200))
+
 ## Creates a textbox output for the math questions  
                 
 def CharCollisions():
@@ -118,15 +121,15 @@ def CharCollisions():
                 questions = {}
             if questions:
                 for question, answer in questions.items():
-                    TextBoxOutput(question)
-                    # Get the user's answer
-                    UserInput = TextBoxOutput()
-                    # Check the user's answer
+                    text_surface = TextBoxOutput(question)
+                    DisplayTextbox(text_surface)
+                    UserInput = TextBoxOutput("Enter your answer: ")
                     if UserInput == answer:
-                        TextBoxOutput("Awesome! You got it right!")
+                        text_surface = TextBoxOutput("Awesome! You got it right!")
+                        DisplayTextbox(text_surface)
                     else:
-                        TextBoxOutput("Incorrect. The answer is: " + answer)
-        
+                        text_surface = TextBoxOutput("Incorrect. The answer is: " + answer)
+                        DisplayTextbox(text_surface)
 
 #Triggers math questions when the character collides with another character.
 
