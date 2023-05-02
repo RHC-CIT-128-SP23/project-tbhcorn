@@ -135,7 +135,7 @@ def CharCollisions():
                 for question, answer in questions.items():
                     TextBoxOutput(question)
                     # Get the user's answer
-                    UserInput = TextBoxInput()
+                    UserInput = TextBoxOutput()
                     # Check the user's answer
                     if UserInput == answer:
                         TextBoxOutput("Awesome! You got it right!")
