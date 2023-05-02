@@ -118,13 +118,17 @@ def CharCollisions():
                 questions = {}
             if questions:
                 for question, answer in questions.items():
-            
-                
-
+                    TextBoxOutput(question)
+                    # Get the user's answer
+                    UserInput = TextBoxOutput()
+                    # Check the user's answer
+                    if UserInput == answer:
+                        TextBoxOutput("Awesome! You got it right!")
+                    else:
+                        TextBoxOutput("Incorrect. The answer is: " + answer)
         
 
-#Collision detection function, which keeps only the 
-#the user and the character from the room on the screen.
+#Triggers math questions when the character collides with another character.
 
 def draw_character_on_background(background_name, character, x, y):
     global background
