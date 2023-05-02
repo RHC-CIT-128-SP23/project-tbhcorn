@@ -32,6 +32,7 @@ class Character(pygame.sprite.Sprite):
         self.rect.y += self.vel_y
 #creates Character class for following characters
 #with position and velocity
+
 class Door(pygame.sprite.Sprite):
     def __init__(self, x, y, width, height, color, knob_color):
         super().__init__()
@@ -120,7 +121,7 @@ def CharCollisions():
     global background
     for character in Chars:
         if Char1.rect.colliderect(character.rect):
-            if character == Char2:
+            if character.name == "Char2":
                 questions = Char2Questions
             elif character.name == "Char3":
                 questions = Char3Questions
@@ -134,12 +135,13 @@ def CharCollisions():
                 for question, answer in questions.items():
                     TextBoxOutput(question)
                     # Get the user's answer
-                    UserInput = TextBoxOutput()
+                    UserInput = TextBoxInput()
                     # Check the user's answer
                     if UserInput == answer:
                         TextBoxOutput("Awesome! You got it right!")
                     else:
                         TextBoxOutput("Incorrect. The answer is: " + answer)
+
 
 
 
