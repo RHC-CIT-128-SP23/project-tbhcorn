@@ -31,6 +31,7 @@ class Character(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.vel_x = 0
         self.vel_y = 0
+        self.name = name
     
     def update(self):
         self.rect.x += self.vel_x
@@ -111,11 +112,11 @@ def CharCollisions():
         if Char1.rect.colliderect(character.rect):
             if character == Char2:
                 questions = Char2Questions
-            elif character.name == "Char3":
+            elif character == "Char3":
                 questions = Char3Questions
-            elif character.name == "Char4":
+            elif character == "Char4":
                 questions = Char4Questions
-            elif character.name == "Char5":
+            elif character == "Char5":
                 questions = Char5Questions
             else:
                 questions = {}
