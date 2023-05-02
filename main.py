@@ -143,7 +143,8 @@ def CharCollisions():
                         TextBoxOutput("Incorrect. The answer is: " + answer)
 
 #Collision detection function, which keeps only the 
-#the user and the character from the room on the screen.
+#the user and the character that the user is colliding with
+#on the screen in their room. 
 
 def draw_character_on_background(background_name, character, x, y):
     global background
