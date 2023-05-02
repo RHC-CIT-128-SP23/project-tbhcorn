@@ -32,7 +32,6 @@ class Character(pygame.sprite.Sprite):
         self.rect.y += self.vel_y
 #creates Character class for following characters
 #with position and velocity
-
 class Door(pygame.sprite.Sprite):
     def __init__(self, x, y, width, height, color, knob_color):
         super().__init__()
@@ -92,37 +91,15 @@ def TextBoxOutput(words, graphics):
     text_surface = font.render(text, True, (0, 0, 0))
     text_rect = text_surface.get_rect(center=gameWindow.get_rect().center)
     gameWindow.blit(text_surface, text_rect)
-    user_input = ""
-    input_rect = pygame.Rect(10, 300, 200, 25)
-    active = True
-    
-    while active:
-        screen.blit(gameWindow, (200, 200))
-        for event in pygame.event.get():
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_RETURN:
-                    active = False
-                elif event.key == pygame.K_BACKSPACE:
-                    user_input = user_input[:-1]
-                else:
-                    user_input += event.unicode
-                    
-        pygame.draw.rect(gameWindow, (255, 255, 255), input_rect)
-        font = pygame.font.SysFont('Comic Sans', 20)
-        text_surface = font.render(user_input, True, (0, 0, 0))
-        gameWindow.blit(text_surface, input_rect)
-        input_rect.w = max(200, text_surface.get_width()+10)
-        pygame.display.flip()
-        
-    # Return the user's input
-    return user_input
+    # Return the surface
+    return gameWindow
 ## Creates a textbox output for the math questions  
                 
 def CharCollisions():
     global background
     for character in Chars:
         if Char1.rect.colliderect(character.rect):
-            if character.name == "Char2":
+            if character == Char2:
                 questions = Char2Questions
             elif character.name == "Char3":
                 questions = Char3Questions
@@ -143,37 +120,31 @@ def CharCollisions():
                     else:
                         TextBoxOutput("Incorrect. The answer is: " + answer)
 
+
+
+
+
 #Collision detection function, which keeps only the 
-#the user and the character that the user is colliding with
-#on the screen in their room. 
-
-def draw_character_on_background(room, character, x, y):
-    global background, screen
-    background = backgrounds[room]
-    all_sprites.empty()
-    all_sprites.add(character)
-    character.rect.x = x
-    character.rect.y = y
-    door_collisions()
-    screen.blit(background, (0, 0))
-    all_sprites.draw(screen)
-    pygame.display.update()
-    text = TextBoxOutput("Define your answer:", gameWindow)
-    screen.blit(gameWindow, (200, 200))
-
+#the user and the character from the room on the screen.
+def draw_character_on_background(background_name, character, x, y):
+    global background
+    background = backgrounds[background_name]
+    character_image = character.image
+    character_rect = character.rect
+    character_rect.x = x
+    character_rect.y = y
+    gameWindow.blit(background, (0, 0))
+    all_sprites.draw(gameWindow)  
 #Character drawing function, which draws the character 
 #on our background in the game window.    
-
 pygame.display.set_caption("The Math Maze")
 background = pygame.image.load("BotwEntry.jpg")
 background = pygame.transform.scale(background, (800, 600))
 gameWindowWidth = background.get_width()
 gameWindowHeight = background.get_height()
 gameWindow = pygame.display.set_mode((gameWindowWidth, gameWindowHeight))
-
 #Initial background is set with a caption
 #Game Window is initialized with the same dimensions as the background.
-
 font = pygame.font.SysFont("comicsansms", 36)
 text = font.render("Choose a room!", True, (0, 0, 0))
 background.blit(text, (287, 50))
@@ -184,7 +155,6 @@ all_sprites = pygame.sprite.Group(Char1)
 all_sprites.add(Char1)
 #The user's character is initialized, and is placed in the center of the screen.
 #The scree also has text on it.
-
 Char2 = Character("ArceusC2.png")
 Char2.rect.x = 500
 Char2.rect.y = 400
@@ -199,12 +169,10 @@ Char2Questions = {
 #These are the questions for my division room. 
 #The questions are stored in a dictionary, with the key being the question,
 #and the value being the answer. This will be the case for all characters.
-
 Char3 = Character("GiratinaC3.png")
 Char3.rect.x = 300
 Char3.rect.y = 200
 #Our second opponent is given a position.
-
 Char3Questions = {
     "What is 79 * 96?" : "7,584" ,
     "What is 6,247 * 82?" : "512,654" ,
@@ -213,12 +181,10 @@ Char3Questions = {
     "What is 3,246 * 225?" : "730,250" 
 }
 #These are the questions for the multiplication room.
-
 Char4 = Character("RayquazaC4.png")
 Char4.rect.x = 200
 Char4.rect.y = 100
 #Our third opponent is given a position.
-
 Char4Questions = {
     "What is 1,000,000 - 123,456?" : "876,544" ,
     "What is 6,543,210 - 3,210,987?" : "3,332,223" ,
@@ -227,12 +193,10 @@ Char4Questions = {
     "What is 127,896 - 89,654?" : "38,242" 
 }
 #These are the questions for the subtraction room.
-
 Char5 = Character("DeoxysC5.png")
 Char5.rect.x = 150
 Char5.rect.y = 250
 #Our fourth opponent is given a position.
-
 Char5Questions = {
     "What is 123,456 + 654,321?" : "777,777" ,
     "What is 23,456 + 98,765?" : "122,221" ,
@@ -241,26 +205,21 @@ Char5Questions = {
     "What is 987,654 + 123,456?" : " 1,111,110" 
 }
 #These are the questions for the addition room.
-
 Chars = [Char2,Char3,Char4,Char5]
 Questions = [Char2Questions,Char3Questions,Char4Questions,Char5Questions]
-
 #Characters and questions stored in a list
-
 door1 = Door(50, 50, 100, 200, (0, 0, 255), (255, 255, 255))  
 door2 = Door(gameWindowWidth - 150, 50, 100, 200, (255, 0, 0), (255, 255, 255))  
 door3 = Door(50, gameWindowHeight - 250, 100, 200, (0, 255, 0), (255, 255, 255)) 
 door4 = Door(gameWindowWidth - 150, gameWindowHeight - 250, 100, 200, (255, 255, 0), (255, 255, 255))  
 doors = [door1, door2, door3, door4]
 #Our doors are given a position and placed in a list.
-
 all_sprites.add(door1)
 all_sprites.add(door2)
 all_sprites.add(door3)
 all_sprites.add(door4)
 #The doors that will lead the user to 4 different rooms are placed on our game board.
 #These doors are at four different corners, respectively.
-
 clock = pygame.time.Clock()
 font = pygame.font.SysFont('Arial',30)
 #The game clock and font are also set.
