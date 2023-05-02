@@ -106,8 +106,8 @@ def Door_Collisions():
                 all_sprites.remove(Char3)
                 all_sprites.remove(Char4)
                 
-def TextBoxOutput(words, graphics):
-    gameWindow = pygame.Surface(graphics.size)
+def TextBoxOutput(words, rect):
+    gameWindow = pygame.Surface(rect.size)
     gameWindow.fill((255, 255, 255))
     pygame.draw.rect(gameWindow, (0, 0, 0), gameWindow.get_rect(), 2)
     font = pygame.font.SysFont('Comic Sans', 20)
