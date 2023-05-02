@@ -99,7 +99,7 @@ def CharCollisions():
     global background
     for character in Chars:
         if Char1.rect.colliderect(character.rect):
-            if character == Char2:
+            if character.name == "Char2":
                 questions = Char2Questions
             elif character.name == "Char3":
                 questions = Char3Questions
