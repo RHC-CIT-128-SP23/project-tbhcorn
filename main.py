@@ -146,10 +146,11 @@ gameWindowHeight = background.get_height()
 gameWindow = pygame.display.set_mode((gameWindowWidth, gameWindowHeight))
 #Initial background is set with a caption
 #Game Window is initialized with the same dimensions as the background.
+
 font = pygame.font.SysFont("comicsansms", 36)
 text = font.render("Choose a room!", True, (0, 0, 0))
 background.blit(text, (287, 50))
-Char1 = Character("DragoniteMC1.png")
+Char1 = Character("DragoniteMC1.png", "Char1")
 Char1.rect.x = 400
 Char1.rect.y = 300
 all_sprites = pygame.sprite.Group(Char1)
