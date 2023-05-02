@@ -147,15 +147,20 @@ def CharCollisions():
 #the user and the character that the user is colliding with
 #on the screen in their room. 
 
-def draw_character_on_background(background_name, character, x, y):
-    global background, gameWindow
-    background = backgrounds[background_name]
-    character_image = character.image
-    character_rect = character.rect
-    character_rect.x = x
-    character_rect.y = y
-    gameWindow.blit(background, (0, 0))
-    all_sprites.draw(gameWindow)  
+def draw_character_on_background(room, character, x, y):
+    global background, screen
+    background = backgrounds[room]
+    all_sprites.empty()
+    all_sprites.add(character)
+    character.rect.x = x
+    character.rect.y = y
+    door_collisions()
+    screen.blit(background, (0, 0))
+    all_sprites.draw(screen)
+    pygame.display.update()
+    text = TextBoxOutput("Define your answer:", gameWindow)
+    screen.blit(gameWindow, (200, 200))
+
 #Character drawing function, which draws the character 
 #on our background in the game window.    
 
