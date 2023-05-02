@@ -52,7 +52,7 @@ class Door(pygame.sprite.Sprite):
         self.rect.y = y
 #Creates door class for doors to be used later
 
-def detect_collisions():
+def Door_Collisions():
     global background
     for door in doors:
         if Char1.rect.colliderect(door.rect):
@@ -88,6 +88,27 @@ def detect_collisions():
                 all_sprites.remove(Char2)
                 all_sprites.remove(Char3)
                 all_sprites.remove(Char4)
+                
+def CharCollisions():
+    global background
+    for character in Chars:
+        if Char1.rect.colliderect(character.rect):
+            if character == Char2:
+                questions = Char2Questions
+            elif character.name == "Char3":
+                questions = Char3Questions
+            elif character.name == "Char4":
+                questions = Char4Questions
+            elif character.name == "Char5":
+                questions = Char5Questions
+            else:
+                questions = {}
+            if questions:
+                
+            
+                
+
+        
 
 #Collision detection function, which keeps only the 
 #the user and the character from the room on the screen.
@@ -235,7 +256,7 @@ while functioning:
     else:
         Char1.vel_y = 0
         
-    detect_collisions()
+    Door_Collisions()
     
     all_sprites.update()
 # Our game loop is set to run pygame and close it when X is pressed.
