@@ -30,6 +30,29 @@ class Character(pygame.sprite.Sprite):
     def update(self):
         self.rect.x += self.vel_x
         self.rect.y += self.vel_y
+        
+    def bump(self):
+        # Add this method to display questions when the character is bumped
+        if self.name == "Char2":
+            questions = Char2Questions
+        elif self.name == "Char3":
+            questions = Char3Questions
+        elif self.name == "Char4":
+            questions = Char4Questions
+        elif self.name == "Char5":
+            questions = Char5Questions
+        else:
+            questions = {}
+        if questions:
+            for question, answer in questions.items():
+                TextBoxOutput(question)
+                # Get the user's answer
+                UserInput = TextBoxOutput()
+                # Check the user's answer
+                if UserInput == answer:
+                    TextBoxOutput("Awesome! You got it right!")
+                else:
+                    TextBoxOutput("Incorrect. The answer is: " + answer)
 #creates Character class for following characters
 #with position and velocity
 class Door(pygame.sprite.Sprite):
@@ -99,29 +122,7 @@ def CharCollisions():
     global background
     for character in Chars:
         if Char1.rect.colliderect(character.rect):
-            if character.name == "Char2":
-                questions = Char2Questions
-            elif character.name == "Char3":
-                questions = Char3Questions
-            elif character.name == "Char4":
-                questions = Char4Questions
-            elif character.name == "Char5":
-                questions = Char5Questions
-            else:
-                questions = {}
-            if questions:
-                for question, answer in questions.items():
-                    TextBoxOutput(question)
-                    # Get the user's answer
-                    UserInput = TextBoxOutput()
-                    # Check the user's answer
-                    if UserInput == answer:
-                        TextBoxOutput("Awesome! You got it right!")
-                    else:
-                        TextBoxOutput("Incorrect. The answer is: " + answer)
-
-
-
+            character.bump()
 
 
 #Collision detection function, which keeps only the 
