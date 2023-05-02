@@ -103,7 +103,7 @@ def draw_character_on_background(background_name, character, x, y):
     all_sprites.draw(gameWindow)  
 
 #Character drawing function, which draws the character 
-#on our background in the game window.
+#on our background in the game window.    
 
 pygame.display.set_caption("The Math Maze")
 background = pygame.image.load("BotwEntry.jpg")
@@ -191,6 +191,11 @@ Char5Questions = {
 }
 
 #These are the questions for the addition room.
+
+Chars = [Char2,Char3,Char4,Char5]
+Questions = [Char2Questions,Char3Questions,Char4Questions,Char5Questions]
+
+#Characters and questions stored in a list
 
 door1 = Door(50, 50, 100, 200, (0, 0, 255), (255, 255, 255))  
 door2 = Door(gameWindowWidth - 150, 50, 100, 200, (255, 0, 0), (255, 255, 255))  
