@@ -97,6 +97,7 @@ def TextBoxOutput(words, graphics):
     active = True
     
     while active:
+        screen.blit(gameWindow, (200, 200))
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
@@ -147,7 +148,7 @@ def CharCollisions():
 #on the screen in their room. 
 
 def draw_character_on_background(background_name, character, x, y):
-    global background
+    global background, gameWindow
     background = backgrounds[background_name]
     character_image = character.image
     character_rect = character.rect
