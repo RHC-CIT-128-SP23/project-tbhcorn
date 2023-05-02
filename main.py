@@ -26,13 +26,13 @@ class Character(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.vel_x = 0
         self.vel_y = 0
+        self.name = name
     
     def update(self):
         self.rect.x += self.vel_x
         self.rect.y += self.vel_y
         
     def bump(self):
-        # Add this method to display questions when the character is bumped
         if self.name == "Char2":
             questions = Char2Questions
         elif self.name == "Char3":
@@ -156,6 +156,7 @@ all_sprites = pygame.sprite.Group(Char1)
 all_sprites.add(Char1)
 #The user's character is initialized, and is placed in the center of the screen.
 #The scree also has text on it.
+
 Char2 = Character("ArceusC2.png")
 Char2.rect.x = 500
 Char2.rect.y = 400
