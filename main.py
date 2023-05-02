@@ -20,7 +20,7 @@ backgrounds = {
 }
 #All rooms are initialized as backgrounds, and are scaled to fit the game window.
 class Character(pygame.sprite.Sprite):
-    def __init__(self, image_path):
+    def __init__(self, image_path,name):
         super().__init__()
         self.image = pygame.image.load(image_path).convert_alpha()
         self.rect = self.image.get_rect()
@@ -157,7 +157,7 @@ all_sprites.add(Char1)
 #The user's character is initialized, and is placed in the center of the screen.
 #The scree also has text on it.
 
-Char2 = Character("ArceusC2.png")
+Char2 = Character("ArceusC2.png", "Char2")
 Char2.rect.x = 500
 Char2.rect.y = 400
 #Our first opponent is given a position.
@@ -171,7 +171,7 @@ Char2Questions = {
 #These are the questions for my division room. 
 #The questions are stored in a dictionary, with the key being the question,
 #and the value being the answer. This will be the case for all characters.
-Char3 = Character("GiratinaC3.png")
+Char3 = Character("GiratinaC3.png", "Char3")
 Char3.rect.x = 300
 Char3.rect.y = 200
 #Our second opponent is given a position.
@@ -183,7 +183,7 @@ Char3Questions = {
     "What is 3,246 * 225?" : "730,250" 
 }
 #These are the questions for the multiplication room.
-Char4 = Character("RayquazaC4.png")
+Char4 = Character("RayquazaC4.png", "Char4")
 Char4.rect.x = 200
 Char4.rect.y = 100
 #Our third opponent is given a position.
@@ -195,7 +195,7 @@ Char4Questions = {
     "What is 127,896 - 89,654?" : "38,242" 
 }
 #These are the questions for the subtraction room.
-Char5 = Character("DeoxysC5.png")
+Char5 = Character("DeoxysC5.png", "Char5")
 Char5.rect.x = 150
 Char5.rect.y = 250
 #Our fourth opponent is given a position.
@@ -207,24 +207,29 @@ Char5Questions = {
     "What is 987,654 + 123,456?" : " 1,111,110" 
 }
 #These are the questions for the addition room.
+
 Chars = [Char2,Char3,Char4,Char5]
 Questions = [Char2Questions,Char3Questions,Char4Questions,Char5Questions]
 #Characters and questions stored in a list
+
 door1 = Door(50, 50, 100, 200, (0, 0, 255), (255, 255, 255))  
 door2 = Door(gameWindowWidth - 150, 50, 100, 200, (255, 0, 0), (255, 255, 255))  
 door3 = Door(50, gameWindowHeight - 250, 100, 200, (0, 255, 0), (255, 255, 255)) 
 door4 = Door(gameWindowWidth - 150, gameWindowHeight - 250, 100, 200, (255, 255, 0), (255, 255, 255))  
 doors = [door1, door2, door3, door4]
 #Our doors are given a position and placed in a list.
+
 all_sprites.add(door1)
 all_sprites.add(door2)
 all_sprites.add(door3)
 all_sprites.add(door4)
 #The doors that will lead the user to 4 different rooms are placed on our game board.
 #These doors are at four different corners, respectively.
+
 clock = pygame.time.Clock()
 font = pygame.font.SysFont('Arial',30)
 #The game clock and font are also set.
+
 functioning = True
 while functioning:
     for event in pygame.event.get():
@@ -233,15 +238,15 @@ while functioning:
     
     keys = pygame.key.get_pressed()
     if keys[pygame.K_LEFT]:
-        Char1.vel_x = -5
+        Char1.vel_x = -6
     elif keys[pygame.K_RIGHT]:
-        Char1.vel_x = 5
+        Char1.vel_x = 6
     else:
         Char1.vel_x = 0
     if keys[pygame.K_UP]:
-        Char1.vel_y = -5
+        Char1.vel_y = -6
     elif keys[pygame.K_DOWN]:
-        Char1.vel_y = 5
+        Char1.vel_y = 6
     else:
         Char1.vel_y = 0
         
