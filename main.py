@@ -104,7 +104,7 @@ def CharCollisions():
             else:
                 questions = {}
             if questions:
-                
+                for question, answer in questions.items():
             
                 
 
