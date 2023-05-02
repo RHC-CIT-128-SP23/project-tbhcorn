@@ -45,7 +45,7 @@ class Character(pygame.sprite.Sprite):
             questions = {}
         if questions:
             for question, answer in questions.items():
-                TextBoxOutput(question)
+                TextBoxOutput(question,gameWindow)
                 # Get the user's answer
                 UserInput = TextBoxOutput()
                 # Check the user's answer
