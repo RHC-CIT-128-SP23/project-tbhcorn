@@ -119,7 +119,7 @@ def handle_collisions(player, characters):
                             questions = Char4Questions
                         elif other_char.name == "Char5":
                             questions = Char5Questions
-                        if questions and not textbox_displayed:
+                        if questions and not TextboxVisible:
                             question, answer = random.choice(list(questions.items()))
                             TextBoxOutput(question, gameWindow)
                             user_input = TextBoxOutput("What is your response?", gameWindow)
@@ -127,7 +127,7 @@ def handle_collisions(player, characters):
                                 TextBoxOutput("Great job!", gameWindow)
                             else:
                                 TextBoxOutput("So close! The correct answer is:" + answer, gameWindow)
-                            textbox_displayed = True
+                            TextboxVisible = True
             elif isinstance(char, Character):
                 questions = {}
                 if char.name == "Char2":
@@ -138,7 +138,7 @@ def handle_collisions(player, characters):
                     questions = Char4Questions
                 elif char.name == "Char5":
                     questions = Char5Questions
-                if questions and not textbox_displayed:
+                if questions and not TextboxVisible:
                     question, answer = random.choice(list(questions.items()))
                     TextBoxOutput(question, gameWindow)
                     user_input = TextBoxOutput("What is your response?", gameWindow)
@@ -146,8 +146,7 @@ def handle_collisions(player, characters):
                         TextBoxOutput("Great job!", gameWindow)
                     else:
                         TextBoxOutput("So close! The correct answer is:" + answer, gameWindow)
-                    textbox_displayed = True
-
+                    TextboxVisible = True
 
 #Collision detection function, which keeps only the 
 #the user and the character from the room on the screen.
