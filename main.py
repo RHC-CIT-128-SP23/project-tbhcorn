@@ -106,15 +106,17 @@ def Door_Collisions():
                 all_sprites.remove(Char3)
                 all_sprites.remove(Char4)
                 
-def TextBoxOutput(text, rect):
-    text_surface = pygame.Surface(rect.size)
-    text_surface.fill((255, 255, 255))
-    pygame.draw.rect(text_surface, (0, 0, 0), text_surface.get_rect(), 2)
-    font = pygame.font.SysFont('Comic Sans', 20)
-    text_render = font.render(text, True, (0, 0, 0))
-    text_rect = text_render.get_rect(center=text_surface.get_rect().center)
-    text_surface.blit(text_render, text_rect)
-    return text_surface
+def TextBoxOutput(text, surface):
+    font = pygame.font.Font(None, 25)
+    text_surface = font.render(text, True, (255, 255, 255))
+    rect = text_surface.get_rect()
+    rect.center = surface.get_rect().center
+    box_surface = pygame.Surface((rect.width, rect.height))
+    box_surface.fill((0, 0, 0))
+    box_surface.blit(text_surface, (0, 0))
+    surface.blit(box_surface, rect)
+    pygame.display.flip()
+
 
 ## Creates a textbox output for the math questions  
                 
