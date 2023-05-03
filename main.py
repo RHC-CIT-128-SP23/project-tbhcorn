@@ -50,9 +50,9 @@ class Character(pygame.sprite.Sprite):
                 UserInput = TextBoxOutput("Enter your name", gameWindow)
                 # Check the user's answer
                 if UserInput == answer:
-                    TextBoxOutput("Awesome! You got it right!")
+                    TextBoxOutput("Awesome! You got it right!", gameWindow)
                 else:
-                    TextBoxOutput("Incorrect. The answer is: " + answer)
+                    TextBoxOutput("Incorrect. The answer is: " + answer, gameWindow)
 #creates Character class for following characters
 #with position and velocity
 class Door(pygame.sprite.Sprite):
