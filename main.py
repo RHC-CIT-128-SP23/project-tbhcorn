@@ -47,7 +47,7 @@ class Character(pygame.sprite.Sprite):
             for question, answer in questions.items():
                 TextBoxOutput(question,gameWindow)
                 # Get the user's answer
-                UserInput = TextBoxOutput("Input your answer!", gameWindow)
+                UserInput = TextBoxOutput("Enter your name", gameWindow)
                 # Check the user's answer
                 if UserInput == answer:
                     TextBoxOutput("Awesome! You got it right!", gameWindow)
@@ -106,63 +106,25 @@ def Door_Collisions():
                 all_sprites.remove(Char3)
                 all_sprites.remove(Char4)
                 
-def TextBoxOutput(message, screen):
-    font = pygame.font.Font(None, 32)
-    text_color = pygame.Color('black')
-    rect = pygame.Rect(0, 0, 800, 100)
-    input_text = input_box(screen, rect.x, rect.y, rect.width, rect.height, message)
-    output_surface = font.render(input_text, True, text_color)
-    screen.blit(output_surface, (rect.x + 5, rect.y + 5))
+def TextBoxOutput(text, surface):
+    font = pygame.font.Font(None, 25)
+    text_surface = font.render(text, True, (255, 255, 255))
+    rect = text_surface.get_rect()
+    rect.center = surface.get_rect().center
+    box_surface = pygame.Surface((rect.width, rect.height))
+    box_surface.fill((0, 0, 0))
+    box_surface.blit(text_surface, (0, 0))
+    surface.blit(box_surface, rect)
     pygame.display.flip()
-
-
 ## Creates a textbox output for the math questions  
                 
 def CharCollisions():
+    global background
     for character in Chars:
-        if character.rect.colliderect(gameWindow.get_rect()):
-            for other_character in Chars:
-                if character != other_character and other_character.rect.colliderect(gameWindow.get_rect()):
-                    if character.rect.colliderect(other_character.rect):
-                        TextBoxOutput(other_character.question, gameWindow)
-                        answer = input_box(gameWindow, character.rect.x, character.rect.y, character.rect.width, character.rect.height)
-                        if answer == other_character.answer:
-                            TextBoxOutput("Correct!", gameWindow)
-                            character.move()
-                            other_character.hide()
-                        else:
-                            TextBoxOutput("Incorrect. The answer is: " + other_character.answer, gameWindow)
-                            character.bump()
-
-            
-
+        if Char1.rect.colliderect(character.rect):
+            character.bump()
 #Collision detection function, which keeps only the 
 #the user and the character from the room on the screen.
-            
-def input_box(screen, x, y, width, height, text=''):
-    font = pygame.font.Font(None, 32)
-    box_color = pygame.Color('white')
-    text_color = pygame.Color('black')
-    rect = pygame.Rect(x, y, width, height)
-    input_text = ''
-    while True:
-        pygame.draw.rect(screen, box_color, rect)
-        if pygame.display.get_surface() is not None:
-            pygame.draw.rect(screen, box_color, rect)
-        input_surface = font.render(text + input_text, True, text_color)
-        screen.blit(input_surface, (rect.x + 5, rect.y + 5))
-        pygame.display.flip()
-        event = pygame.event.wait()
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_BACKSPACE:
-                input_text = input_text[:-1]
-            elif event.key == pygame.K_RETURN:
-                return input_text
-            else:
-                input_text += event.unicode
-
-#Attempt at input box for math questions
-
 def draw_character_on_background(background_name, character, x, y):
     global background
     background = backgrounds[background_name]
@@ -182,7 +144,6 @@ gameWindowHeight = background.get_height()
 gameWindow = pygame.display.set_mode((gameWindowWidth, gameWindowHeight))
 #Initial background is set with a caption
 #Game Window is initialized with the same dimensions as the background.
-
 font = pygame.font.SysFont("comicsansms", 36)
 text = font.render("Choose a room!", True, (0, 0, 0))
 background.blit(text, (287, 50))
@@ -193,7 +154,6 @@ all_sprites = pygame.sprite.Group(Char1)
 all_sprites.add(Char1)
 #The user's character is initialized, and is placed in the center of the screen.
 #The scree also has text on it.
-
 Char2 = Character("ArceusC2.png", "Char2")
 Char2.rect.x = 500
 Char2.rect.y = 400
@@ -244,29 +204,24 @@ Char5Questions = {
     "What is 987,654 + 123,456?" : " 1,111,110" 
 }
 #These are the questions for the addition room.
-
 Chars = [Char2,Char3,Char4,Char5]
 Questions = [Char2Questions,Char3Questions,Char4Questions,Char5Questions]
 #Characters and questions stored in a list
-
 door1 = Door(50, 50, 100, 200, (0, 0, 255), (255, 255, 255))  
 door2 = Door(gameWindowWidth - 150, 50, 100, 200, (255, 0, 0), (255, 255, 255))  
 door3 = Door(50, gameWindowHeight - 250, 100, 200, (0, 255, 0), (255, 255, 255)) 
 door4 = Door(gameWindowWidth - 150, gameWindowHeight - 250, 100, 200, (255, 255, 0), (255, 255, 255))  
 doors = [door1, door2, door3, door4]
 #Our doors are given a position and placed in a list.
-
 all_sprites.add(door1)
 all_sprites.add(door2)
 all_sprites.add(door3)
 all_sprites.add(door4)
 #The doors that will lead the user to 4 different rooms are placed on our game board.
 #These doors are at four different corners, respectively.
-
 clock = pygame.time.Clock()
 font = pygame.font.SysFont('Arial',30)
 #The game clock and font are also set.
-
 functioning = True
 while functioning:
     for event in pygame.event.get():
