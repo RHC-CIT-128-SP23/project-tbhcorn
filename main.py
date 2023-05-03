@@ -100,10 +100,8 @@ def TextBoxOutput(text, surface):
     pygame.display.flip()
 ## Creates a textbox output for the math questions  
 
-TextboxVisible = False
-
 def handle_collisions(player, characters):
-    global TextboxVisible
+    global TextboxVisible, active_background
     if not TextboxVisible:
         TextboxVisible = True
     
@@ -151,9 +149,7 @@ def handle_collisions(player, characters):
                     else:
                         TextBoxOutput(f"So close! The correct answer is: {answer}", gameWindow)
                     TextboxVisible = False
-
-
-
+                    active_background = char.background
 
 #Collision detection function, which keeps only the 
 #the user and the character from the room on the screen.
@@ -168,6 +164,8 @@ def draw_character_on_background(background_name, character, x, y):
     all_sprites.draw(gameWindow)  
 #Character drawing function, which draws the character 
 #on our background in the game window.    
+
+
 
 pygame.display.set_caption("The Math Maze")
 background = pygame.image.load("BotwEntry.jpg")
@@ -248,6 +246,14 @@ Char5Questions = {
 #These are the questions for the addition room.
 
 Chars = [Char2,Char3,Char4,Char5]
+
+CharBackgroundLink = {"BotwEntry": [Char1],
+    "ArceusLocation": [Char2],
+    "GiratinaLocation": [Char3],
+    "RayquazaLocation": [Char4],
+    "DeoxysLocation": [Char5]
+}
+
 Questions = [Char2Questions,Char3Questions,Char4Questions,Char5Questions]
 #Characters and questions stored in a list
 
@@ -290,9 +296,8 @@ while functioning:
         Char1.vel_y = 0
         
     Door_Collisions()
-    for char in Chars:
-        if char.visible and pygame.sprite.collide_rect(Char1, char):
-            handle_collisions(Char1, Chars)
+    active_chars = backgrounds[active_background]
+    handle_collisions(Char1, active_chars)
 
     #New attempt at actually viewing collisions
     
