@@ -119,10 +119,21 @@ def TextBoxOutput(message, screen):
 ## Creates a textbox output for the math questions  
                 
 def CharCollisions():
-    global background
     for character in Chars:
-        if Char1.rect.colliderect(character.rect):
-            character.bump()
+        if character.rect.colliderect(gameWindow.get_rect()):
+            for other_character in Chars:
+                if character != other_character and other_character.rect.colliderect(gameWindow.get_rect()):
+                    if character.rect.colliderect(other_character.rect):
+                        TextBoxOutput(other_character.question, gameWindow)
+                        answer = input_box(gameWindow, character.rect.x, character.rect.y, character.rect.width, character.rect.height)
+                        if answer == other_character.answer:
+                            TextBoxOutput("Correct!", gameWindow)
+                            character.move()
+                            other_character.hide()
+                        else:
+                            TextBoxOutput("Incorrect. The answer is: " + other_character.answer, gameWindow)
+                            character.bump()
+
             
 
 #Collision detection function, which keeps only the 
