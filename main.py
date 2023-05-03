@@ -106,15 +106,13 @@ def Door_Collisions():
                 all_sprites.remove(Char3)
                 all_sprites.remove(Char4)
                 
-def TextBoxOutput(text, surface):
-    font = pygame.font.Font(None, 25)
-    text_surface = font.render(text, True, (255, 255, 255))
-    rect = text_surface.get_rect()
-    rect.center = surface.get_rect().center
-    box_surface = pygame.Surface((rect.width, rect.height))
-    box_surface.fill((0, 0, 0))
-    box_surface.blit(text_surface, (0, 0))
-    surface.blit(box_surface, rect)
+def TextBoxOutput(message, screen):
+    font = pygame.font.Font(None, 32)
+    text_color = pygame.Color('black')
+    rect = pygame.Rect(0, 0, 800, 100)
+    input_text = input_box(screen, rect.x, rect.y, rect.width, rect.height, message)
+    output_surface = font.render(input_text, True, text_color)
+    screen.blit(output_surface, (rect.x + 5, rect.y + 5))
     pygame.display.flip()
 
 
@@ -125,10 +123,35 @@ def CharCollisions():
     for character in Chars:
         if Char1.rect.colliderect(character.rect):
             character.bump()
-
+            
 
 #Collision detection function, which keeps only the 
 #the user and the character from the room on the screen.
+            
+def input_box(screen, x, y, width, height, text=''):
+    font = pygame.font.Font(None, 32)
+    box_color = pygame.Color('white')
+    text_color = pygame.Color('black')
+    rect = pygame.Rect(x, y, width, height)
+    input_text = ''
+    while True:
+        pygame.draw.rect(screen, box_color, rect)
+        input_surface = font.render(text + input_text, True, text_color)
+        screen.blit(input_surface, (rect.x + 5, rect.y + 5))
+        pygame.display.flip()
+        event = pygame.event.wait()
+        if event.type == pygame.QUIT:
+            pygame.quit()
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_BACKSPACE:
+                input_text = input_text[:-1]
+            elif event.key == pygame.K_RETURN:
+                return input_text
+            else:
+                input_text += event.unicode
+
+#Attempt at input box for math questions
+
 def draw_character_on_background(background_name, character, x, y):
     global background
     background = backgrounds[background_name]
