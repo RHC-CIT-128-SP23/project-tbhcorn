@@ -99,11 +99,13 @@ def TextBoxOutput(text, surface):
     surface.blit(box_surface, rect)
     pygame.display.flip()
 ## Creates a textbox output for the math questions  
-             
+
 TextboxVisible = False
-   
+
 def handle_collisions(player, characters):
     global TextboxVisible
+    if not TextboxVisible:
+        TextboxVisible = True
     
     for char in characters:
         if pygame.sprite.collide_rect(player, char):
@@ -124,12 +126,11 @@ def handle_collisions(player, characters):
                         if questions and not TextboxVisible:
                             print("Asking question")
                             question, answer = random.choice(list(questions.items()))
-                            TextBoxOutput(question, gameWindow)
-                            user_input = TextBoxOutput("What is your response?", gameWindow)
+                            user_input = TextBoxOutput(question, gameWindow)
                             if user_input == answer:
                                 TextBoxOutput("Great job!", gameWindow)
                             else:
-                                TextBoxOutput("So close! The correct answer is:" + answer, gameWindow)
+                                TextBoxOutput(f"So close! The correct answer is: {answer}", gameWindow)
                             TextboxVisible = True
             elif isinstance(char, Character):
                 questions = {}
@@ -144,13 +145,14 @@ def handle_collisions(player, characters):
                 if questions and not TextboxVisible:
                     print("Asking question")
                     question, answer = random.choice(list(questions.items()))
-                    TextBoxOutput(question, gameWindow)
-                    user_input = TextBoxOutput("What is your response?", gameWindow)
+                    user_input = TextBoxOutput(question, gameWindow)
                     if user_input == answer:
                         TextBoxOutput("Great job!", gameWindow)
                     else:
-                        TextBoxOutput("So close! The correct answer is:" + answer, gameWindow)
-                    TextboxVisible = True
+                        TextBoxOutput(f"So close! The correct answer is: {answer}", gameWindow)
+                    TextboxVisible = False
+
+
 
 
 #Collision detection function, which keeps only the 
@@ -166,6 +168,7 @@ def draw_character_on_background(background_name, character, x, y):
     all_sprites.draw(gameWindow)  
 #Character drawing function, which draws the character 
 #on our background in the game window.    
+
 pygame.display.set_caption("The Math Maze")
 background = pygame.image.load("BotwEntry.jpg")
 background = pygame.transform.scale(background, (800, 600))
@@ -174,6 +177,7 @@ gameWindowHeight = background.get_height()
 gameWindow = pygame.display.set_mode((gameWindowWidth, gameWindowHeight))
 #Initial background is set with a caption
 #Game Window is initialized with the same dimensions as the background.
+
 font = pygame.font.SysFont("comicsansms", 36)
 text = font.render("Choose a room!", True, (0, 0, 0))
 background.blit(text, (287, 50))
@@ -184,10 +188,12 @@ all_sprites = pygame.sprite.Group(Char1)
 all_sprites.add(Char1)
 #The user's character is initialized, and is placed in the center of the screen.
 #The scree also has text on it.
+
 Char2 = Character("ArceusC2.png", "Char2")
 Char2.rect.x = 500
 Char2.rect.y = 400
 #Our first opponent is given a position.
+
 Char2Questions = {
     "What is 87,300/900?" : "97" ,
     "What is 2,456,789/7?" : "350,984" ,
@@ -198,10 +204,12 @@ Char2Questions = {
 #These are the questions for my division room. 
 #The questions are stored in a dictionary, with the key being the question,
 #and the value being the answer. This will be the case for all characters.
+
 Char3 = Character("GiratinaC3.png", "Char3")
 Char3.rect.x = 300
 Char3.rect.y = 200
 #Our second opponent is given a position.
+
 Char3Questions = {
     "What is 79 * 96?" : "7,584" ,
     "What is 6,247 * 82?" : "512,654" ,
@@ -210,10 +218,12 @@ Char3Questions = {
     "What is 3,246 * 225?" : "730,250" 
 }
 #These are the questions for the multiplication room.
+
 Char4 = Character("RayquazaC4.png", "Char4")
 Char4.rect.x = 200
 Char4.rect.y = 100
 #Our third opponent is given a position.
+
 Char4Questions = {
     "What is 1,000,000 - 123,456?" : "876,544" ,
     "What is 6,543,210 - 3,210,987?" : "3,332,223" ,
@@ -222,10 +232,12 @@ Char4Questions = {
     "What is 127,896 - 89,654?" : "38,242" 
 }
 #These are the questions for the subtraction room.
+
 Char5 = Character("DeoxysC5.png", "Char5")
 Char5.rect.x = 150
 Char5.rect.y = 250
 #Our fourth opponent is given a position.
+
 Char5Questions = {
     "What is 123,456 + 654,321?" : "777,777" ,
     "What is 23,456 + 98,765?" : "122,221" ,
@@ -234,24 +246,29 @@ Char5Questions = {
     "What is 987,654 + 123,456?" : " 1,111,110" 
 }
 #These are the questions for the addition room.
+
 Chars = [Char2,Char3,Char4,Char5]
 Questions = [Char2Questions,Char3Questions,Char4Questions,Char5Questions]
 #Characters and questions stored in a list
+
 door1 = Door(50, 50, 100, 200, (0, 0, 255), (255, 255, 255))  
 door2 = Door(gameWindowWidth - 150, 50, 100, 200, (255, 0, 0), (255, 255, 255))  
 door3 = Door(50, gameWindowHeight - 250, 100, 200, (0, 255, 0), (255, 255, 255)) 
 door4 = Door(gameWindowWidth - 150, gameWindowHeight - 250, 100, 200, (255, 255, 0), (255, 255, 255))  
 doors = [door1, door2, door3, door4]
 #Our doors are given a position and placed in a list.
+
 all_sprites.add(door1)
 all_sprites.add(door2)
 all_sprites.add(door3)
 all_sprites.add(door4)
 #The doors that will lead the user to 4 different rooms are placed on our game board.
 #These doors are at four different corners, respectively.
+
 clock = pygame.time.Clock()
 font = pygame.font.SysFont('Arial',30)
 #The game clock and font are also set.
+
 functioning = True
 while functioning:
     for event in pygame.event.get():
