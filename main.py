@@ -50,6 +50,7 @@ class Door(pygame.sprite.Sprite):
         self.rect.x = x
         self.rect.y = y
 #Creates door class for doors to be used later
+
 def Door_Collisions():
     global background
     for door in doors:
@@ -99,7 +100,11 @@ def TextBoxOutput(text, surface):
     pygame.display.flip()
 ## Creates a textbox output for the math questions  
                 
+TextboxVisible = False
+
 def handle_collisions(player, characters):
+    global TextboxVisible
+    
     for char in characters:
         if pygame.sprite.collide_rect(player, char):
             if char.name == "Char1":
@@ -114,7 +119,7 @@ def handle_collisions(player, characters):
                             questions = Char4Questions
                         elif other_char.name == "Char5":
                             questions = Char5Questions
-                        if questions:
+                        if questions and not textbox_displayed:
                             question, answer = random.choice(list(questions.items()))
                             TextBoxOutput(question, gameWindow)
                             user_input = TextBoxOutput("What is your response?", gameWindow)
@@ -122,6 +127,7 @@ def handle_collisions(player, characters):
                                 TextBoxOutput("Great job!", gameWindow)
                             else:
                                 TextBoxOutput("So close! The correct answer is:" + answer, gameWindow)
+                            textbox_displayed = True
             elif isinstance(char, Character):
                 questions = {}
                 if char.name == "Char2":
@@ -132,7 +138,7 @@ def handle_collisions(player, characters):
                     questions = Char4Questions
                 elif char.name == "Char5":
                     questions = Char5Questions
-                if questions:
+                if questions and not textbox_displayed:
                     question, answer = random.choice(list(questions.items()))
                     TextBoxOutput(question, gameWindow)
                     user_input = TextBoxOutput("What is your response?", gameWindow)
@@ -140,6 +146,8 @@ def handle_collisions(player, characters):
                         TextBoxOutput("Great job!", gameWindow)
                     else:
                         TextBoxOutput("So close! The correct answer is:" + answer, gameWindow)
+                    textbox_displayed = True
+
 
 #Collision detection function, which keeps only the 
 #the user and the character from the room on the screen.
