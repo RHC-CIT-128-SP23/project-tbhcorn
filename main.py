@@ -99,17 +99,19 @@ def TextBoxOutput(text, surface):
     surface.blit(box_surface, rect)
     pygame.display.flip()
 ## Creates a textbox output for the math questions  
-                
+             
 TextboxVisible = False
-
+   
 def handle_collisions(player, characters):
     global TextboxVisible
     
     for char in characters:
         if pygame.sprite.collide_rect(player, char):
+            print(f"Player collided with {char.name}")
             if char.name == "Char1":
                 for other_char in characters[1:]:
                     if pygame.sprite.collide_rect(char, other_char):
+                        print(f"{char.name} collided with {other_char.name}")
                         questions = {}
                         if other_char.name == "Char2":
                             questions = Char2Questions
@@ -120,6 +122,7 @@ def handle_collisions(player, characters):
                         elif other_char.name == "Char5":
                             questions = Char5Questions
                         if questions and not TextboxVisible:
+                            print("Asking question")
                             question, answer = random.choice(list(questions.items()))
                             TextBoxOutput(question, gameWindow)
                             user_input = TextBoxOutput("What is your response?", gameWindow)
@@ -139,6 +142,7 @@ def handle_collisions(player, characters):
                 elif char.name == "Char5":
                     questions = Char5Questions
                 if questions and not TextboxVisible:
+                    print("Asking question")
                     question, answer = random.choice(list(questions.items()))
                     TextBoxOutput(question, gameWindow)
                     user_input = TextBoxOutput("What is your response?", gameWindow)
@@ -147,6 +151,7 @@ def handle_collisions(player, characters):
                     else:
                         TextBoxOutput("So close! The correct answer is:" + answer, gameWindow)
                     TextboxVisible = True
+
 
 #Collision detection function, which keeps only the 
 #the user and the character from the room on the screen.
@@ -280,6 +285,8 @@ while functioning:
     all_sprites.draw(gameWindow)
     pygame.display.update()
     clock.tick(60)
+    print("Game loop running") #A check
+
     
 #Sprites are drawn and set into the game window
 #within pygame. Time is also measured.
