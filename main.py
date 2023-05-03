@@ -290,8 +290,11 @@ while functioning:
         Char1.vel_y = 0
         
     Door_Collisions()
-    handle_collisions(Char1, Chars)
+    for char in Chars:
+        if char.visible and pygame.sprite.collide_rect(Char1, char):
+            handle_collisions(Char1, Chars)
 
+    #New attempt at actually viewing collisions
     
     all_sprites.update()
 # Our game loop is set to run pygame and close it when X is pressed.
