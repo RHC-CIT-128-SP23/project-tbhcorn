@@ -136,6 +136,8 @@ def input_box(screen, x, y, width, height, text=''):
     input_text = ''
     while True:
         pygame.draw.rect(screen, box_color, rect)
+        if pygame.display.get_surface() is not None:
+            pygame.draw.rect(screen, box_color, rect)
         input_surface = font.render(text + input_text, True, text_color)
         screen.blit(input_surface, (rect.x + 5, rect.y + 5))
         pygame.display.flip()
