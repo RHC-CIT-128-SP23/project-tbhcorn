@@ -142,8 +142,6 @@ def input_box(screen, x, y, width, height, text=''):
         screen.blit(input_surface, (rect.x + 5, rect.y + 5))
         pygame.display.flip()
         event = pygame.event.wait()
-        if event.type == pygame.QUIT:
-            pygame.quit()
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_BACKSPACE:
                 input_text = input_text[:-1]
