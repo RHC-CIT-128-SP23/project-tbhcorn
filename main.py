@@ -97,10 +97,9 @@ def TextBoxOutput(text, surface):
     surface.blit(box_surface, rect)
 ## Creates a textbox output for the math questions  
                 
-TextboxVisible = False
 def handle_collisions(player, characters):
     global TextboxVisible
-    
+
     for char in characters:
         if pygame.sprite.collide_rect(player, char):
             if char.name == "Char1":
@@ -122,27 +121,13 @@ def handle_collisions(player, characters):
                             if user_input == answer:
                                 TextBoxOutput("Great job!", gameWindow)
                             else:
-                                TextBoxOutput("So close! The correct answer is:" + answer, gameWindow)
-                            TextboxVisible = True
-            elif isinstance(char, Character):
-                questions = {}
-                if char.name == "Char2":
-                    questions = Char2Questions
-                elif char.name == "Char3":
-                    questions = Char3Questions
-                elif char.name == "Char4":
-                    questions = Char4Questions
-                elif char.name == "Char5":
-                    questions = Char5Questions
-                if questions and not TextboxVisible:
-                    question, answer = random.choice(list(questions.items()))
-                    TextBoxOutput(question, gameWindow)
-                    user_input = TextBoxOutput("What is your response?", gameWindow)
-                    if user_input == answer:
-                        TextBoxOutput("Great job!", gameWindow)
-                    else:
-                        TextBoxOutput("So close! The correct answer is:" + answer, gameWindow)
-                    TextboxVisible = True
+                                TextBoxOutput("Sorry, that's incorrect.", gameWindow)
+            
+            # Check for collision with other characters
+            for other_char in characters:
+                if char != other_char and pygame.sprite.collide_rect(char, other_char):
+                    # Display collision message
+                    TextBoxOutput(f"{char.name} collided with {other_char.name}", gameWindow)
 
 #Collision detection function, which keeps only the 
 #the user and the character from the room on the screen.
