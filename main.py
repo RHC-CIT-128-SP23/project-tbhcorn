@@ -8,7 +8,6 @@
 #below the code that they are commenting on
 import pygame
 import random
-
 pygame.init()
 pygame.font.init()
 #imports pygame, random and pygame font modules and initializes them
@@ -33,7 +32,6 @@ class Character(pygame.sprite.Sprite):
     def update(self):
         self.rect.x += self.vel_x
         self.rect.y += self.vel_y
-
 #creates Character class for following characters
 #with position and velocity
 class Door(pygame.sprite.Sprite):
@@ -99,19 +97,16 @@ def TextBoxOutput(text, surface):
     surface.blit(box_surface, rect)
     pygame.display.flip()
 ## Creates a textbox output for the math questions  
-
+                
+TextboxVisible = False
 def handle_collisions(player, characters):
-    global TextboxVisible, active_background
-    if not TextboxVisible:
-        TextboxVisible = True
+    global TextboxVisible
     
     for char in characters:
         if pygame.sprite.collide_rect(player, char):
-            print(f"Player collided with {char.name}")
             if char.name == "Char1":
                 for other_char in characters[1:]:
                     if pygame.sprite.collide_rect(char, other_char):
-                        print(f"{char.name} collided with {other_char.name}")
                         questions = {}
                         if other_char.name == "Char2":
                             questions = Char2Questions
@@ -122,13 +117,13 @@ def handle_collisions(player, characters):
                         elif other_char.name == "Char5":
                             questions = Char5Questions
                         if questions and not TextboxVisible:
-                            print("Asking question")
                             question, answer = random.choice(list(questions.items()))
-                            user_input = TextBoxOutput(question, gameWindow)
+                            TextBoxOutput(question, gameWindow)
+                            user_input = TextBoxOutput("What is your response?", gameWindow)
                             if user_input == answer:
                                 TextBoxOutput("Great job!", gameWindow)
                             else:
-                                TextBoxOutput(f"So close! The correct answer is: {answer}", gameWindow)
+                                TextBoxOutput("So close! The correct answer is:" + answer, gameWindow)
                             TextboxVisible = True
             elif isinstance(char, Character):
                 questions = {}
@@ -141,18 +136,18 @@ def handle_collisions(player, characters):
                 elif char.name == "Char5":
                     questions = Char5Questions
                 if questions and not TextboxVisible:
-                    print("Asking question")
                     question, answer = random.choice(list(questions.items()))
-                    user_input = TextBoxOutput(question, gameWindow)
+                    TextBoxOutput(question, gameWindow)
+                    user_input = TextBoxOutput("What is your response?", gameWindow)
                     if user_input == answer:
                         TextBoxOutput("Great job!", gameWindow)
                     else:
-                        TextBoxOutput(f"So close! The correct answer is: {answer}", gameWindow)
-                    TextboxVisible = False
-                    active_background = char.background
+                        TextBoxOutput("So close! The correct answer is:" + answer, gameWindow)
+                    TextboxVisible = True
 
 #Collision detection function, which keeps only the 
 #the user and the character from the room on the screen.
+
 def draw_character_on_background(background_name, character, x, y):
     global background
     background = backgrounds[background_name]
@@ -164,8 +159,6 @@ def draw_character_on_background(background_name, character, x, y):
     all_sprites.draw(gameWindow)  
 #Character drawing function, which draws the character 
 #on our background in the game window.    
-
-
 
 pygame.display.set_caption("The Math Maze")
 background = pygame.image.load("BotwEntry.jpg")
@@ -231,6 +224,7 @@ Char4Questions = {
 }
 #These are the questions for the subtraction room.
 
+
 Char5 = Character("DeoxysC5.png", "Char5")
 Char5.rect.x = 150
 Char5.rect.y = 250
@@ -246,14 +240,6 @@ Char5Questions = {
 #These are the questions for the addition room.
 
 Chars = [Char2,Char3,Char4,Char5]
-
-CharBackgroundLink = {"BotwEntry": [Char1],
-    "ArceusLocation": [Char2],
-    "GiratinaLocation": [Char3],
-    "RayquazaLocation": [Char4],
-    "DeoxysLocation": [Char5]
-}
-
 Questions = [Char2Questions,Char3Questions,Char4Questions,Char5Questions]
 #Characters and questions stored in a list
 
@@ -296,22 +282,18 @@ while functioning:
         Char1.vel_y = 0
         
     Door_Collisions()
-    active_chars = backgrounds[active_background]
-    handle_collisions(Char1, active_chars)
-
-    #New attempt at actually viewing collisions
+    handle_collisions(Char1, Chars)
     
     all_sprites.update()
 # Our game loop is set to run pygame and close it when X is pressed.
 #In addition to this, we have now given our character movement through 
 #the arrow keys.
+
     pygame.display.update()
     gameWindow.blit(background, (0, 0))
     all_sprites.draw(gameWindow)
     pygame.display.update()
     clock.tick(60)
-    print("Game loop running") #A check
-
     
 #Sprites are drawn and set into the game window
 #within pygame. Time is also measured.
