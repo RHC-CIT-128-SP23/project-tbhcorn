@@ -95,7 +95,6 @@ def TextBoxOutput(text, surface):
     box_surface.fill((0, 0, 0))
     box_surface.blit(text_surface, (0, 0))
     surface.blit(box_surface, rect)
-    pygame.display.flip()
 ## Creates a textbox output for the math questions  
                 
 TextboxVisible = False
