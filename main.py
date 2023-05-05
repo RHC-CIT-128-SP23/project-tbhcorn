@@ -85,51 +85,7 @@ def Door_Collisions():
                 all_sprites.remove(Char2)
                 all_sprites.remove(Char3)
                 all_sprites.remove(Char4)
-                
-def TextBoxOutput(text, surface):
-    font = pygame.font.Font(None, 25)
-    text_surface = font.render(text, True, (255, 255, 255))
-    rect = text_surface.get_rect()
-    rect.center = surface.get_rect().center
-    box_surface = pygame.Surface((rect.width, rect.height))
-    box_surface.fill((0, 0, 0))
-    box_surface.blit(text_surface, (0, 0))
-    surface.blit(box_surface, rect)
-## Creates a textbox output for the math questions  
-                
-def handle_collisions(player, characters):
-    global TextboxVisible
 
-    for char in characters:
-        if pygame.sprite.collide_rect(player, char):
-            if char.name == "Char1":
-                for other_char in characters[1:]:
-                    if pygame.sprite.collide_rect(char, other_char):
-                        questions = {}
-                        if other_char.name == "Char2":
-                            questions = Char2Questions
-                        elif other_char.name == "Char3":
-                            questions = Char3Questions
-                        elif other_char.name == "Char4":
-                            questions = Char4Questions
-                        elif other_char.name == "Char5":
-                            questions = Char5Questions
-                        if questions and not TextboxVisible:
-                            question, answer = random.choice(list(questions.items()))
-                            TextBoxOutput(question, gameWindow)
-                            user_input = TextBoxOutput("What is your response?", gameWindow)
-                            if user_input == answer:
-                                TextBoxOutput("Great job!", gameWindow)
-                            else:
-                                TextBoxOutput("Sorry, that's incorrect.", gameWindow)
-            
-            # Check for collision with other characters
-            for other_char in characters:
-                if char != other_char and pygame.sprite.collide_rect(char, other_char):
-                    # Display collision message
-                    TextBoxOutput(f"{char.name} collided with {other_char.name}", gameWindow)
-
-#Collision detection function, which keeps only the 
 #the user and the character from the room on the screen.
 
 def draw_character_on_background(background_name, character, x, y):
@@ -253,21 +209,19 @@ while functioning:
     
     keys = pygame.key.get_pressed()
     if keys[pygame.K_LEFT]:
-        Char1.vel_x = -6
+        Char1.vel_x = -8
     elif keys[pygame.K_RIGHT]:
-        Char1.vel_x = 6
+        Char1.vel_x = 8
     else:
         Char1.vel_x = 0
     if keys[pygame.K_UP]:
-        Char1.vel_y = -6
+        Char1.vel_y = -8
     elif keys[pygame.K_DOWN]:
-        Char1.vel_y = 6
+        Char1.vel_y = 8
     else:
         Char1.vel_y = 0
         
-    Door_Collisions()
-    handle_collisions(Char1, Chars)
-    
+    Door_Collisions()    
     all_sprites.update()
 # Our game loop is set to run pygame and close it when X is pressed.
 #In addition to this, we have now given our character movement through 
