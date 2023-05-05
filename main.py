@@ -120,6 +120,16 @@ def draw_character_on_background(background_name, character, x, y):
 #Character drawing function, which draws the character 
 #on our background in the game window.    
 
+def ButtonVisibility():
+    if background == "ArceusLocation":
+        arceus_button.add_to_screen()
+    elif background == "GiratinaLocation":
+        giratina_button.add_to_screen() 
+    elif background == "RayquazaLocation":
+        rayquaza_button.add_to_screen()
+    elif background == "DeoxysLocation":
+        deoxys_button.add_to_screen()
+
 pygame.display.set_caption("The Math Maze")
 background = pygame.image.load("BotwEntry.jpg")
 background = pygame.transform.scale(background, (800, 600))
