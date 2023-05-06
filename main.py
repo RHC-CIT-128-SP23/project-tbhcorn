@@ -118,6 +118,7 @@ def draw_character_on_background(background_name, character, x, y):
     character_rect.x = x
     character_rect.y = y
     gameWindow.blit(background, (0, 0))
+    ButtonVisibility(background) 
     all_sprites.draw(gameWindow)  
 #Character drawing function, which draws the character 
 #on our background in the game window.    
@@ -134,8 +135,7 @@ all_sprites.add(SubButton)
 AddButton = Button(400, 300, 100, 50, (255, 255, 255), "Addition Questions!", (0, 0, 0))
 all_sprites.add(AddButton)
 
-def ButtonVisibility():
-    global background
+def ButtonVisibility(background):
     print("Current background:", background)
     if background == "ArceusLocation":
         DivButton.draw(gameWindow)
@@ -271,7 +271,6 @@ while functioning:
     else:
         Char1.vel_y = 0
         
-    ButtonVisibility() 
     Door_Collisions()    
     all_sprites.update()
     pygame.display.update()
