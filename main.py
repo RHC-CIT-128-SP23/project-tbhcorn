@@ -10,7 +10,9 @@ import pygame
 import random
 pygame.init()
 pygame.font.init()
-#imports pygame, random and pygame font modules and initializes them
+all_sprites = pygame.sprite.Group()
+
+#imports pygame, random, and pygame font modules and initializes them + all_sprites
     
 backgrounds = {
     "BotwEntry": pygame.transform.scale(pygame.image.load("BotwEntry.jpg"), (800, 600)),
@@ -120,17 +122,17 @@ def draw_character_on_background(background_name, character, x, y):
 #Character drawing function, which draws the character 
 #on our background in the game window.    
 
-DB = Button(200, 200, 100, 50, (255, 255, 255), "Division Questions!", (0, 0, 0))
-DivButton = pygame.sprite.Group(DB)
+DivButton = Button(200, 200, 100, 50, (255, 255, 255), "Division Questions!", (0, 0, 0))
+all_sprites.add(DivButton)
 
-MB = Button(200, 200, 100, 50, (255, 255, 255), "Multiplication Questions!", (0, 0, 0))
-MultButton = pygame.sprite.Group(MB)
+MultButton = Button(200, 200, 100, 50, (255, 255, 255), "Multiplication Questions!", (0, 0, 0))
+all_sprites.add(MultButton)
 
-SB = Button(200, 200, 100, 50, (255, 255, 255), "Subtraction Questions!", (0, 0, 0))
-SubButton = pygame.sprite.Group(SB)
+SubButton = Button(200, 200, 100, 50, (255, 255, 255), "Subtraction Questions!", (0, 0, 0))
+all_sprites.add(SubButton)
 
-AB = Button(200, 200, 100, 50, (255, 255, 255), "Additionon Questions!", (0, 0, 0))
-AddButton = pygame.sprite.Group(AB)
+AddButton = Button(200, 200, 100, 50, (255, 255, 255), "Additionon Questions!", (0, 0, 0))
+all_sprites.add(AddButton)
 
 def ButtonVisibility():
     if background == "ArceusLocation":
