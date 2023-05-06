@@ -122,19 +122,20 @@ def draw_character_on_background(background_name, character, x, y):
 #Character drawing function, which draws the character 
 #on our background in the game window.    
 
-DivButton = Button(200, 200, 100, 50, (255, 255, 255), "Division Questions!", (0, 0, 0))
+DivButton = Button(400, 300, 100, 50, (255, 255, 255), "Division Questions!", (0, 0, 0))
 all_sprites.add(DivButton)
 
-MultButton = Button(200, 200, 100, 50, (255, 255, 255), "Multiplication Questions!", (0, 0, 0))
+MultButton = Button(400, 300, 100, 50, (255, 255, 255), "Multiplication Questions!", (0, 0, 0))
 all_sprites.add(MultButton)
 
-SubButton = Button(200, 200, 100, 50, (255, 255, 255), "Subtraction Questions!", (0, 0, 0))
+SubButton = Button(400, 300, 100, 50, (255, 255, 255), "Subtraction Questions!", (0, 0, 0))
 all_sprites.add(SubButton)
 
-AddButton = Button(200, 200, 100, 50, (255, 255, 255), "Additionon Questions!", (0, 0, 0))
+AddButton = Button(400, 300, 100, 50, (255, 255, 255), "Addition Questions!", (0, 0, 0))
 all_sprites.add(AddButton)
 
 def ButtonVisibility():
+    print("Current background:", background)
     if background == "ArceusLocation":
         DivButton.draw(gameWindow)
     elif background == "GiratinaLocation":
@@ -272,16 +273,15 @@ while functioning:
     ButtonVisibility() 
     Door_Collisions()    
     all_sprites.update()
-# Our game loop is set to run pygame and close it when X is pressed.
-#In addition to this, we have now given our character movement through 
-#the arrow keys.
-
     pygame.display.update()
     gameWindow.blit(background, (0, 0))
     all_sprites.draw(gameWindow)
     pygame.display.update()
     clock.tick(60)
     
+#Our game loop is set to run pygame and close it when X is pressed.
+#In addition to this, we have now given our character movement through 
+#the arrow keys.
 #Sprites are drawn and set into the game window
 #within pygame. Time is also measured.
 pygame.quit()
