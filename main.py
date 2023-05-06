@@ -135,6 +135,7 @@ AddButton = Button(400, 300, 100, 50, (255, 255, 255), "Addition Questions!", (0
 all_sprites.add(AddButton)
 
 def ButtonVisibility():
+    global background
     print("Current background:", background)
     if background == "ArceusLocation":
         DivButton.draw(gameWindow)
