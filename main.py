@@ -120,15 +120,31 @@ def draw_character_on_background(background_name, character, x, y):
 #Character drawing function, which draws the character 
 #on our background in the game window.    
 
+DB = Button(200, 200, 100, 50, (255, 255, 255), "Division Questions!", (0, 0, 0))
+DivButton = pygame.sprite.Group(DB)
+
+MB = Button(200, 200, 100, 50, (255, 255, 255), "Multiplication Questions!", (0, 0, 0))
+MultButton = pygame.sprite.Group(MB)
+
+SB = Button(200, 200, 100, 50, (255, 255, 255), "Subtraction Questions!", (0, 0, 0))
+SubButton = pygame.sprite.Group(SB)
+
+AB = Button(200, 200, 100, 50, (255, 255, 255), "Additionon Questions!", (0, 0, 0))
+AddButton = pygame.sprite.Group(AB)
+
 def ButtonVisibility():
     if background == "ArceusLocation":
-        arceus_button.add_to_screen()
+        DivButton.draw(gameWindow)
     elif background == "GiratinaLocation":
-        giratina_button.add_to_screen() 
+        MultButton.draw(gameWindow) 
     elif background == "RayquazaLocation":
-        rayquaza_button.add_to_screen()
+        SubButton.draw(gameWindow)
     elif background == "DeoxysLocation":
-        deoxys_button.add_to_screen()
+        AddButton.draw(gameWindow)
+
+#Initializes the buttons for the game and defines a function
+#which situationally makes the buttons visible.
+
 
 pygame.display.set_caption("The Math Maze")
 background = pygame.image.load("BotwEntry.jpg")
@@ -251,6 +267,7 @@ while functioning:
     else:
         Char1.vel_y = 0
         
+    ButtonVisibility() 
     Door_Collisions()    
     all_sprites.update()
 # Our game loop is set to run pygame and close it when X is pressed.
