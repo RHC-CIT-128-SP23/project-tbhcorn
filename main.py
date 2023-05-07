@@ -71,6 +71,14 @@ class Button(pygame.sprite.Sprite):
 #Creates a button class for buttons that can clicked
 #to display questions 
 
+DivButton = Button(400, 300, 100, 50, (255, 255, 255), "Division Questions!", (0, 0, 0))
+
+MultButton = Button(400, 300, 100, 50, (255, 255, 255), "Multiplication Questions!", (0, 0, 0))
+
+SubButton = Button(400, 300, 100, 50, (255, 255, 255), "Subtraction Questions!", (0, 0, 0))
+
+AddButton = Button(400, 300, 100, 50, (255, 255, 255), "Addition Questions!", (0, 0, 0))
+
 def Door_Collisions():
     global background
     for door in doors:
@@ -79,6 +87,7 @@ def Door_Collisions():
                 background = pygame.image.load("ArceusLocation.jpg")
                 background = pygame.transform.scale(background, (800, 600))
                 all_sprites.add(Char2)
+                all_sprites.add(DivButton)
                 draw_character_on_background("ArceusLocation", Char2, 500, 400)  
                 all_sprites.remove(Char3)
                 all_sprites.remove(Char4)
@@ -87,6 +96,7 @@ def Door_Collisions():
                 background = pygame.image.load("GiratinaLocation.jpg")
                 background = pygame.transform.scale(background, (800, 600))
                 all_sprites.add(Char3)
+                all_sprites.add(MultButton)
                 draw_character_on_background("GiratinaLocation", Char3, 300, 200)
                 all_sprites.remove(Char2)
                 all_sprites.remove(Char4)
@@ -95,6 +105,7 @@ def Door_Collisions():
                 background = pygame.image.load("RayquazaLocation.jpg")
                 background = pygame.transform.scale(background, (800, 600))
                 all_sprites.add(Char4)
+                all_sprites.add(SubButton)
                 draw_character_on_background("RayquazaLocation", Char4, 200, 100) 
                 all_sprites.remove(Char2)
                 all_sprites.remove(Char3)
@@ -103,10 +114,13 @@ def Door_Collisions():
                 background = pygame.image.load("DeoxysLocation.jpg")
                 background = pygame.transform.scale(background, (800, 600))
                 all_sprites.add(Char5)
+                all_sprites.add(AddButton)
                 draw_character_on_background("DeoxysLocation", Char5, 390, 280)
                 all_sprites.remove(Char2)
                 all_sprites.remove(Char3)
                 all_sprites.remove(Char4)
+    all_sprites.draw(gameWindow)
+
 
 #the user and the character from the room on the screen.
 
