@@ -161,6 +161,8 @@ font = pygame.font.SysFont("comicsansms", 36)
 text = font.render("Choose a room!", True, (0, 0, 0))
 background.blit(text, (287, 50))
 Char1 = Character("DragoniteMC1.png", "Char1")
+Char1.rect.x = 400
+Char1.rect.y = 300
 all_sprites = pygame.sprite.Group(Char1)
 all_sprites.add(Char1)
 #The user's character is initialized, and is placed in the center of the screen.
@@ -217,6 +219,7 @@ Char5Questions = {
 }
 #These are the questions for the addition room.
 
+Chars = [Char2,Char3,Char4,Char5]
 Questions = [Char2Questions,Char3Questions,Char4Questions,Char5Questions]
 #Characters and questions stored in a list
 
