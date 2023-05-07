@@ -137,33 +137,6 @@ def draw_character_on_background(background_name, character, x, y):
 #Character drawing function, which draws the character 
 #on our background in the game window.    
 
-DivButton = Button(400, 300, 100, 50, (255, 255, 255), "Division Questions!", (0, 0, 0))
-all_sprites.add(DivButton)
-
-MultButton = Button(400, 300, 100, 50, (255, 255, 255), "Multiplication Questions!", (0, 0, 0))
-all_sprites.add(MultButton)
-
-SubButton = Button(400, 300, 100, 50, (255, 255, 255), "Subtraction Questions!", (0, 0, 0))
-all_sprites.add(SubButton)
-
-AddButton = Button(400, 300, 100, 50, (255, 255, 255), "Addition Questions!", (0, 0, 0))
-all_sprites.add(AddButton)
-
-def ButtonVisibility(background):
-    print("Current background:", background)
-    if background == "ArceusLocation":
-        DivButton.draw(gameWindow)
-    elif background == "GiratinaLocation":
-        MultButton.draw(gameWindow) 
-    elif background == "RayquazaLocation":
-        SubButton.draw(gameWindow)
-    elif background == "DeoxysLocation":
-        AddButton.draw(gameWindow)
-
-#Initializes the buttons for the game and defines a function
-#which situationally makes the buttons visible.
-
-
 pygame.display.set_caption("The Math Maze")
 background = pygame.image.load("BotwEntry.jpg")
 background = pygame.transform.scale(background, (800, 600))
