@@ -10,8 +10,6 @@ import pygame
 import random
 pygame.init()
 pygame.font.init()
-from pygame_textinput import PygameText
-
 all_sprites = pygame.sprite.Group()
 
 #imports pygame, random, and pygame font modules and initializes them + all_sprites
@@ -81,41 +79,6 @@ SubButton = Button(320, 240, 250, 50, (255, 255, 255), "Subtraction Questions!",
 
 AddButton = Button(320, 240, 210, 50, (255, 255, 255), "Addition Questions!", (0, 0, 0))
 
-def AddButtonClickCheck():
-    if AddButton.is_clicked(mouse_pos):
-        for question, answer in Char5Questions.items():
-            user_input = PygameText()
-        while True:
-            gameWindow.blit(background, (0, 0))
-            events = pygame.event.get()
-            for event in events:
-                if event.type == pygame.QUIT:
-                    pygame.quit()
-                    quit()
-
-            if user_input.update(events):
-                user_answer = user_input.get_text()
-                if user_answer == answer:
-                    print("Correct!")
-                else:
-                    print("Incorrect. The correct answer is: " + answer)
-                break
-
-            # Draw the question and the input box
-            font = pygame.font.Font(None, 32)
-            question_surface = font.render(question, True, (255, 255, 255))
-            input_surface = font.render(user_input.get_text(), True, (255, 255, 255))
-            question_rect = question_surface.get_rect()
-            input_rect = input_surface.get_rect()
-            question_rect.center = (400, 200)
-            input_rect.center = (400, 300)
-            gameWindow.blit(question_surface, question_rect)
-            pygame.draw.rect(gameWindow, (255, 255, 255), input_rect, 2)
-            gameWindow.blit(input_surface, input_rect)
-
-            pygame.display.update()
-
-
 def Door_Collisions():
     global background
     for door in doors:
@@ -168,7 +131,6 @@ def Door_Collisions():
                 all_sprites.remove(Char2)
                 all_sprites.remove(Char3)
                 all_sprites.remove(Char4)
-                AddButtonClickCheck(mouse_pos)
     all_sprites.draw(gameWindow)
 
 #Function that changes background and displays buttons
@@ -205,6 +167,8 @@ all_sprites.add(Char1)
 #The scree also has text on it.
 
 Char2 = Character("ArceusC2.png", "Char2")
+#Our first opponent is given a position.
+
 Char2Questions = {
     "What is 87,300/900?" : "97" ,
     "What is 2,456,789/7?" : "350,984" ,
@@ -212,9 +176,13 @@ Char2Questions = {
     "What is 9,876,543/81?" : "121,969" ,
     "What is 7,432,561/99?" : "75,065" 
 }
-#Our first opponent and its questions are initialized.
+#These are the questions for my division room. 
+#The questions are stored in a dictionary, with the key being the question,
+#and the value being the answer. This will be the case for all characters.
 
 Char3 = Character("GiratinaC3.png", "Char3")
+#Our second opponent is given a position.
+
 Char3Questions = {
     "What is 79 * 96?" : "7,584" ,
     "What is 6,247 * 82?" : "512,654" ,
@@ -222,9 +190,11 @@ Char3Questions = {
     "What is 8,712 * 56?" : "488,832" ,
     "What is 3,246 * 225?" : "730,250" 
 }
-#Our second opponent and its questions are initialized.
+#These are the questions for the multiplication room.
 
 Char4 = Character("RayquazaC4.png", "Char4")
+#Our third opponent is given a position.
+
 Char4Questions = {
     "What is 1,000,000 - 123,456?" : "876,544" ,
     "What is 6,543,210 - 3,210,987?" : "3,332,223" ,
@@ -232,10 +202,12 @@ Char4Questions = {
     "What is 986,543 - 543,210?" : "443,333" ,
     "What is 127,896 - 89,654?" : "38,242" 
 }
-#Our third opponent and its questions are initialized.
+#These are the questions for the subtraction room.
 
 
 Char5 = Character("DeoxysC5.png", "Char5")
+#Our fourth opponent is given a position.
+
 Char5Questions = {
     "What is 123,456 + 654,321?" : "777,777" ,
     "What is 23,456 + 98,765?" : "122,221" ,
@@ -243,7 +215,7 @@ Char5Questions = {
     "What is 987,654 + 345,678?" : "1,333,332" ,
     "What is 987,654 + 123,456?" : " 1,111,110" 
 }
-#Our fourth opponent and its questions are initialized.
+#These are the questions for the addition room.
 
 Questions = [Char2Questions,Char3Questions,Char4Questions,Char5Questions]
 #Characters and questions stored in a list
@@ -268,7 +240,6 @@ font = pygame.font.SysFont('Arial',30)
 
 functioning = True
 while functioning:
-    mouse_pos = pygame.mouse.get_pos()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             functioning = False
@@ -297,8 +268,8 @@ while functioning:
     
 #Our game loop is set to run pygame and close it when X is pressed.
 #In addition to this, we have now given our character movement through 
-#the arrow keys. Sprites are drawn and set into the game window
+#the arrow keys.
+#Sprites are drawn and set into the game window
 #within pygame. Time is also measured.
-
 pygame.quit()
 #Ends the game that we are running.
