@@ -68,16 +68,15 @@ class Button(pygame.sprite.Sprite):
         if self.rect.collidepoint(pos):
             return True
         return False
-#Creates a button class for buttons that can clicked
+#Creates a button class for buttons that can be clicked
 #to display questions 
 
 DivButton = Button(320, 240, 210, 50, (255, 255, 255), "Division Questions!", (0, 0, 0))
-
 MultButton = Button(320, 240, 258, 50, (255, 255, 255), "Multiplication Questions!", (0, 0, 0))
-
 SubButton = Button(320, 240, 250, 50, (255, 255, 255), "Subtraction Questions!", (0, 0, 0))
-
 AddButton = Button(320, 240, 210, 50, (255, 255, 255), "Addition Questions!", (0, 0, 0))
+
+#Visuals for buttons are displayed
 
 def Door_Collisions():
     global background
@@ -166,11 +165,9 @@ Char1.rect.y = 300
 all_sprites = pygame.sprite.Group(Char1)
 all_sprites.add(Char1)
 #The user's character is initialized, and is placed in the center of the screen.
-#The scree also has text on it.
+#The screem also has text on it.
 
 Char2 = Character("ArceusC2.png", "Char2")
-#Our first opponent is given a position.
-
 Char2Questions = {
     "What is 87,300/900?" : "97" ,
     "What is 2,456,789/7?" : "350,984" ,
@@ -178,12 +175,10 @@ Char2Questions = {
     "What is 9,876,543/81?" : "121,969" ,
     "What is 7,432,561/99?" : "75,065" 
 }
-#These are the questions for my division room. 
-#The questions are stored in a dictionary, with the key being the question,
-#and the value being the answer. This will be the case for all characters.
+#Our first opponent is initialized
+#with associated questions.
 
 Char3 = Character("GiratinaC3.png", "Char3")
-#Our second opponent is given a position.
 
 Char3Questions = {
     "What is 79 * 96?" : "7,584" ,
@@ -192,11 +187,10 @@ Char3Questions = {
     "What is 8,712 * 56?" : "488,832" ,
     "What is 3,246 * 225?" : "730,250" 
 }
-#These are the questions for the multiplication room.
+#Our second opponent is initialized
+#with associated questions.
 
 Char4 = Character("RayquazaC4.png", "Char4")
-#Our third opponent is given a position.
-
 Char4Questions = {
     "What is 1,000,000 - 123,456?" : "876,544" ,
     "What is 6,543,210 - 3,210,987?" : "3,332,223" ,
@@ -204,12 +198,10 @@ Char4Questions = {
     "What is 986,543 - 543,210?" : "443,333" ,
     "What is 127,896 - 89,654?" : "38,242" 
 }
-#These are the questions for the subtraction room.
-
+#Our third opponent is initialized
+#with associated questions.
 
 Char5 = Character("DeoxysC5.png", "Char5")
-#Our fourth opponent is given a position.
-
 Char5Questions = {
     "What is 123,456 + 654,321?" : "777,777" ,
     "What is 23,456 + 98,765?" : "122,221" ,
@@ -217,11 +209,8 @@ Char5Questions = {
     "What is 987,654 + 345,678?" : "1,333,332" ,
     "What is 987,654 + 123,456?" : " 1,111,110" 
 }
-#These are the questions for the addition room.
-
-Chars = [Char2,Char3,Char4,Char5]
-Questions = [Char2Questions,Char3Questions,Char4Questions,Char5Questions]
-#Characters and questions stored in a list
+#Our fourth opponent is initialized
+#with associated questions.
 
 door1 = Door(50, 50, 100, 200, (0, 0, 255), (255, 255, 255))  
 door2 = Door(gameWindowWidth - 150, 50, 100, 200, (255, 0, 0), (255, 255, 255))  
@@ -271,8 +260,8 @@ while functioning:
     
 #Our game loop is set to run pygame and close it when X is pressed.
 #In addition to this, we have now given our character movement through 
-#the arrow keys.
-#Sprites are drawn and set into the game window
+#the arrow keys. Sprites are drawn and set into the game window
 #within pygame. Time is also measured.
+
 pygame.quit()
 #Ends the game that we are running.
