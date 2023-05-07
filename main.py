@@ -161,16 +161,12 @@ font = pygame.font.SysFont("comicsansms", 36)
 text = font.render("Choose a room!", True, (0, 0, 0))
 background.blit(text, (287, 50))
 Char1 = Character("DragoniteMC1.png", "Char1")
-Char1.rect.x = 400
-Char1.rect.y = 300
 all_sprites = pygame.sprite.Group(Char1)
 all_sprites.add(Char1)
 #The user's character is initialized, and is placed in the center of the screen.
 #The scree also has text on it.
 
 Char2 = Character("ArceusC2.png", "Char2")
-Char2.rect.x = 500
-Char2.rect.y = 400
 #Our first opponent is given a position.
 
 Char2Questions = {
@@ -185,8 +181,6 @@ Char2Questions = {
 #and the value being the answer. This will be the case for all characters.
 
 Char3 = Character("GiratinaC3.png", "Char3")
-Char3.rect.x = 300
-Char3.rect.y = 200
 #Our second opponent is given a position.
 
 Char3Questions = {
@@ -199,8 +193,6 @@ Char3Questions = {
 #These are the questions for the multiplication room.
 
 Char4 = Character("RayquazaC4.png", "Char4")
-Char4.rect.x = 200
-Char4.rect.y = 100
 #Our third opponent is given a position.
 
 Char4Questions = {
@@ -214,8 +206,6 @@ Char4Questions = {
 
 
 Char5 = Character("DeoxysC5.png", "Char5")
-Char5.rect.x = 150
-Char5.rect.y = 250
 #Our fourth opponent is given a position.
 
 Char5Questions = {
@@ -227,7 +217,6 @@ Char5Questions = {
 }
 #These are the questions for the addition room.
 
-Chars = [Char2,Char3,Char4,Char5]
 Questions = [Char2Questions,Char3Questions,Char4Questions,Char5Questions]
 #Characters and questions stored in a list
 
