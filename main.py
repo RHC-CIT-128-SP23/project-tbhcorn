@@ -97,7 +97,13 @@ def WasButtonClicked(event):
                 DisplayQuestions(questions)
                 
 def DisplayQuestions(questions):
+    escape_button = Button(10, 10, 100, 50, (255, 0, 0), "Escape", (255, 255, 255))
+    escape_button_group = pygame.sprite.GroupSingle(escape_button)
+    question_displayed = False
     for question in questions:
+        if not question_displayed:
+            escape_button_group.draw(gameWindow)
+            pygame.display.flip()
         font = pygame.font.Font(None, 32)
         text = font.render(question, True, (255, 255, 255))
         text_rect = text.get_rect()
@@ -111,6 +117,9 @@ def DisplayQuestions(questions):
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
+                elif event.type == pygame.MOUSEBUTTONDOWN:
+                    if escape_button.is_clicked(event.pos):
+                        return
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_RETURN:
                         if user_input == question[-1]:
@@ -127,18 +136,23 @@ def DisplayQuestions(questions):
                             text_rect.center = (gameWindowWidth // 2, gameWindowHeight // 2 + 100)
                             gameWindow.blit(text, text_rect)
                             pygame.display.flip()
-                        return
+                        question_displayed = True
+                        break
                     elif event.key == pygame.K_BACKSPACE:
                         user_input = user_input[:-1]
                     else:
                         user_input += chr(event.key)
+            if question_displayed:
+                break
             gameWindow.fill((128, 73, 8))
+            escape_button_group.draw(gameWindow)
             pygame.draw.rect(gameWindow, (255, 255, 255), input_box, 2)
             font = pygame.font.Font(None, 32)
             text_surface = font.render(user_input, True, (255, 255, 255))
             gameWindow.blit(text, text_rect)
             gameWindow.blit(text_surface, input_box)
             pygame.display.flip()
+
 
 
 
