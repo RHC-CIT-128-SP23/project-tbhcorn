@@ -114,9 +114,19 @@ def DisplayQuestions(questions):
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_RETURN:
                         if user_input == question[-1]:
-                            print("Congratulations, you got it right!")
+                            font = pygame.font.Font(None, 32)
+                            text = font.render("Congratulations, you got it right!", True, (255, 255, 255))
+                            text_rect = text.get_rect()
+                            text_rect.center = (gameWindowWidth // 2, gameWindowHeight // 2 + 100)
+                            gameWindow.blit(text, text_rect)
+                            pygame.display.flip()
                         else:
-                            print("Sorry, wrong answer. Please try again.")
+                            font = pygame.font.Font(None, 32)
+                            text = font.render("Sorry, wrong answer. Please try again.", True, (255, 255, 255))
+                            text_rect = text.get_rect()
+                            text_rect.center = (gameWindowWidth // 2, gameWindowHeight // 2 + 100)
+                            gameWindow.blit(text, text_rect)
+                            pygame.display.flip()
                         return
                     elif event.key == pygame.K_BACKSPACE:
                         user_input = user_input[:-1]
@@ -129,6 +139,7 @@ def DisplayQuestions(questions):
             gameWindow.blit(text, text_rect)
             gameWindow.blit(text_surface, input_box)
             pygame.display.flip()
+
 
 
 def Door_Collisions():
