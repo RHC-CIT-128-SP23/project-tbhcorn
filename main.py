@@ -71,13 +71,13 @@ class Button(pygame.sprite.Sprite):
 #Creates a button class for buttons that can clicked
 #to display questions 
 
-DivButton = Button(400, 300, 200, 50, (255, 255, 255), "Division Questions!", (0, 0, 0))
+DivButton = Button(320, 240, 210, 50, (255, 255, 255), "Division Questions!", (0, 0, 0))
 
-MultButton = Button(400, 300, 200, 50, (255, 255, 255), "Multiplication Questions!", (0, 0, 0))
+MultButton = Button(320, 240, 258, 50, (255, 255, 255), "Multiplication Questions!", (0, 0, 0))
 
-SubButton = Button(400, 300, 200, 50, (255, 255, 255), "Subtraction Questions!", (0, 0, 0))
+SubButton = Button(320, 240, 250, 50, (255, 255, 255), "Subtraction Questions!", (0, 0, 0))
 
-AddButton = Button(400, 300, 200, 50, (255, 255, 255), "Addition Questions!", (0, 0, 0))
+AddButton = Button(320, 240, 210, 50, (255, 255, 255), "Addition Questions!", (0, 0, 0))
 
 def Door_Collisions():
     global background
@@ -91,7 +91,7 @@ def Door_Collisions():
                 all_sprites.remove(SubButton)
                 all_sprites.remove(AddButton)
                 all_sprites.remove(MultButton)
-                draw_character_on_background("ArceusLocation", Char2, 500, 400)  
+                draw_character_on_background("ArceusLocation", Char2, 400, 140)  
                 all_sprites.remove(Char3)
                 all_sprites.remove(Char4)
                 all_sprites.remove(Char5)
@@ -103,7 +103,7 @@ def Door_Collisions():
                 all_sprites.remove(DivButton)
                 all_sprites.remove(SubButton)
                 all_sprites.remove(AddButton)
-                draw_character_on_background("GiratinaLocation", Char3, 300, 200)
+                draw_character_on_background("GiratinaLocation", Char3, 400, 140)
                 all_sprites.remove(Char2)
                 all_sprites.remove(Char4)
                 all_sprites.remove(Char5)
@@ -115,7 +115,7 @@ def Door_Collisions():
                 all_sprites.remove(DivButton)
                 all_sprites.remove(AddButton)
                 all_sprites.remove(MultButton)
-                draw_character_on_background("RayquazaLocation", Char4, 200, 100) 
+                draw_character_on_background("RayquazaLocation", Char4, 400, 140) 
                 all_sprites.remove(Char2)
                 all_sprites.remove(Char3)
                 all_sprites.remove(Char5)
@@ -127,7 +127,7 @@ def Door_Collisions():
                 all_sprites.remove(DivButton)
                 all_sprites.remove(SubButton)
                 all_sprites.remove(MultButton)
-                draw_character_on_background("DeoxysLocation", Char5, 390, 280)
+                draw_character_on_background("DeoxysLocation", Char5, 400, 140)
                 all_sprites.remove(Char2)
                 all_sprites.remove(Char3)
                 all_sprites.remove(Char4)
