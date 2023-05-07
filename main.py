@@ -102,7 +102,7 @@ def DisplayQuestions(questions):
         text = font.render(question, True, (255, 255, 255))
         text_rect = text.get_rect()
         text_rect.center = (gameWindowWidth // 2, gameWindowHeight // 2)
-        input_box = pygame.Rect(0, 0, 140, 32)
+        input_box = pygame.Rect(gameWindowWidth // 2 - 70, gameWindowHeight // 2, 140, 32)
         input_box.center = (gameWindowWidth // 2, gameWindowHeight // 2 + 50)
         pygame.draw.rect(gameWindow, (255, 255, 255), input_box, 2)
         pygame.display.flip()
