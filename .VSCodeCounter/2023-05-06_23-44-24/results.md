@@ -1,22 +1,22 @@
 # Summary
 
-Date : 2023-05-06 20:48:54
+Date : 2023-05-06 23:44:24
 
 Directory c:\\Users\\tbhco\\github-classroom\\RHC-CIT-128-SP23\\project-tbhcorn
 
-Total : 3 files,  299 codes, 39 comments, 66 blanks, all 404 lines
+Total : 3 files,  339 codes, 37 comments, 64 blanks, all 440 lines
 
 Summary / [Details](details.md) / [Diff Summary](diff.md) / [Diff Details](diff-details.md)
 
 ## Languages
 | language | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| Python | 1 | 216 | 39 | 31 | 286 |
-| Markdown | 2 | 83 | 0 | 35 | 118 |
+| Python | 1 | 255 | 37 | 29 | 321 |
+| Markdown | 2 | 84 | 0 | 35 | 119 |
 
 ## Directories
 | path | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| . | 3 | 299 | 39 | 66 | 404 |
+| . | 3 | 339 | 37 | 64 | 440 |
 
 Summary / [Details](details.md) / [Diff Summary](diff.md) / [Diff Details](diff-details.md)

@@ -1,16 +1,16 @@
 # Diff Details
 
-Date : 2023-05-06 20:42:32
+Date : 2023-05-06 22:24:34
 
 Directory c:\\Users\\tbhco\\github-classroom\\RHC-CIT-128-SP23\\project-tbhcorn
 
-Total : 1 files,  -7 codes, -1 comments, -8 blanks, all -16 lines
+Total : 1 files,  -2 codes, -3 comments, -6 blanks, all -11 lines
 
 [Summary](results.md) / [Details](details.md) / [Diff Summary](diff.md) / Diff Details
 
 ## Files
 | filename | language | code | comment | blank | total |
 | :--- | :--- | ---: | ---: | ---: | ---: |
-| [main.py](/main.py) | Python | -7 | -1 | -8 | -16 |
+| [main.py](/main.py) | Python | -2 | -3 | -6 | -11 |
 
 [Summary](results.md) / [Details](details.md) / [Diff Summary](diff.md) / Diff Details

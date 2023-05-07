@@ -78,6 +78,59 @@ AddButton = Button(320, 240, 210, 50, (255, 255, 255), "Addition Questions!", (0
 
 #Visuals for buttons are displayed
 
+def WasButtonClicked(event):
+    if event.type == pygame.MOUSEBUTTONDOWN:
+            mouse_pos = pygame.mouse.get_pos()
+
+            # Check which button was clicked
+            if DivButton.is_clicked(mouse_pos):
+                questions = Char2Questions
+                DisplayQuestions(questions)
+            elif MultButton.is_clicked(mouse_pos):
+                questions = Char3Questions
+                DisplayQuestions(questions)
+            elif SubButton.is_clicked(mouse_pos):
+                questions = Char4Questions
+                DisplayQuestions(questions)
+            elif AddButton.is_clicked(mouse_pos):
+                questions = Char5Questions
+                DisplayQuestions(questions)
+                
+def DisplayQuestions(questions):
+    for question in questions:
+        font = pygame.font.Font(None, 32)
+        text = font.render(question, True, (255, 255, 255))
+        text_rect = text.get_rect()
+        text_rect.center = (gameWindowWidth // 2, gameWindowHeight // 2)
+        input_box = pygame.Rect(0, 0, 140, 32)
+        input_box.center = (gameWindowWidth // 2, gameWindowHeight // 2 + 50)
+        pygame.draw.rect(gameWindow, (255, 255, 255), input_box, 2)
+        pygame.display.flip()
+        user_input = ''
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                elif event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_RETURN:
+                        if user_input == question[-1]:
+                            print("Congratulations, you got it right!")
+                        else:
+                            print("Sorry, wrong answer. Please try again.")
+                        return
+                    elif event.key == pygame.K_BACKSPACE:
+                        user_input = user_input[:-1]
+                    else:
+                        user_input += chr(event.key)
+            gameWindow.fill((128, 73, 8))
+            pygame.draw.rect(gameWindow, (255, 255, 255), input_box, 2)
+            font = pygame.font.Font(None, 32)
+            text_surface = font.render(user_input, True, (255, 255, 255))
+            gameWindow.blit(text, text_rect)
+            gameWindow.blit(text_surface, input_box)
+            pygame.display.flip()
+
+
 def Door_Collisions():
     global background
     for door in doors:
@@ -250,6 +303,7 @@ while functioning:
     else:
         Char1.vel_y = 0
         
+    WasButtonClicked(event)
     Door_Collisions()    
     all_sprites.update()
     pygame.display.update()
