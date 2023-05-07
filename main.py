@@ -88,6 +88,9 @@ def Door_Collisions():
                 background = pygame.transform.scale(background, (800, 600))
                 all_sprites.add(Char2)
                 all_sprites.add(DivButton)
+                all_sprites.remove(SubButton)
+                all_sprites.remove(AddButton)
+                all_sprites.remove(MultButton)
                 draw_character_on_background("ArceusLocation", Char2, 500, 400)  
                 all_sprites.remove(Char3)
                 all_sprites.remove(Char4)
@@ -97,6 +100,9 @@ def Door_Collisions():
                 background = pygame.transform.scale(background, (800, 600))
                 all_sprites.add(Char3)
                 all_sprites.add(MultButton)
+                all_sprites.remove(DivButton)
+                all_sprites.remove(SubButton)
+                all_sprites.remove(AddButton)
                 draw_character_on_background("GiratinaLocation", Char3, 300, 200)
                 all_sprites.remove(Char2)
                 all_sprites.remove(Char4)
@@ -106,6 +112,9 @@ def Door_Collisions():
                 background = pygame.transform.scale(background, (800, 600))
                 all_sprites.add(Char4)
                 all_sprites.add(SubButton)
+                all_sprites.remove(DivButton)
+                all_sprites.remove(AddButton)
+                all_sprites.remove(MultButton)
                 draw_character_on_background("RayquazaLocation", Char4, 200, 100) 
                 all_sprites.remove(Char2)
                 all_sprites.remove(Char3)
@@ -115,14 +124,17 @@ def Door_Collisions():
                 background = pygame.transform.scale(background, (800, 600))
                 all_sprites.add(Char5)
                 all_sprites.add(AddButton)
+                all_sprites.remove(DivButton)
+                all_sprites.remove(SubButton)
+                all_sprites.remove(MultButton)
                 draw_character_on_background("DeoxysLocation", Char5, 390, 280)
                 all_sprites.remove(Char2)
                 all_sprites.remove(Char3)
                 all_sprites.remove(Char4)
     all_sprites.draw(gameWindow)
 
-
-#the user and the character from the room on the screen.
+#Function that changes background and displays buttons
+#upon door collisions
 
 def draw_character_on_background(background_name, character, x, y):
     global background
