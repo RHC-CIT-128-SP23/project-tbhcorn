@@ -71,13 +71,13 @@ class Button(pygame.sprite.Sprite):
 #Creates a button class for buttons that can clicked
 #to display questions 
 
-DivButton = Button(400, 300, 100, 50, (255, 255, 255), "Division Questions!", (0, 0, 0))
+DivButton = Button(400, 300, 200, 50, (255, 255, 255), "Division Questions!", (0, 0, 0))
 
-MultButton = Button(400, 300, 100, 50, (255, 255, 255), "Multiplication Questions!", (0, 0, 0))
+MultButton = Button(400, 300, 200, 50, (255, 255, 255), "Multiplication Questions!", (0, 0, 0))
 
-SubButton = Button(400, 300, 100, 50, (255, 255, 255), "Subtraction Questions!", (0, 0, 0))
+SubButton = Button(400, 300, 200, 50, (255, 255, 255), "Subtraction Questions!", (0, 0, 0))
 
-AddButton = Button(400, 300, 100, 50, (255, 255, 255), "Addition Questions!", (0, 0, 0))
+AddButton = Button(400, 300, 200, 50, (255, 255, 255), "Addition Questions!", (0, 0, 0))
 
 def Door_Collisions():
     global background
@@ -132,7 +132,6 @@ def draw_character_on_background(background_name, character, x, y):
     character_rect.x = x
     character_rect.y = y
     gameWindow.blit(background, (0, 0))
-    ButtonVisibility(background) 
     all_sprites.draw(gameWindow)  
 #Character drawing function, which draws the character 
 #on our background in the game window.    
