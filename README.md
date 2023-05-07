@@ -23,6 +23,7 @@ Add a Link to your video demonstration
 ### Install Instructions
 
 pip install pygame in your code terminal of choice
+pip install pygame_textinput
 
 [potentially installing images with this too?]
 
