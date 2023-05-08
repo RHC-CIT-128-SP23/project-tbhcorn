@@ -97,7 +97,7 @@ def WasButtonClicked(event):
                 DisplayQuestions(questions)
                 
 def DisplayQuestions(questions):
-    escape_button = Button(10, 10, 100, 50, (255, 0, 0), "Escape", (255, 255, 255))
+    escape_button = Button(10, 10, 100, 50, (255, 0, 0), "Home", (255, 255, 255))
     escape_button_group = pygame.sprite.GroupSingle(escape_button)
     question_displayed = False
     for question in questions:
