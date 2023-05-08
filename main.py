@@ -97,62 +97,63 @@ def WasButtonClicked(event):
 def DisplayQuestions(questions):
     escape_button = Button(10, 10, 100, 50, (255, 0, 0), "Home", (255, 255, 255))
     escape_button_group = pygame.sprite.GroupSingle(escape_button)
-    question_displayed = False
     for question in questions:
         answer = questions[question]
-        if not question_displayed:
-            escape_button_group.draw(gameWindow)
-            pygame.display.flip()
-        font = pygame.font.Font(None, 32)
-        text = font.render(question, True, (255, 255, 255))
-        text_rect = text.get_rect()
-        text_rect.center = (gameWindowWidth // 2, gameWindowHeight // 2)
-        input_box = pygame.Rect(gameWindowWidth // 2 - 70, gameWindowHeight // 2, 140, 32)
-        input_box.center = (gameWindowWidth // 2, gameWindowHeight // 2 + 50)
-        pygame.draw.rect(gameWindow, (255, 255, 255), input_box, 2)
-        pygame.display.flip()
-        user_input = ''
-        while True:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit()
-                elif event.type == pygame.MOUSEBUTTONDOWN:
-                    if escape_button.is_clicked(event.pos):
-                        return
-                elif event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_RETURN:
-                        if user_input == answer:
-                            font = pygame.font.Font(None, 32)
-                            text = font.render("Congratulations, you got it right!", True, (255, 255, 255))
-                            text_rect = text.get_rect()
-                            text_rect.center = (gameWindowWidth // 2, gameWindowHeight // 2 + 100)
-                            gameWindow.blit(text, text_rect)
-                            pygame.display.flip()
-                            pygame.time.delay(1450)
-                        else:
-                            font = pygame.font.Font(None, 32)
-                            text = font.render("Sorry, wrong answer. Please try again.", True, (255, 255, 255))
-                            text_rect = text.get_rect()
-                            text_rect.center = (gameWindowWidth // 2, gameWindowHeight // 2 + 100)
-                            gameWindow.blit(text, text_rect)
-                            pygame.display.flip()
-                            pygame.time.delay(1450)
-                        question_displayed = True
-                        break
-                    elif event.key == pygame.K_BACKSPACE:
-                        user_input = user_input[:-1]
-                    else:
-                        user_input += chr(event.key)
-            if question_displayed:
-                break
+        question_displayed = False
+        while not question_displayed:
             gameWindow.fill((128, 73, 8))
             escape_button_group.draw(gameWindow)
-            pygame.draw.rect(gameWindow, (255, 255, 255), input_box, 2)
             font = pygame.font.Font(None, 32)
-            text_surface = font.render(user_input, True, (255, 255, 255))
+            text = font.render(question, True, (255, 255, 255))
+            text_rect = text.get_rect()
+            text_rect.center = (gameWindowWidth // 2, gameWindowHeight // 2 - 50)
             gameWindow.blit(text, text_rect)
-            gameWindow.blit(text_surface, input_box)
+            input_box = pygame.Rect(gameWindowWidth // 2 - 70, gameWindowHeight // 2, 140, 32)
+            input_box.center = (gameWindowWidth // 2, gameWindowHeight // 2 + 50)
+            pygame.draw.rect(gameWindow, (255, 255, 255), input_box, 2)
             pygame.display.flip()
+            user_input = ''
+            while True:
+                for event in pygame.event.get():
+                    if event.type == pygame.QUIT:
+                        pygame.quit()
+                    elif event.type == pygame.MOUSEBUTTONDOWN:
+                        if escape_button.is_clicked(event.pos):
+                            return
+                    elif event.type == pygame.KEYDOWN:
+                        if event.key == pygame.K_RETURN:
+                            if user_input.strip().lower() == str(answer).lower():
+                                font = pygame.font.Font(None, 32)
+                                text = font.render("Congratulations, you got it right!", True, (255, 255, 255))
+                                text_rect = text.get_rect()
+                                text_rect.center = (gameWindowWidth // 2, gameWindowHeight // 2 + 100)
+                                gameWindow.blit(text, text_rect)
+                                pygame.display.flip()
+                                pygame.time.delay(1450)
+                                question_displayed = True
+                            else:
+                                font = pygame.font.Font(None, 32)
+                                text = font.render("Sorry, wrong answer. Please try again.", True, (255, 255, 255))
+                                text_rect = text.get_rect()
+                                text_rect.center = (gameWindowWidth // 2, gameWindowHeight // 2 + 100)
+                                gameWindow.blit(text, text_rect)
+                                pygame.display.flip()
+                                pygame.time.delay(1450)
+                        elif event.key == pygame.K_BACKSPACE:
+                            user_input = user_input[:-1]
+                        else:
+                            user_input += event.unicode
+                if question_displayed:
+                    break
+                gameWindow.fill((128, 73, 8))
+                escape_button_group.draw(gameWindow)
+                font = pygame.font.Font(None, 32)
+                text_surface = font.render(user_input, True, (255, 255, 255))
+                gameWindow.blit(text, text_rect)
+                gameWindow.blit(text_surface, input_box)
+                pygame.draw.rect(gameWindow, (255, 255, 255), input_box, 2)
+                pygame.display.flip()
+
 
 
 
