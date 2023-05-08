@@ -7,7 +7,9 @@
 #Note - all comments within the following program will be 
 #below the code that they are commenting on
 import pygame
+import pygame.time
 import random
+
 pygame.init()
 pygame.font.init()
 all_sprites = pygame.sprite.Group()
@@ -126,6 +128,7 @@ def DisplayQuestions(questions):
                             text_rect.center = (gameWindowWidth // 2, gameWindowHeight // 2 + 100)
                             gameWindow.blit(text, text_rect)
                             pygame.display.flip()
+                            pygame.time.delay(4000)
                         else:
                             font = pygame.font.Font(None, 32)
                             text = font.render("Sorry, wrong answer. Please try again.", True, (255, 255, 255))
@@ -133,6 +136,7 @@ def DisplayQuestions(questions):
                             text_rect.center = (gameWindowWidth // 2, gameWindowHeight // 2 + 100)
                             gameWindow.blit(text, text_rect)
                             pygame.display.flip()
+                            pygame.time.delay(4000)
                         question_displayed = True
                         break
                     elif event.key == pygame.K_BACKSPACE:
