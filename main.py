@@ -80,21 +80,18 @@ AddButton = Button(320, 240, 210, 50, (255, 255, 255), "Addition Questions!", (0
 
 def WasButtonClicked(event):
     if event.type == pygame.MOUSEBUTTONDOWN:
-            mouse_pos = pygame.mouse.get_pos()
+        mouse_pos = pygame.mouse.get_pos()
 
-            # Check which button was clicked
-            if DivButton.is_clicked(mouse_pos):
-                questions = Char2Questions
-                DisplayQuestions(questions)
-            elif MultButton.is_clicked(mouse_pos):
-                questions = Char3Questions
-                DisplayQuestions(questions)
-            elif SubButton.is_clicked(mouse_pos):
-                questions = Char4Questions
-                DisplayQuestions(questions)
-            elif AddButton.is_clicked(mouse_pos):
-                questions = Char5Questions
-                DisplayQuestions(questions)
+        # Check which button was clicked
+        if DivButton.is_clicked(mouse_pos):
+            DisplayQuestions(Char2Questions)
+        elif MultButton.is_clicked(mouse_pos):
+            DisplayQuestions(Char3Questions)
+        elif SubButton.is_clicked(mouse_pos):
+            DisplayQuestions(Char4Questions)
+        elif AddButton.is_clicked(mouse_pos):
+            DisplayQuestions(Char5Questions)
+
                 
 def DisplayQuestions(questions):
     escape_button = Button(10, 10, 100, 50, (255, 0, 0), "Home", (255, 255, 255))
