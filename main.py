@@ -78,21 +78,21 @@ MultButton = Button(320, 240, 258, 50, (255, 255, 255), "Multiplication Question
 SubButton = Button(320, 240, 250, 50, (255, 255, 255), "Subtraction Questions!", (0, 0, 0))
 AddButton = Button(320, 240, 210, 50, (255, 255, 255), "Addition Questions!", (0, 0, 0))
 
+buttons = [DivButton, MultButton, SubButton, AddButton]
+
 #Visuals for buttons are displayed
+#and buttons are grouped together.
 
 def WasButtonClicked(event):
     if event.type == pygame.MOUSEBUTTONDOWN:
         mouse_pos = pygame.mouse.get_pos()
 
         # Check which button was clicked
-        if DivButton.is_clicked(mouse_pos):
-            DisplayQuestions(Char2Questions)
-        elif MultButton.is_clicked(mouse_pos):
-            DisplayQuestions(Char3Questions)
-        elif SubButton.is_clicked(mouse_pos):
-            DisplayQuestions(Char4Questions)
-        elif AddButton.is_clicked(mouse_pos):
-            DisplayQuestions(Char5Questions)
+        for i in range(len(AllQuestions)):
+            if buttons[i].is_clicked(mouse_pos):
+                DisplayQuestions(AllQuestions[i])
+                break
+
                 
 def DisplayQuestions(questions):
     escape_button = Button(10, 10, 100, 50, (255, 0, 0), "Home", (255, 255, 255))
@@ -318,15 +318,15 @@ while functioning:
     
     keys = pygame.key.get_pressed()
     if keys[pygame.K_LEFT]:
-        Char1.vel_x = -8
+        Char1.vel_x = -9
     elif keys[pygame.K_RIGHT]:
-        Char1.vel_x = 8
+        Char1.vel_x = 9
     else:
         Char1.vel_x = 0
     if keys[pygame.K_UP]:
-        Char1.vel_y = -8
+        Char1.vel_y = -9
     elif keys[pygame.K_DOWN]:
-        Char1.vel_y = 8
+        Char1.vel_y = 9
     else:
         Char1.vel_y = 0
         
