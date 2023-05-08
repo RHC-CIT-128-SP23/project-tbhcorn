@@ -99,6 +99,7 @@ def DisplayQuestions(questions):
     escape_button_group = pygame.sprite.GroupSingle(escape_button)
     question_displayed = False
     for question in questions:
+        answer = questions[question]
         if not question_displayed:
             escape_button_group.draw(gameWindow)
             pygame.display.flip()
@@ -120,7 +121,7 @@ def DisplayQuestions(questions):
                         return
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_RETURN:
-                        if user_input == question[-1]:
+                        if user_input == answer:
                             font = pygame.font.Font(None, 32)
                             text = font.render("Congratulations, you got it right!", True, (255, 255, 255))
                             text_rect = text.get_rect()
@@ -152,6 +153,7 @@ def DisplayQuestions(questions):
             gameWindow.blit(text, text_rect)
             gameWindow.blit(text_surface, input_box)
             pygame.display.flip()
+
 
 
 def Door_Collisions():
