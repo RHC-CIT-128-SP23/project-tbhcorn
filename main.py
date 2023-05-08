@@ -88,10 +88,11 @@ def WasButtonClicked(event):
         mouse_pos = pygame.mouse.get_pos()
 
         # Check which button was clicked
-        for i in range(len(AllQuestions)):
-            if buttons[i].is_clicked(mouse_pos):
-                DisplayQuestions(AllQuestions[i])
+        for button, questions in ButtonQuestionLink.items():
+            if button.is_clicked(mouse_pos):
+                DisplayQuestions(questions)
                 break
+
 
                 
 def DisplayQuestions(questions):
@@ -153,8 +154,6 @@ def DisplayQuestions(questions):
                 gameWindow.blit(text_surface, input_box)
                 pygame.draw.rect(gameWindow, (255, 255, 255), input_box, 2)
                 pygame.display.flip()
-
-
 
 
 def Door_Collisions():
@@ -294,6 +293,13 @@ Char5Questions = {
 AllQuestions = [Char2Questions, Char3Questions, Char4Questions, Char5Questions]
 
 #Questions placed in a list for accessibililty.
+
+ButtonQuestionLink = {
+    DivButton: Char2Questions,
+    MultButton: Char3Questions,
+    SubButton: Char4Questions,
+    AddButton: Char5Questions
+}
 
 door1 = Door(50, 50, 100, 200, (0, 0, 255), (255, 255, 255))  
 door2 = Door(gameWindowWidth - 150, 50, 100, 200, (255, 0, 0), (255, 255, 255))  
