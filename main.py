@@ -73,10 +73,11 @@ class Button(pygame.sprite.Sprite):
 #Creates a button class for buttons that can be clicked
 #to display questions 
 
-DivButton = Button(320, 240, 210, 50, (255, 255, 255), "Division Questions!", (0, 0, 0))
-MultButton = Button(320, 240, 258, 50, (255, 255, 255), "Multiplication Questions!", (0, 0, 0))
-SubButton = Button(320, 240, 250, 50, (255, 255, 255), "Subtraction Questions!", (0, 0, 0))
-AddButton = Button(320, 240, 210, 50, (255, 255, 255), "Addition Questions!", (0, 0, 0))
+DivButton = Button(320, 120, 210, 50, (255, 255, 255), "Division Questions!", (0, 0, 0))
+MultButton = Button(320, 190, 258, 50, (255, 255, 255), "Multiplication Questions!", (0, 0, 0))
+SubButton = Button(320, 260, 250, 50, (255, 255, 255), "Subtraction Questions!", (0, 0, 0))
+AddButton = Button(320, 330, 210, 50, (255, 255, 255), "Addition Questions!", (0, 0, 0))
+
 
 buttons = [DivButton, MultButton, SubButton, AddButton]
 
