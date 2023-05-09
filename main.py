@@ -313,14 +313,25 @@ DivDoorX = 14
 DivDoorY = 50
 door1.image.blit(DivDoorDisplay, (DivDoorX, DivDoorY))
 
+door2 = Door(650, 50, 100, 200, (225, 0, 0), (255, 255, 255))
 
-door2 = Door(gameWindowWidth - 150, 50, 100, 200, (255, 0, 0), (255, 255, 255))
+MultDoorFont = pygame.font.SysFont("comicsansms", 15)
+MultDoorDisplay = MultDoorFont.render("Multiplication", True, (0, 0, 0))
+MultDoorX = 3
+MultDoorY = 60
+door2.image.blit(MultDoorDisplay, (MultDoorX, MultDoorY))
 
   
-door3 = Door(50, gameWindowHeight - 250, 100, 200, (0, 255, 0), (255, 255, 255)) 
+door3 = Door(50, 350, 100, 200, (0, 255, 0), (255, 255, 255)) 
+
+SubDoorFont = pygame.font.SysFont("comicsansms", 16)
+SubDoorDisplay = SubDoorFont.render("Subtraction", True, (0, 0, 0))
+SubDoorX = 600
+SubDoorY = 50
+door3.image.blit(SubDoorDisplay, (SubDoorX, SubDoorY))
 
 
-door4 = Door(gameWindowWidth - 150, gameWindowHeight - 250, 100, 200, (255, 255, 0), (255, 255, 255))  
+door4 = Door(650, 350, 100, 200, (255, 255, 0), (255, 255, 255))  
 
 
 doors = [door1, door2, door3, door4]
