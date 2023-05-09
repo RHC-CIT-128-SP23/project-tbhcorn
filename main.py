@@ -338,6 +338,15 @@ door3.image.blit(SubDoorDisplay, (SubDoorX, SubDoorY))
 
 door4 = Door(650, 350, 100, 200, (255, 255, 0), (255, 255, 255))  
 
+AddDoorFont = pygame.font.SysFont("comicsansms", 17)
+AddDoorDisplay = AddDoorFont.render("Addition", True, (0, 0, 0))
+AddDoorX = 14
+AddDoorY = 48
+door4.image.blit(AddDoorDisplay, (AddDoorX, AddDoorY))
+
+#Door 4 is given a position and text is blitted onto it.
+
+
 
 doors = [door1, door2, door3, door4]
 
