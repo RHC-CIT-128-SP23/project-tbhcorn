@@ -79,8 +79,6 @@ SubButton = Button(320, 260, 250, 50, (255, 255, 255), "Subtraction Questions!",
 AddButton = Button(320, 330, 210, 50, (255, 255, 255), "Addition Questions!", (0, 0, 0))
 
 
-buttons = [DivButton, MultButton, SubButton, AddButton]
-
 #Visuals for buttons are displayed
 #and buttons are grouped together.
 
@@ -93,7 +91,6 @@ def WasButtonClicked(event):
             if button.is_clicked(mouse_pos):
                 DisplayQuestions(questions)
                 break
-
 
                 
 def DisplayQuestions(questions):
@@ -235,9 +232,15 @@ gameWindow = pygame.display.set_mode((gameWindowWidth, gameWindowHeight))
 #Initial background is set with a caption
 #Game Window is initialized with the same dimensions as the background.
 
-font = pygame.font.SysFont("comicsansms", 36)
-text = font.render("Choose a room!", True, (0, 0, 0))
+font1 = pygame.font.SysFont("comicsansms", 26)
+text = font1.render("Welcome to the Math Maze!", True, (0, 0, 0))
 background.blit(text, (287, 50))
+font2 = pygame.font.SysFont("comicsansms", 18)
+WelcomeMessage = font2.render("Using the arrow keys, travel to a room!.", True, (0,0,0))
+background.blit(WelcomeMessage, (301, 253))
+#Text initialized on the welcome screen.
+
+
 Char1 = Character("DragoniteMC1.png", "Char1")
 Char1.rect.x = 400
 Char1.rect.y = 300
@@ -303,10 +306,25 @@ ButtonQuestionLink = {
 }
 
 door1 = Door(50, 50, 100, 200, (0, 0, 255), (255, 255, 255))  
-door2 = Door(gameWindowWidth - 150, 50, 100, 200, (255, 0, 0), (255, 255, 255))  
+
+DivDoorFont = pygame.font.SysFont("comicsansms", 20)
+DivDoorDisplay = DivDoorFont.render("Division", True, (0, 0, 0))
+DivDoorX = 14
+DivDoorY = 50
+door1.image.blit(DivDoorDisplay, (DivDoorX, DivDoorY))
+
+
+door2 = Door(gameWindowWidth - 150, 50, 100, 200, (255, 0, 0), (255, 255, 255))
+
+  
 door3 = Door(50, gameWindowHeight - 250, 100, 200, (0, 255, 0), (255, 255, 255)) 
+
+
 door4 = Door(gameWindowWidth - 150, gameWindowHeight - 250, 100, 200, (255, 255, 0), (255, 255, 255))  
+
+
 doors = [door1, door2, door3, door4]
+
 #Our doors are given a position and placed in a list.
 
 all_sprites.add(door1)
