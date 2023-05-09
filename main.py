@@ -213,30 +213,26 @@ def Door_Collisions():
 
 def BackgroundHeaders():
     BackgroundFont = pygame.font.SysFont("comicsansms", 20)
+    BackgroundX = 272
+    BackgroundY = 0
     if background == backgrounds["ArceusLocation"]:
         BackgroundDisplay = BackgroundFont.render("Welcome to Arceus' Division Room!", True, (0, 0, 0))
-        BackgroundX = 400
-        BackgroundY = 0
         background.blit(BackgroundDisplay, (BackgroundX, BackgroundY))
         pygame.display.update()
     elif background == backgrounds["GiratinaLocation"]:
         BackgroundDisplay = BackgroundFont.render("Welcome to Giratina's Multiplication Room!", True, (0, 0, 0))
-        BackgroundX = 400
-        BackgroundY = 0
         background.blit(BackgroundDisplay, (BackgroundX, BackgroundY))
         pygame.display.update()
     elif background == backgrounds["RayquazaLocation"]:
-        BackgroundDisplay = BackgroundFont.render("Welcome to Rayquaza's Addition Room!", True, (0, 0, 0))
-        BackgroundX = 400
-        BackgroundY = 0
+        BackgroundDisplay = BackgroundFont.render("Welcome to Rayquaza's Subtraction Room!", True, (0, 0, 0))
         background.blit(BackgroundDisplay, (BackgroundX, BackgroundY))
         pygame.display.update()
     elif background == backgrounds["DeoxysLocation"]:
-        BackgroundDisplay = BackgroundFont.render("Welcome to Deoxys' Subtraction Room!", True, (0, 0, 0))
-        BackgroundX = 400
-        BackgroundY = 0
+        BackgroundDisplay = BackgroundFont.render("Welcome to Deoxys' Addition Room!", True, (0, 0, 0))
         background.blit(BackgroundDisplay, (BackgroundX, BackgroundY))
         pygame.display.update()
+        
+#Function that displays the headers for each background
 
 
 def draw_character_on_background(background_name, character, x, y):
@@ -250,6 +246,23 @@ def draw_character_on_background(background_name, character, x, y):
     all_sprites.draw(gameWindow)  
 #Character drawing function, which draws the character 
 #on our background in the game window.    
+
+def Char1Movement():
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_LEFT]:
+        Char1.vel_x = -9
+    elif keys[pygame.K_RIGHT]:
+        Char1.vel_x = 9
+    else:
+        Char1.vel_x = 0
+    if keys[pygame.K_UP]:
+        Char1.vel_y = -9
+    elif keys[pygame.K_DOWN]:
+        Char1.vel_y = 9
+    else:
+        Char1.vel_y = 0
+        
+#Char1Movement function, which allows the character to move
 
 pygame.display.set_caption("The Math Maze")
 background = pygame.image.load("BotwEntry.jpg")
@@ -374,8 +387,6 @@ door4.image.blit(AddDoorDisplay, (AddDoorX, AddDoorY))
 
 #Door 4 is given a position and text is blitted onto it.
 
-
-
 doors = [door1, door2, door3, door4]
 
 #Our doors are given a position and placed in a list.
@@ -397,21 +408,10 @@ while functioning:
         if event.type == pygame.QUIT:
             functioning = False
     
-    keys = pygame.key.get_pressed()
-    if keys[pygame.K_LEFT]:
-        Char1.vel_x = -9
-    elif keys[pygame.K_RIGHT]:
-        Char1.vel_x = 9
-    else:
-        Char1.vel_x = 0
-    if keys[pygame.K_UP]:
-        Char1.vel_y = -9
-    elif keys[pygame.K_DOWN]:
-        Char1.vel_y = 9
-    else:
-        Char1.vel_y = 0
-        
+    
+    Char1Movement()   
     WasButtonClicked(event)
+    BackgroundHeaders()
     Door_Collisions()    
     all_sprites.update()
     pygame.display.update()
