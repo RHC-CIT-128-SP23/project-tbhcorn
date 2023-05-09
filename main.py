@@ -313,6 +313,8 @@ DivDoorX = 14
 DivDoorY = 50
 door1.image.blit(DivDoorDisplay, (DivDoorX, DivDoorY))
 
+#Door 1 is given a position and text is blitted onto it.
+
 door2 = Door(650, 50, 100, 200, (225, 0, 0), (255, 255, 255))
 
 MultDoorFont = pygame.font.SysFont("comicsansms", 15)
@@ -321,14 +323,17 @@ MultDoorX = 3
 MultDoorY = 60
 door2.image.blit(MultDoorDisplay, (MultDoorX, MultDoorY))
 
+#Door 2 is given a position and text is blitted onto it.
   
 door3 = Door(50, 350, 100, 200, (0, 255, 0), (255, 255, 255)) 
 
 SubDoorFont = pygame.font.SysFont("comicsansms", 16)
 SubDoorDisplay = SubDoorFont.render("Subtraction", True, (0, 0, 0))
-SubDoorX = 600
-SubDoorY = 50
+SubDoorX = 6
+SubDoorY = 46
 door3.image.blit(SubDoorDisplay, (SubDoorX, SubDoorY))
+
+#Door 3 is given a position and text is blitted onto it.
 
 
 door4 = Door(650, 350, 100, 200, (255, 255, 0), (255, 255, 255))  
