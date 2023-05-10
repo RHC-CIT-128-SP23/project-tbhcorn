@@ -149,7 +149,7 @@ def DisplayQuestions(questions):
                             user_input += event.unicode
                 if question_displayed:
                     break
-                gameWindow.fill((128, 73, 8))
+                gameWindow.fill((167, 93, 38))
                 escape_button_group.draw(gameWindow)
                 font = pygame.font.Font(None, 32)
                 text_surface = font.render(user_input, True, (255, 255, 255))
@@ -304,7 +304,12 @@ Char2Questions = {
     "What is 2,456,789/7?" : "350,984" ,
     "What is 3,829,875/25?" : "153,195" ,
     "What is 9,876,543/81?" : "121,969" ,
-    "What is 7,432,561/99?" : "75,065" 
+    "What is 7,432,561/99?" : "75,065", 
+    "What is 7,654,321/1234?" : "6,201",
+    "What is 56,789/123?" : "461",
+    "What is 9,876,543/321?" : "30,687",
+    "What is 4,321,098/98?" : "44,016",
+    "What is 123,456/789?" : "156"
 }
 #Our first opponent is initialized
 #with associated questions.
@@ -316,7 +321,12 @@ Char3Questions = {
     "What is 6,247 * 82?" : "512,654" ,
     "What is 15,729 * 81?" : " 1,275,849" ,
     "What is 8,712 * 56?" : "488,832" ,
-    "What is 3,246 * 225?" : "730,250" 
+    "What is 3,246 * 225?" : "730,250", 
+    "What is 222 * 333?" : "73,926",
+    "What is 789 * 456? " : "359,724",
+    "What is 888 * 222? " : "197,136",
+    "What is 345 * 678?" : "234,210",
+    "What is 987 * 654? " : "644,298"
 }
 #Our second opponent is initialized
 #with associated questions.
@@ -327,7 +337,12 @@ Char4Questions = {
     "What is 6,543,210 - 3,210,987?" : "3,332,223" ,
     "What is 89,654 - 34,567?" : "55,087" ,
     "What is 986,543 - 543,210?" : "443,333" ,
-    "What is 127,896 - 89,654?" : "38,242" 
+    "What is 127,896 - 89,654?" : "38,242", 
+    "What is 876,543 - 123,456?" : "753,087",
+    "What is 987,654 - 345,678?" : "641,976",
+    "What is 987,654 - 123,456?" : "864,198",
+    "What is 876,543 - 432,109?" : "444,434",
+    "What is 987,654 - 456,789?" : "530,865"
 }
 #Our third opponent is initialized
 #with associated questions.
@@ -338,7 +353,12 @@ Char5Questions = {
     "What is 23,456 + 98,765?" : "122,221" ,
     "What is 765,432 + 876,543?" : "1,642,975" ,
     "What is 987,654 + 345,678?" : "1,333,332" ,
-    "What is 987,654 + 123,456?" : " 1,111,110" 
+    "What is 987,654 + 123,456?" : " 1,111,110", 
+    "What is 123,456 + 987,654?" : "1,111,110",
+    "What is 456,789 + 543,210?" : "1,000,999",
+    "What is 789,012 + 123,456?" : "912,468",
+    "What is 321,654 + 987,654?" : "1,309,308",
+    "What is 876,543 + 321,098?" : "1,197,641"
 }
 #Our fourth opponent is initialized
 #with associated questions.

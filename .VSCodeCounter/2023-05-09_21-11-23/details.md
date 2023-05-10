@@ -1,10 +1,10 @@
 # Details
 
-Date : 2023-05-08 21:37:09
+Date : 2023-05-09 21:11:23
 
 Directory c:\\Users\\tbhco\\github-classroom\\RHC-CIT-128-SP23\\project-tbhcorn
 
-Total : 3 files,  394 codes, 44 comments, 88 blanks, all 526 lines
+Total : 3 files,  416 codes, 46 comments, 94 blanks, all 556 lines
 
 [Summary](results.md) / Details / [Diff Summary](diff.md) / [Diff Details](diff-details.md)
 
@@ -13,6 +13,6 @@ Total : 3 files,  394 codes, 44 comments, 88 blanks, all 526 lines
 | :--- | :--- | ---: | ---: | ---: | ---: |
 | [DIRECTIONS.md](/DIRECTIONS.md) | Markdown | 60 | 0 | 14 | 74 |
 | [README.md](/README.md) | Markdown | 24 | 0 | 21 | 45 |
-| [main.py](/main.py) | Python | 310 | 44 | 53 | 407 |
+| [main.py](/main.py) | Python | 332 | 46 | 59 | 437 |
 
 [Summary](results.md) / Details / [Diff Summary](diff.md) / [Diff Details](diff-details.md)
