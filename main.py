@@ -96,7 +96,9 @@ def WasButtonClicked(event):
 def DisplayQuestions(questions):
     escape_button = Button(10, 10, 100, 50, (255, 0, 0), "Home", (255, 255, 255))
     escape_button_group = pygame.sprite.GroupSingle(escape_button)
-    for question in questions:
+    question_keys = list(questions.keys())
+    random.shuffle(question_keys)
+    for question in question_keys:
         answer = questions[question]
         question_displayed = False
         while not question_displayed:
@@ -130,6 +132,7 @@ def DisplayQuestions(questions):
                                 pygame.display.flip()
                                 pygame.time.delay(1450)
                                 question_displayed = True
+                                break
                             else:
                                 font = pygame.font.Font(None, 32)
                                 text = font.render("Sorry, wrong answer. Please try again.", True, (255, 255, 255))
@@ -138,6 +141,7 @@ def DisplayQuestions(questions):
                                 gameWindow.blit(text, text_rect)
                                 pygame.display.flip()
                                 pygame.time.delay(1450)
+                                user_input = ''
                         elif event.key == pygame.K_BACKSPACE:
                             user_input = user_input[:-1]
                         else:
@@ -152,6 +156,7 @@ def DisplayQuestions(questions):
                 gameWindow.blit(text_surface, input_box)
                 pygame.draw.rect(gameWindow, (255, 255, 255), input_box, 2)
                 pygame.display.flip()
+
 
 
 def Door_Collisions():
