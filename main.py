@@ -133,7 +133,11 @@ def DisplayQuestions(questions):
                                 pygame.display.flip()
                                 pygame.time.delay(1450)
                                 question_displayed = True
-                                score += 1  
+                                score += 1 
+                                score_font = pygame.font.Font("comicsansms", 24)
+                                score_text = score_font.render("Score: " + str(score), True, (255, 255, 255))
+                                score_rect = (790,10)
+                                gameWindow.blit(score_text, score_rect)
                                 break
                             else:
                                 font = pygame.font.Font(None, 32)
@@ -143,6 +147,7 @@ def DisplayQuestions(questions):
                                 text_rect.center = (gameWindowWidth // 2, gameWindowHeight // 2 + 100)
                                 gameWindow.blit(text, text_rect)
                                 pygame.display.flip()
+
 
 
 #Game Mechanic function
