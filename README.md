@@ -20,6 +20,8 @@ My goals are to correctly import graphics and use unique character designs for e
 
 Add a Link to your video demonstration
 
+[Posted to youtube but view by link only]
+
 ### Install Instructions
 
 pip install pygame in your code terminal of choice
