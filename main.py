@@ -98,7 +98,6 @@ def DisplayQuestions(questions):
     escape_button_group = pygame.sprite.GroupSingle(escape_button)
     question_keys = list(questions.keys())
     random.shuffle(question_keys)
-    score = 0  
     for question in question_keys:
         answer = questions[question]
         question_displayed = False
@@ -133,24 +132,34 @@ def DisplayQuestions(questions):
                                 pygame.display.flip()
                                 pygame.time.delay(1450)
                                 question_displayed = True
-                                score += 1 
-                                score_font = pygame.font.Font("comicsansms", 24)
-                                score_text = score_font.render("Score: " + str(score), True, (255, 255, 255))
-                                score_rect = (790,10)
-                                gameWindow.blit(score_text, score_rect)
                                 break
                             else:
                                 font = pygame.font.Font(None, 32)
                                 text = font.render("Sorry, wrong answer. Please try again.", True, (255, 255, 255))
-                                score += 0
                                 text_rect = text.get_rect()
                                 text_rect.center = (gameWindowWidth // 2, gameWindowHeight // 2 + 100)
                                 gameWindow.blit(text, text_rect)
                                 pygame.display.flip()
+                                pygame.time.delay(1450)
+                                question_displayed = True
+                                break
+                        elif event.key == pygame.K_BACKSPACE:
+                            user_input = user_input[:-1]
+                        else:
+                            user_input += event.unicode
+                if question_displayed:
+                    break
+                gameWindow.fill((167, 93, 38))
+                escape_button_group.draw(gameWindow)
+                font = pygame.font.Font(None, 32)
+                text_surface = font.render(user_input, True, (255, 255, 255))
+                gameWindow.blit(text, text_rect)
+                gameWindow.blit(text_surface, input_box)
+                pygame.draw.rect(gameWindow, (255, 255, 255), input_box, 2)
+                pygame.display.flip()
 
 
 
-#Game Mechanic function
 
 
 def Door_Collisions():
@@ -396,6 +405,7 @@ SubDoorY = 46
 door3.image.blit(SubDoorDisplay, (SubDoorX, SubDoorY))
 
 #Door 3 is given a position and text is blitted onto it.
+
 
 door4 = Door(650, 350, 100, 200, (255, 255, 0), (255, 255, 255))  
 
