@@ -94,6 +94,7 @@ def WasButtonClicked(event):
 
                 
 def DisplayQuestions(questions):
+    score = 0
     escape_button = Button(10, 10, 100, 50, (255, 0, 0), "Home", (255, 255, 255))
     escape_button_group = pygame.sprite.GroupSingle(escape_button)
     question_keys = list(questions.keys())
@@ -126,6 +127,7 @@ def DisplayQuestions(questions):
                             if user_input.strip().lower() == str(answer).lower():
                                 font = pygame.font.Font(None, 32)
                                 text = font.render("Congratulations, you got it right!", True, (255, 255, 255))
+                                score += 1
                                 text_rect = text.get_rect()
                                 text_rect.center = (gameWindowWidth // 2, gameWindowHeight // 2 + 100)
                                 gameWindow.blit(text, text_rect)
@@ -136,6 +138,7 @@ def DisplayQuestions(questions):
                             else:
                                 font = pygame.font.Font(None, 32)
                                 text = font.render("Sorry, wrong answer. Please try again.", True, (255, 255, 255))
+                                score += 0
                                 text_rect = text.get_rect()
                                 text_rect.center = (gameWindowWidth // 2, gameWindowHeight // 2 + 100)
                                 gameWindow.blit(text, text_rect)
