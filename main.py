@@ -141,7 +141,8 @@ def DisplayQuestions(questions):
                                 gameWindow.blit(text, text_rect)
                                 pygame.display.flip()
                                 pygame.time.delay(1450)
-                                user_input = ''
+                                question_displayed = True
+                                break
                         elif event.key == pygame.K_BACKSPACE:
                             user_input = user_input[:-1]
                         else:
