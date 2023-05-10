@@ -257,20 +257,21 @@ def draw_character_on_background(background_name, character, x, y):
 
 def Char1Movement():
     keys = pygame.key.get_pressed()
-    if keys[pygame.K_LEFT]:
+    if keys[pygame.K_LEFT] and Char1.x > 0:
         Char1.vel_x = -9
-    elif keys[pygame.K_RIGHT]:
+    elif keys[pygame.K_RIGHT] and Char1.x < 800 - Char1.width:
         Char1.vel_x = 9
     else:
         Char1.vel_x = 0
-    if keys[pygame.K_UP]:
+    if keys[pygame.K_UP] and Char1.y > 0:
         Char1.vel_y = -9
-    elif keys[pygame.K_DOWN]:
+    elif keys[pygame.K_DOWN] and Char1.y < 600 - Char1.height:
         Char1.vel_y = 9
     else:
         Char1.vel_y = 0
         
-#Char1Movement function, which allows the character to move
+#Allows the character to move, 
+#bounded to the gameWindow
 
 pygame.display.set_caption("The Math Maze")
 background = pygame.image.load("BotwEntry.jpg")
