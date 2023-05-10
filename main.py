@@ -257,18 +257,19 @@ def draw_character_on_background(background_name, character, x, y):
 
 def Char1Movement():
     keys = pygame.key.get_pressed()
-    if keys[pygame.K_LEFT] and Char1.x > 0:
+    if keys[pygame.K_LEFT] and Char1.rect.x > 0:
         Char1.vel_x = -9
-    elif keys[pygame.K_RIGHT] and Char1.x < 800 - Char1.width:
+    elif keys[pygame.K_RIGHT] and Char1.rect.x + Char1.rect.width < 800:
         Char1.vel_x = 9
     else:
         Char1.vel_x = 0
-    if keys[pygame.K_UP] and Char1.y > 0:
+    if keys[pygame.K_UP] and Char1.rect.y > 0:
         Char1.vel_y = -9
-    elif keys[pygame.K_DOWN] and Char1.y < 600 - Char1.height:
+    elif keys[pygame.K_DOWN] and Char1.rect.y + Char1.rect.height < 600:
         Char1.vel_y = 9
     else:
         Char1.vel_y = 0
+
         
 #Allows the character to move, 
 #bounded to the gameWindow
