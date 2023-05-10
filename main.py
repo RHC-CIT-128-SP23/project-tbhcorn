@@ -159,6 +159,8 @@ def DisplayQuestions(questions):
 
 
 
+
+
 def Door_Collisions():
     global background
     for door in doors:
