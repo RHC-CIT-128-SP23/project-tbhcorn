@@ -89,19 +89,20 @@ def WasButtonClicked(event):
         # Check which button was clicked
         for button, questions in ButtonQuestionLink.items():
             if button.is_clicked(mouse_pos):
-                DisplayQuestions(questions)
+                GameMechanic(questions)
                 break
-            
-def update_score(score):
-    score_text = score_font.render(f"Score: {score}", True, (255, 255, 255))
-    score_rect = score_text.get_rect()
-    score_rect.topright = (gameWindowWidth - 10, 10)
-    gameWindow.blit(score_text, score_rect)
 
-                
-def DisplayQuestions(questions):
+def update_score(score):
+    score += 1
+    score_text = font.render("Score: " + str(score), True, (255, 255, 255))
+    score_text_rect = score_text.get_rect()
+    score_text_rect.center = (gameWindowWidth // 2, 50)
+    gameWindow.blit(score_text, score_text_rect)
+    return score
+
+
+def GameMechanic(questions):
     score = 0
-    score_font = pygame.font.Font(None, 32)
     escape_button = Button(10, 10, 100, 50, (255, 0, 0), "Home", (255, 255, 255))
     escape_button_group = pygame.sprite.GroupSingle(escape_button)
     question_keys = list(questions.keys())
@@ -112,7 +113,7 @@ def DisplayQuestions(questions):
         while not question_displayed:
             gameWindow.fill((128, 73, 8))
             escape_button_group.draw(gameWindow)
-            font = pygame.font.Font(None, 32)
+            font = pygame.font.SysFont("comicsansms", 22)
             text = font.render(question, True, (255, 255, 255))
             text_rect = text.get_rect()
             text_rect.center = (gameWindowWidth // 2, gameWindowHeight // 2 - 50)
@@ -120,7 +121,6 @@ def DisplayQuestions(questions):
             input_box = pygame.Rect(gameWindowWidth // 2 - 70, gameWindowHeight // 2, 140, 32)
             input_box.center = (gameWindowWidth // 2, gameWindowHeight // 2 + 50)
             pygame.draw.rect(gameWindow, (255, 255, 255), input_box, 2)
-            update_score(score)
             pygame.display.flip()
             user_input = ''
             while True:
@@ -135,18 +135,17 @@ def DisplayQuestions(questions):
                             if user_input.strip().lower() == str(answer).lower():
                                 font = pygame.font.Font(None, 32)
                                 text = font.render("Congratulations, you got it right!", True, (255, 255, 255))
-                                score += 1
                                 text_rect = text.get_rect()
                                 text_rect.center = (gameWindowWidth // 2, gameWindowHeight // 2 + 100)
                                 gameWindow.blit(text, text_rect)
                                 pygame.display.flip()
                                 pygame.time.delay(1450)
                                 question_displayed = True
+                                score = update_score(score)
                                 break
                             else:
                                 font = pygame.font.Font(None, 32)
                                 text = font.render("Sorry, wrong answer. Please try again.", True, (255, 255, 255))
-                                score += 0
                                 text_rect = text.get_rect()
                                 text_rect.center = (gameWindowWidth // 2, gameWindowHeight // 2 + 100)
                                 gameWindow.blit(text, text_rect)
@@ -160,16 +159,15 @@ def DisplayQuestions(questions):
                             user_input += event.unicode
                 if question_displayed:
                     break
-                gameWindow.fill((231, 34, 92))
+                gameWindow.fill((231, 239, 192))
                 escape_button_group.draw(gameWindow)
+                score = update_score(score)
                 font = pygame.font.Font(None, 32)
                 text_surface = font.render(user_input, True, (255, 255, 255))
                 gameWindow.blit(text, text_rect)
                 gameWindow.blit(text_surface, input_box)
                 pygame.draw.rect(gameWindow, (255, 255, 255), input_box, 2)
                 pygame.display.flip()
-
-
 
 
 
