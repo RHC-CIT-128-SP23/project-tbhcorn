@@ -360,16 +360,16 @@ Char4Questions = {
 
 Char5 = Character("DeoxysC5.png", "Char5")
 Char5Questions = {
-    "What is ?" : "" ,
-    "What is ?" : "" ,
-    "What is ?" : "" ,
-    "What is ?" : "" ,
-    "What is ?" : "", 
-    "What is ?" : "",
-    "What is ?" : "",
-    "What is ?" : "",
-    "What is ?" : "",
-    "What is ?" : ""
+    "What is 859 + 753?" : "1,612" ,
+    "What is 345 + 629?" : "974" ,
+    "What is 741 + 962?" : "1,703" ,
+    "What is 867 + 341?" : "1,208" ,
+    "What is 7,412 + 2,479?" : "9,891", 
+    "What is 934 + 6,712?" : "7,646",
+    "What is 618 + 2,415?" : "3,033",
+    "What is 876 + 954?" : "1,830",
+    "What is 643 + 892?" : "1,535",
+    "What is 496 + 758?" : "1,254"
 }
 #Our fourth opponent is initialized
 #with 10 addition questions.
@@ -381,6 +381,7 @@ ButtonQuestionLink = {
     SubButton: Char4Questions,
     AddButton: Char5Questions
 }
+#A dictionary is created to link the buttons to the questions.
 
 door1 = Door(50, 50, 100, 200, (0, 0, 255), (255, 255, 255))  
 
