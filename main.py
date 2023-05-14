@@ -93,7 +93,6 @@ def WasButtonClicked(event):
                 break
 
 def update_score(score):
-    score += 1
     score_text = font.render("Score: " + str(score), True, (255, 255, 255))
     score_text_rect = score_text.get_rect()
     score_text_rect.center = (gameWindowWidth // 2, 50)
@@ -141,6 +140,7 @@ def GameMechanic(questions):
                                 pygame.display.flip()
                                 pygame.time.delay(1450)
                                 question_displayed = True
+                                score += 1
                                 score = update_score(score)
                                 break
                             else:
