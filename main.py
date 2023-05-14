@@ -312,15 +312,15 @@ all_sprites.add(Char1)
 Char2 = Character("ArceusC2.png", "Char2")
 Char2Questions = {
     "What is 87,300/900?" : "97" ,
-    "What is 2,456,789/7?" : "350,984" ,
-    "What is 3,829,875/25?" : "153,195" ,
-    "What is 9,876,543/81?" : "121,969" ,
-    "What is 7,432,561/99?" : "75,065", 
-    "What is 7,654,321/1234?" : "6,201",
-    "What is 56,789/123?" : "461",
-    "What is 9,876,543/321?" : "30,687",
-    "What is 4,321,098/98?" : "44,016",
-    "What is 123,456/789?" : "156"
+    "What is 628/4?" : "157" ,
+    "What is 9,184/28?" : "328" ,
+    "What is 9,876/3?" : "3,292" ,
+    "What is 7,432/4?" : "1,858" , 
+    "What is 8,568/6?" : "1,428",
+    "What is 5,525/65?" : "85",
+    "What is 7,631/587?" : "13",
+    "What is 4,214/43?" : "98",
+    "What is 1,392/16?" : "87"
 }
 #Our first opponent is initialized
 #with associated questions.
