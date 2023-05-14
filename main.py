@@ -328,16 +328,16 @@ Char2Questions = {
 Char3 = Character("GiratinaC3.png", "Char3")
 
 Char3Questions = {
-    "What is 79 * 96?" : "7,584" ,
-    "What is 6,247 * 82?" : "512,654" ,
-    "What is 15,729 * 81?" : " 1,275,849" ,
-    "What is 8,712 * 56?" : "488,832" ,
-    "What is 3,246 * 225?" : "730,250", 
-    "What is 222 * 333?" : "73,926",
-    "What is 789 * 456? " : "359,724",
-    "What is 888 * 222? " : "197,136",
-    "What is 345 * 678?" : "234,210",
-    "What is 987 * 654? " : "644,298"
+    "What is 87 * 54?" : "4,698" ,
+    "What is 21 * 64??" : "1,344" ,
+    "What is 17 * 84?" : " 1,428" ,
+    "What is 14 * 56?" : "784" ,
+    "What is 12 * 71?" : "852", 
+    "What is 13 * 45?" : "585",
+    "What is 74 * 21? " : "1,554",
+    "What is 88 * 22? " : "1,936",
+    "What is 81 * 14?" : "1,134",
+    "What is 97 * 34? " : "3,298"
 }
 #Our second opponent is initialized
 #with associated questions.
