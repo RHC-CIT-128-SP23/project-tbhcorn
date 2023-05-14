@@ -323,7 +323,7 @@ Char2Questions = {
     "What is 1,392/16?" : "87"
 }
 #Our first opponent is initialized
-#with associated questions.
+#with 10 division questions.
 
 Char3 = Character("GiratinaC3.png", "Char3")
 
@@ -340,43 +340,40 @@ Char3Questions = {
     "What is 97 * 34? " : "3,298"
 }
 #Our second opponent is initialized
-#with associated questions.
+#with 10 multiplication questions.
 
 Char4 = Character("RayquazaC4.png", "Char4")
 Char4Questions = {
-    "What is 1,000,000 - 123,456?" : "876,544" ,
-    "What is 6,543,210 - 3,210,987?" : "3,332,223" ,
-    "What is 89,654 - 34,567?" : "55,087" ,
-    "What is 986,543 - 543,210?" : "443,333" ,
-    "What is 127,896 - 89,654?" : "38,242", 
-    "What is 876,543 - 123,456?" : "753,087",
-    "What is 987,654 - 345,678?" : "641,976",
-    "What is 987,654 - 123,456?" : "864,198",
-    "What is 876,543 - 432,109?" : "444,434",
-    "What is 987,654 - 456,789?" : "530,865"
+    "What is 8,797 - 675?" : "8,122" ,
+    "What is 9,654 - 4,652?" : "5,002" ,
+    "What is 8,572 - 785?" : "7,787" ,
+    "What is 987 - 233?" : "754" ,
+    "What is 852 - 741?" : "111", 
+    "What is 456 - 123?" : "333",
+    "What is 5,964 - 2,134?" : "3,830",
+    "What is 1,714 - 1,472?" : "242",
+    "What is 7,845 - 4,523?" : "3,322",
+    "What is 4,152 - 3,245?" : "907"
 }
 #Our third opponent is initialized
-#with associated questions.
+#with 10 subtraction questions.
 
 Char5 = Character("DeoxysC5.png", "Char5")
 Char5Questions = {
-    "What is 123,456 + 654,321?" : "777,777" ,
-    "What is 23,456 + 98,765?" : "122,221" ,
-    "What is 765,432 + 876,543?" : "1,642,975" ,
-    "What is 987,654 + 345,678?" : "1,333,332" ,
-    "What is 987,654 + 123,456?" : " 1,111,110", 
-    "What is 123,456 + 987,654?" : "1,111,110",
-    "What is 456,789 + 543,210?" : "1,000,999",
-    "What is 789,012 + 123,456?" : "912,468",
-    "What is 321,654 + 987,654?" : "1,309,308",
-    "What is 876,543 + 321,098?" : "1,197,641"
+    "What is ?" : "" ,
+    "What is ?" : "" ,
+    "What is ?" : "" ,
+    "What is ?" : "" ,
+    "What is ?" : "", 
+    "What is ?" : "",
+    "What is ?" : "",
+    "What is ?" : "",
+    "What is ?" : "",
+    "What is ?" : ""
 }
 #Our fourth opponent is initialized
-#with associated questions.
+#with 10 addition questions.
 
-AllQuestions = [Char2Questions, Char3Questions, Char4Questions, Char5Questions]
-
-#Questions placed in a list for accessibililty.
 
 ButtonQuestionLink = {
     DivButton: Char2Questions,
