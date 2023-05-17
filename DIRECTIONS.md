@@ -45,17 +45,17 @@ The student provided rubric is worth 75 points and is specific to the individual
     * Student verbally describes how to start and use the application. (5pt)
     * Student discusses the testing process as part of the project and the verbal description matches the written description. (5pt)
 * **Student Grading Rubric (75pt)**
-  * Characters and Rooms (30 pt)
-    * Minimum of 4 Opponents (2pt)
-    * Each character will exist in their own room (4 pt)
-    * Each room will have a different room design (4 pt)
-    * Each character has unique graphics, dialogue, and (potentially corresponding) sound effects (20 pt)
+  * Opponents and Rooms (30 pt)
+    * 4 math opponents exist in this game (3pt)
+    * Each opponent will exist in their own room (6pt)
+    * Each room will have a unique room design (6pt)
+    * Each character has unique graphics and corresponding character dialogue (15pt)
   * User Interaction (10 pt)
-    * The User can navigate the game without struggle (5 pt)
-    * The user can navigate using the arrow keys (5 pt)
+    * The User can navigate the game without struggle [instructions are clear] (5pt)
+    * The user can navigate using the arrow keys (5pt)
   * Game Mechanics (35 pt)
-    * The game properly increments/decrements when the user answers correctly/incorrectly with corresponding output messages(20 pt)
-    * Different categories of math are tested by varying opponents, with unique questions and possible randomization of questions (15 pt)  
+    * The game's score properly increments/decrements when the user answers correctly/incorrectly with corresponding output messages (20pt)
+    * Different categories of math are tested by varying opponents, with unique questions and randomization of said questions (15pt)  
 
 Total Points: 200
 
