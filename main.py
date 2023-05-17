@@ -228,26 +228,35 @@ def Door_Collisions():
 #Function that changes background and displays buttons
 #upon door collisions
 
-def BackgroundHeaders():
+def RoomText():
     BackgroundFont = pygame.font.SysFont("comicsansms", 20)
     BackgroundX = 272
     BackgroundY = 0
     if background == backgrounds["ArceusLocation"]:
-        BackgroundDisplay = BackgroundFont.render("Welcome to Arceus' Division Room!", True, (0, 0, 0))
-        background.blit(BackgroundDisplay, (BackgroundX, BackgroundY))
+        BackgroundHeader = BackgroundFont.render("Welcome to Arceus' Division Room!", True, (0, 0, 0))
+        BackgroundWarning = BackgroundFont.render("Time to divide and conquer.", True, (0, 0, 0))
+        background.blit(BackgroundHeader, (BackgroundX, BackgroundY))
+        background.blit(BackgroundWarning, (BackgroundX, BackgroundY + 25))
         pygame.display.update()
     elif background == backgrounds["GiratinaLocation"]:
-        BackgroundDisplay = BackgroundFont.render("Welcome to Giratina's Multiplication Room!", True, (0, 0, 0))
-        background.blit(BackgroundDisplay, (BackgroundX, BackgroundY))
+        BackgroundHeader = BackgroundFont.render("Welcome to Giratina's Multiplication Room!", True, (0, 0, 0))
+        BackgroundWarning = BackgroundFont.render("Let the time fly by while you multiply.", True, (0, 0, 0))
+        background.blit(BackgroundHeader, (BackgroundX, BackgroundY))
+        background.blit(BackgroundWarning, (BackgroundX, BackgroundY + 25))
         pygame.display.update()
     elif background == backgrounds["RayquazaLocation"]:
-        BackgroundDisplay = BackgroundFont.render("Welcome to Rayquaza's Subtraction Room!", True, (0, 0, 0))
-        background.blit(BackgroundDisplay, (BackgroundX, BackgroundY))
+        BackgroundHeader = BackgroundFont.render("Welcome to Rayquaza's Subtraction Room!", True, (0, 0, 0))
+        BackgroundWarning = BackgroundFont.render("Don't forget how to act when it's time to subtract.", True, (0, 0, 0))
+        background.blit(BackgroundHeader, (BackgroundX, BackgroundY))
+        background.blit(BackgroundWarning, (BackgroundX, BackgroundY + 25))
         pygame.display.update()
     elif background == backgrounds["DeoxysLocation"]:
-        BackgroundDisplay = BackgroundFont.render("Welcome to Deoxys' Addition Room!", True, (0, 0, 0))
-        background.blit(BackgroundDisplay, (BackgroundX, BackgroundY))
+        BackgroundHeader = BackgroundFont.render("Welcome to Deoxys' Addition Room!", True, (0, 0, 0))
+        BackgroundWarning = BackgroundFont.render("It is now your mission to master addition.", True, (0, 0, 0))
+        background.blit(BackgroundHeader, (BackgroundX, BackgroundY))
+        background.blit(BackgroundWarning, (BackgroundX, BackgroundY + 25))
         pygame.display.update()
+
         
 #Function that displays the headers for each background
 
@@ -296,7 +305,7 @@ font1 = pygame.font.SysFont("comicsansms", 26)
 text = font1.render("Welcome to the Math Maze!", True, (0, 0, 0))
 background.blit(text, (287, 50))
 font2 = pygame.font.SysFont("comicsansms", 18)
-WelcomeMessage = font2.render("Using the arrow keys, travel to a room!.", True, (0,0,0))
+WelcomeMessage = font2.render("Using the arrow keys, travel to a room!", True, (0,0,0))
 background.blit(WelcomeMessage, (301, 253))
 #Text initialized on the welcome screen.
 
@@ -448,7 +457,7 @@ while functioning:
     
     Char1Movement()   
     WasButtonClicked(event)
-    BackgroundHeaders()
+    RoomText()
     Door_Collisions()    
     all_sprites.update()
     pygame.display.update()
