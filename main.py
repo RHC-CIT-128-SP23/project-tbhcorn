@@ -73,7 +73,7 @@ class Button(pygame.sprite.Sprite):
 #Creates a button class for buttons that can be clicked
 #to display questions 
 
-DivButton = Button(320, 172, 210, 50, (255, 255, 255), "Division Questions!", (0, 0, 0))
+DivButton = Button(270, 142, 210, 50, (255, 255, 255), "Division Questions!", (0, 0, 0))
 MultButton = Button(320, 190, 258, 50, (255, 255, 255), "Multiplication Questions!", (0, 0, 0))
 SubButton = Button(320, 260, 250, 50, (255, 255, 255), "Subtraction Questions!", (0, 0, 0))
 AddButton = Button(320, 330, 210, 50, (255, 255, 255), "Addition Questions!", (0, 0, 0))
@@ -183,7 +183,7 @@ def Door_Collisions():
                 all_sprites.remove(SubButton)
                 all_sprites.remove(AddButton)
                 all_sprites.remove(MultButton)
-                draw_character_on_background("ArceusLocation", Char2, 400, 80)  
+                draw_character_on_background("ArceusLocation", Char2, 350, 56)  
                 all_sprites.remove(Char3)
                 all_sprites.remove(Char4)
                 all_sprites.remove(Char5)
