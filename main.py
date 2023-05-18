@@ -183,7 +183,7 @@ def Door_Collisions():
                 all_sprites.remove(SubButton)
                 all_sprites.remove(AddButton)
                 all_sprites.remove(MultButton)
-                draw_character_on_background("ArceusLocation", Char2, 350, 56)  
+                draw_character_on_background("ArceusLocation", Char2, 500, 56)  
                 all_sprites.remove(Char3)
                 all_sprites.remove(Char4)
                 all_sprites.remove(Char5)
@@ -230,31 +230,47 @@ def Door_Collisions():
 
 def RoomText():
     BackgroundFont = pygame.font.SysFont("comicsansms", 20)
-    BackgroundX = 272
+    BackgroundX = 211
     BackgroundY = 0
     if background == backgrounds["ArceusLocation"]:
         BackgroundHeader = BackgroundFont.render("Welcome to Arceus' Division Room!", True, (0, 0, 0))
         BackgroundWarning = BackgroundFont.render("Time to divide and conquer.", True, (0, 0, 0))
+        BackgroundDisclaimer = BackgroundFont.render("Note: use commas when your answer has 4 digits! Ex: 1,234", True, (0, 0, 0))
+        BackgroundInstructions = BackgroundFont.render("Click the button to begin your division journey.", True, (0, 0, 0))
         background.blit(BackgroundHeader, (BackgroundX, BackgroundY))
         background.blit(BackgroundWarning, (BackgroundX, BackgroundY + 25))
+        background.blit(BackgroundDisclaimer, (234, 300))
+        background.blit(BackgroundInstructions, (BackgroundX, BackgroundY + 50))
         pygame.display.update()
     elif background == backgrounds["GiratinaLocation"]:
         BackgroundHeader = BackgroundFont.render("Welcome to Giratina's Multiplication Room!", True, (0, 0, 0))
         BackgroundWarning = BackgroundFont.render("Let the time fly by while you multiply.", True, (0, 0, 0))
+        BackgroundDisclaimer = BackgroundFont.render("Note: use commas when your answer has 4 digits! Ex: 1,234", True, (255,255,255))
+        BackgroundInstructions = BackgroundFont.render("Click the button to multiply as high as the sky.", True, (0, 0, 0))
         background.blit(BackgroundHeader, (BackgroundX, BackgroundY))
         background.blit(BackgroundWarning, (BackgroundX, BackgroundY + 25))
+        background.blit(BackgroundDisclaimer, (234, 300))
+        background.blit(BackgroundInstructions, (BackgroundX, BackgroundY + 50))
         pygame.display.update()
     elif background == backgrounds["RayquazaLocation"]:
         BackgroundHeader = BackgroundFont.render("Welcome to Rayquaza's Subtraction Room!", True, (0, 0, 0))
         BackgroundWarning = BackgroundFont.render("Don't forget how to act when it's time to subtract.", True, (0, 0, 0))
+        BackgroundDisclaimer = BackgroundFont.render("Note: use commas when your answer has 4 digits! Ex: 1,234", True, (255,255,255))
+        BackgroundInstructions = BackgroundFont.render("Click the button to subtract and be exact.", True, (0, 0, 0))
         background.blit(BackgroundHeader, (BackgroundX, BackgroundY))
         background.blit(BackgroundWarning, (BackgroundX, BackgroundY + 25))
+        background.blit(BackgroundDisclaimer, (234, 300))
+        background.blit(BackgroundInstructions, (BackgroundX, BackgroundY + 50))
         pygame.display.update()
     elif background == backgrounds["DeoxysLocation"]:
         BackgroundHeader = BackgroundFont.render("Welcome to Deoxys' Addition Room!", True, (0, 0, 0))
         BackgroundWarning = BackgroundFont.render("It is now your mission to master addition.", True, (0, 0, 0))
+        BackgroundDisclaimer = BackgroundFont.render("Note: use commas when your answer has 4 digits! Ex: 1,234", True, (0, 0, 0))
+        BackgroundInstructions = BackgroundFont.render("Click the button to add and don't be sad!", True, (0, 0, 0))
         background.blit(BackgroundHeader, (BackgroundX, BackgroundY))
         background.blit(BackgroundWarning, (BackgroundX, BackgroundY + 25))
+        background.blit(BackgroundDisclaimer, (234, 300))
+        background.blit(BackgroundInstructions, (BackgroundX, BackgroundY + 50))
         pygame.display.update()
 
         
