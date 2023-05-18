@@ -36,9 +36,9 @@ Here is how you can do so.
 
 In your VS Code terminal (click "new terminal" from terminal in upper left hand corner), type:
 
-python -m pip install --upgrade pip (should be version 23.1.2)
-pip install --upgrade python (should be version 3.11.3 - if not, download from python website)
-python -m pip install pygame ( should be version 2.3.0)
+-python -m pip install --upgrade pip (should be version 23.1.2)
+-pip install --upgrade python (should be version 3.11.3 - if not, download from python website)
+-python -m pip install pygame ( should be version 2.3.0)
 
 Since the game itself imports pygame, this should be everything required for the player of said game. 
 
