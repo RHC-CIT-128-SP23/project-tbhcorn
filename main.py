@@ -129,7 +129,7 @@ def GameMechanic(questions):
                                 text_rect.center = (gameWindowWidth // 2, gameWindowHeight // 2 + 100)
                                 gameWindow.blit(text, text_rect)
                                 pygame.display.flip()
-                                pygame.time.delay(880)
+                                pygame.time.delay(880) # Algorithm from module 7.3 in zyBooks, Constant Time Operation
                                 question_displayed = True
                                 score += 1
                                 score = update_score(score)
@@ -141,7 +141,7 @@ def GameMechanic(questions):
                                 text_rect.center = (gameWindowWidth // 2, gameWindowHeight // 2 + 100)
                                 gameWindow.blit(text, text_rect)
                                 pygame.display.flip()
-                                pygame.time.delay(880)
+                                pygame.time.delay(880) # Algorithm from module 7.3 in zyBooks, Constant Time Operation
                                 question_displayed = True
                                 score -= 1
                                 score = update_score(score)
