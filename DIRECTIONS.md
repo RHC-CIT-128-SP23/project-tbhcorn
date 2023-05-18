@@ -54,8 +54,8 @@ The student provided rubric is worth 75 points and is specific to the individual
     * The User can navigate the game without struggle [instructions are clear] (5pt)
     * The user can navigate using the arrow keys (5pt)
   * Game Mechanics (35 pt)
-    * The game's score properly increments when the user answers correctly/incorrectly with corresponding output messages (16pt)
-    * Different categories of math are tested by varying opponents, with unique questions and randomization of said questions (19pt)  
+    * The game's score properly increments/decrements when the user answers correctly/incorrectly with corresponding output messages (18pt)
+    * Different categories of math are tested by varying opponents, with unique questions and randomization of said questions (17pt)  
 
 Total Points: 200
 
