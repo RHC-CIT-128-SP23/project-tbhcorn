@@ -24,6 +24,7 @@ backgrounds = {
     "DeoxysLocation": pygame.transform.scale(pygame.image.load("DeoxysLocation.jpg"), (800, 600))
 }
 #All rooms are initialized as backgrounds, and are scaled to fit the game window.
+
 class Character(pygame.sprite.Sprite):
     def __init__(self, image_path,name):
         super().__init__()
@@ -36,8 +37,14 @@ class Character(pygame.sprite.Sprite):
     def update(self):
         self.rect.x += self.vel_x
         self.rect.y += self.vel_y
-#creates Character class for following characters
-#with position and velocity
+        
+"""Our character class is created, and is given a name and image path.
+
+Using the sprite module built into pygame, we are able to create
+a character by using the image path that we have given it. This character 
+is also given a velocity in the x and y direction, which will be used.
+"""
+
 class Door(pygame.sprite.Sprite):
     def __init__(self, x, y, width, height, color, knob_color):
         super().__init__()
@@ -52,6 +59,13 @@ class Door(pygame.sprite.Sprite):
         self.rect.x = x
         self.rect.y = y
 #Creates door class for doors to be used later
+
+"""Our door class is created, to be used later on in the game.
+
+This door class uses inheritance to inherit the sprite module from pygame.
+All characteristics of the door are initialized and drawn.
+The door is also given a position on the game board.
+"""
 
 class Button(pygame.sprite.Sprite):
     def __init__(self, x, y, width, height, color, text, text_color):
@@ -70,8 +84,13 @@ class Button(pygame.sprite.Sprite):
         if self.rect.collidepoint(pos):
             return True
         return False
-#Creates a button class for buttons that can be clicked
-#to display questions 
+"""Our button class is instantiated with a built-in function.
+
+Our button class is given a color, x and y position,
+and text. The button is also given a font and text color.
+The class itself also has a function that returns true 
+if the button is clicked.
+"""
 
 def WasButtonClicked(event):
     if event.type == pygame.MOUSEBUTTONDOWN:
@@ -82,6 +101,12 @@ def WasButtonClicked(event):
             if button.is_clicked(mouse_pos):
                 GameMechanic(questions)
                 break
+"""A function is created that displays questions when a button is clicked.
+
+Using a dictionary (ButtonQuestionLink) and a nested function 
+(GameMechanic(questions)), this function outputs different questions 
+depending on which button was clicked.    
+"""
 
 def update_score(score):
     score_text = font.render("Score: " + str(score), True, (255, 255, 255))
