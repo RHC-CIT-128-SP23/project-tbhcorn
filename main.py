@@ -73,15 +73,6 @@ class Button(pygame.sprite.Sprite):
 #Creates a button class for buttons that can be clicked
 #to display questions 
 
-DivButton = Button(270, 142, 210, 50, (255, 255, 255), "Division Questions!", (0, 0, 0))
-MultButton = Button(320, 190, 258, 50, (255, 255, 255), "Multiplication Questions!", (0, 0, 0))
-SubButton = Button(320, 260, 250, 50, (255, 255, 255), "Subtraction Questions!", (0, 0, 0))
-AddButton = Button(320, 330, 210, 50, (255, 255, 255), "Addition Questions!", (0, 0, 0))
-
-
-#Visuals for buttons are displayed
-#and buttons are grouped together.
-
 def WasButtonClicked(event):
     if event.type == pygame.MOUSEBUTTONDOWN:
         mouse_pos = pygame.mouse.get_pos()
@@ -152,6 +143,8 @@ def GameMechanic(questions):
                                 pygame.display.flip()
                                 pygame.time.delay(1450)
                                 question_displayed = True
+                                score -= 1
+                                score = update_score(score)
                                 break
                         elif event.key == pygame.K_BACKSPACE:
                             user_input = user_input[:-1]
@@ -183,7 +176,7 @@ def Door_Collisions():
                 all_sprites.remove(SubButton)
                 all_sprites.remove(AddButton)
                 all_sprites.remove(MultButton)
-                draw_character_on_background("ArceusLocation", Char2, 500, 56)  
+                draw_character_on_background("ArceusLocation", Char2, 500, 62)  
                 all_sprites.remove(Char3)
                 all_sprites.remove(Char4)
                 all_sprites.remove(Char5)
@@ -399,6 +392,15 @@ Char5Questions = {
 #Our fourth opponent is initialized
 #with 10 addition questions.
 
+DivButton = Button(270, 142, 210, 50, (255, 255, 255), "Division Questions!", (0, 0, 0))
+MultButton = Button(320, 190, 258, 50, (255, 255, 255), "Multiplication Questions!", (0, 0, 0))
+SubButton = Button(320, 260, 250, 50, (255, 255, 255), "Subtraction Questions!", (0, 0, 0))
+AddButton = Button(320, 330, 210, 50, (255, 255, 255), "Addition Questions!", (0, 0, 0))
+
+
+#Visuals for buttons are displayed
+#and buttons are grouped together.
+
 
 ButtonQuestionLink = {
     DivButton: Char2Questions,
@@ -462,7 +464,7 @@ all_sprites.add(door4)
 
 clock = pygame.time.Clock()
 font = pygame.font.SysFont('Arial',30)
-#The game clock and font are also set.
+#The game clock and font are also set.    
 
 functioning = True
 while functioning:
