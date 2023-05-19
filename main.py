@@ -115,6 +115,14 @@ def update_score(score):
     gameWindow.blit(score_text, score_text_rect)
     return score
 
+"""We have a function that updates the score and blits it on the screen.
+
+Score is used as a parameter and argument in this function. It is updated
+through either incrementation or decrementation [in GameMechanic function], 
+depending on whether the user gets the question correct or not.
+The score is then blitted onto the screen.
+"""
+
 
 def GameMechanic(questions):
     score = 0
@@ -186,8 +194,15 @@ def GameMechanic(questions):
                 gameWindow.blit(text_surface, input_box)
                 pygame.draw.rect(gameWindow, (255, 255, 255), input_box, 2)
                 pygame.display.flip()
-
-
+                
+"""The entirety of our game mechanic is created here.
+    
+In terms of variables, we have our score, our escape button, and our questions.
+Using a for loop, we are able to iterate through our questions and display them
+in a randomized fashion. Our program provides certain output depending on whether the
+user gets the question right or wrong. The score is also updated correspondingly.
+All of these changes are blitted onto the gameWindow and shown on the screen. 
+"""
 
 def Door_Collisions():
     global background
@@ -243,8 +258,13 @@ def Door_Collisions():
                 all_sprites.remove(Char4)
     all_sprites.draw(gameWindow)
 
-#Function that changes background and displays buttons
-#upon door collisions
+""" Our function that allows the user to travel through rooms is created here. 
+
+In this function, when the user (Char1) collides with a certain door, the image
+corresponding to that door is loaded and scaled to fit the gameWindow. The 
+corresponding character and button are also drawn on the background. The
+characters and buttons that are not needed are removed from the gameWindow.
+"""
 
 def RoomText():
     BackgroundFont = pygame.font.SysFont("comicsansms", 20)
@@ -291,8 +311,12 @@ def RoomText():
         background.blit(BackgroundInstructions, (BackgroundX, BackgroundY + 50))
         pygame.display.update()
 
-        
-#Function that displays the headers for each background
+"""All of the dialogue is drawn here.
+
+In order to foster unique dialogue, each room has different text blitted onto it.
+All of these text messages are blitted onto the background, with the same
+x and y coordinates in each room.
+"""
 
 
 def draw_character_on_background(background_name, character, x, y):
@@ -304,8 +328,13 @@ def draw_character_on_background(background_name, character, x, y):
     character_rect.y = y
     gameWindow.blit(background, (0, 0))
     all_sprites.draw(gameWindow)  
-#Character drawing function, which draws the character 
-#on our background in the game window.    
+
+"""This function draws the character on the background.
+
+Using the background name, character, and x and y coordinates,
+the character is drawn on the background. The background is also
+blitted onto the gameWindow.
+"""    
 
 def Char1Movement():
     keys = pygame.key.get_pressed()
@@ -322,9 +351,12 @@ def Char1Movement():
     else:
         Char1.vel_y = 0
 
-        
-#Allows the character to move, 
-#bounded to the gameWindow
+"""This function allows the user to move the character using the arrow keys.
+
+This function uses the pygame module to allow the user to move the character
+in accordance with the arrow key that they press. The character is also
+bounded by the game window and is not permitted to move outside said window.
+"""
 
 pygame.display.set_caption("The Math Maze")
 background = pygame.image.load("BotwEntry.jpg")
@@ -332,7 +364,8 @@ background = pygame.transform.scale(background, (800, 600))
 gameWindowWidth = background.get_width()
 gameWindowHeight = background.get_height()
 gameWindow = pygame.display.set_mode((gameWindowWidth, gameWindowHeight))
-#Initial background is set with a caption
+#Initial background is set with a caption in our pygame window.
+#Our background image is scaled properly to the size of the pygame window.
 #Game Window is initialized with the same dimensions as the background.
 
 font1 = pygame.font.SysFont("comicsansms", 26)
@@ -341,8 +374,7 @@ background.blit(text, (287, 50))
 font2 = pygame.font.SysFont("comicsansms", 18)
 WelcomeMessage = font2.render("Using the arrow keys, travel to a room!", True, (0,0,0))
 background.blit(WelcomeMessage, (301, 253))
-#Text initialized on the welcome screen.
-
+#Welcome messsges and instructions are blitted onto the first screen.
 
 Char1 = Character("DragoniteMC1.png", "Char1")
 Char1.rect.x = 400
