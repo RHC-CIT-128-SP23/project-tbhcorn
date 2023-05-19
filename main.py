@@ -123,7 +123,6 @@ depending on whether the user gets the question correct or not.
 The score is then blitted onto the screen.
 """
 
-
 def GameMechanic(questions):
     score = 0
     escape_button = Button(10, 10, 100, 50, (255, 0, 0), "Home", (255, 255, 255))
@@ -157,24 +156,24 @@ def GameMechanic(questions):
                         if event.key == pygame.K_RETURN:
                             if user_input.strip().lower() == str(answer).lower():
                                 font = pygame.font.Font(None, 32)
-                                text = font.render("Congratulations, you got it right!", True, (255, 255, 255))
+                                text = font.render("Great Job!", True, (255, 255, 255))
                                 text_rect = text.get_rect()
                                 text_rect.center = (gameWindowWidth // 2, gameWindowHeight // 2 + 100)
                                 gameWindow.blit(text, text_rect)
                                 pygame.display.flip()
-                                pygame.time.delay(880) # Algorithm from module 7.3 in zyBooks, Constant Time Operation
+                                pygame.time.delay(590) # Algorithm from module 7.3 in zyBooks, Constant Time Operation
                                 question_displayed = True
                                 score += 1
                                 score = update_score(score)
                                 break
                             else:
                                 font = pygame.font.Font(None, 32)
-                                text = font.render("Sorry, wrong answer. Please try again.", True, (255, 255, 255))
+                                text = font.render("So close! Try again.", True, (255, 255, 255))
                                 text_rect = text.get_rect()
                                 text_rect.center = (gameWindowWidth // 2, gameWindowHeight // 2 + 100)
                                 gameWindow.blit(text, text_rect)
                                 pygame.display.flip()
-                                pygame.time.delay(880) # Algorithm from module 7.3 in zyBooks, Constant Time Operation
+                                pygame.time.delay(590) # Algorithm from module 7.3 in zyBooks, Constant Time Operation
                                 question_displayed = True
                                 score -= 1
                                 score = update_score(score)
@@ -382,7 +381,6 @@ Char1.rect.y = 300
 all_sprites = pygame.sprite.Group(Char1)
 all_sprites.add(Char1)
 #The user's character is initialized, and is placed in the center of the screen.
-#The screem also has text on it.
 
 Char2 = Character("ArceusC2.png", "Char2")
 Char2Questions = {
@@ -398,7 +396,7 @@ Char2Questions = {
     "What is 1,392/16?" : "87"
 }
 #Our first opponent is initialized
-#with 10 division questions.
+#with 10 division questions and their answers.
 
 Char3 = Character("GiratinaC3.png", "Char3")
 
@@ -415,7 +413,7 @@ Char3Questions = {
     "What is 97 * 34? " : "3,298"
 }
 #Our second opponent is initialized
-#with 10 multiplication questions.
+#with 10 multiplication questions and their answers.
 
 Char4 = Character("RayquazaC4.png", "Char4")
 Char4Questions = {
@@ -431,7 +429,7 @@ Char4Questions = {
     "What is 4,152 - 3,245?" : "907"
 }
 #Our third opponent is initialized
-#with 10 subtraction questions.
+#with 10 subtraction questions and their answers.
 
 Char5 = Character("DeoxysC5.png", "Char5")
 Char5Questions = {
@@ -447,16 +445,14 @@ Char5Questions = {
     "What is 496 + 758?" : "1,254"
 }
 #Our fourth opponent is initialized
-#with 10 addition questions.
+#with 10 addition questions and their answers.
 
 DivButton = Button(270, 142, 210, 50, (255, 255, 255), "Division Questions!", (0, 0, 0))
 MultButton = Button(320, 190, 258, 50, (255, 255, 255), "Multiplication Questions!", (0, 0, 0))
 SubButton = Button(320, 260, 250, 50, (255, 255, 255), "Subtraction Questions!", (0, 0, 0))
 AddButton = Button(320, 330, 210, 50, (255, 255, 255), "Addition Questions!", (0, 0, 0))
 
-
-#Visuals for buttons are displayed
-#and buttons are grouped together.
+#Our buttons are initialized with their respective positions, colors, and text.
 
 
 ButtonQuestionLink = {
@@ -466,6 +462,8 @@ ButtonQuestionLink = {
     AddButton: Char5Questions
 }
 #A dictionary is created to link the buttons to the questions.
+
+
 
 door1 = Door(50, 50, 100, 200, (0, 0, 255), (255, 255, 255))  
 
