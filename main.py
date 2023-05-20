@@ -123,6 +123,18 @@ depending on whether the user gets the question correct or not.
 The score is then blitted onto the screen.
 """
 
+def DelayFunction():
+    start_time = pygame.time.get_ticks()
+    while pygame.time.get_ticks() - start_time < 1000:
+        pass
+    
+    """This function is used to delay the program for 1 second.
+    
+    This function delays the program for one second after the user answers
+    a question. This allows the user to see the output corresponding to
+    the validity of their answer. (correct/incorrect)
+    """
+
 def GameMechanic(questions):
     score = 0
     escape_button = Button(10, 10, 100, 50, (255, 0, 0), "Home", (255, 255, 255))
@@ -162,7 +174,7 @@ def GameMechanic(questions):
                                 text_rect.center = (gameWindowWidth // 2, gameWindowHeight // 2 + 100)
                                 gameWindow.blit(text, text_rect)
                                 pygame.display.flip()
-                                pygame.time.delay(433) # Algorithm from module 7.3 in zyBooks, Constant Time Operation
+                                DelayFunction() # Algorithm from module 7.3 in zyBooks, Constant Time Operation
                                 question_displayed = True
                                 score += 1
                                 score = update_score(score)
@@ -175,7 +187,7 @@ def GameMechanic(questions):
                                 text_rect.center = (gameWindowWidth // 2, gameWindowHeight // 2 + 100)
                                 gameWindow.blit(text, text_rect)
                                 pygame.display.flip()
-                                pygame.time.delay(433) # Algorithm from module 7.3 in zyBooks, Constant Time Operation
+                                DelayFunction() # Algorithm from module 7.3 in zyBooks, Constant Time Operation
                                 question_displayed = True
                                 score -= 1
                                 score = update_score(score)
@@ -474,6 +486,8 @@ CorrectMessages = [
     
 ]
 
+#Five output statements are created for when the user gets a question correct.
+
 IncorrectMessages = [
     "So close! Try again.",
     "You're almost there!",
@@ -482,6 +496,7 @@ IncorrectMessages = [
     "Just a little more!"
 ]
 
+#Five output statements are created for when the user gets a question incorrect.
 
 door1 = Door(50, 50, 100, 200, (0, 0, 255), (255, 255, 255))  
 
