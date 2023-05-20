@@ -155,25 +155,27 @@ def GameMechanic(questions):
                     elif event.type == pygame.KEYDOWN:
                         if event.key == pygame.K_RETURN:
                             if user_input.strip().lower() == str(answer).lower():
+                                correctMessage = random.choice(CorrectMessages)
                                 font = pygame.font.Font(None, 32)
-                                text = font.render("Great Job!", True, (255, 255, 255))
+                                text = font.render(correctMessage, True, (255, 255, 255))
                                 text_rect = text.get_rect()
                                 text_rect.center = (gameWindowWidth // 2, gameWindowHeight // 2 + 100)
                                 gameWindow.blit(text, text_rect)
                                 pygame.display.flip()
-                                pygame.time.delay(590) # Algorithm from module 7.3 in zyBooks, Constant Time Operation
+                                pygame.time.delay(433) # Algorithm from module 7.3 in zyBooks, Constant Time Operation
                                 question_displayed = True
                                 score += 1
                                 score = update_score(score)
                                 break
                             else:
+                                incorrectMessage = random.choice(IncorrectMessages)
                                 font = pygame.font.Font(None, 32)
-                                text = font.render("So close! Try again.", True, (255, 255, 255))
+                                text = font.render(incorrectMessage, True, (255, 255, 255))
                                 text_rect = text.get_rect()
                                 text_rect.center = (gameWindowWidth // 2, gameWindowHeight // 2 + 100)
                                 gameWindow.blit(text, text_rect)
                                 pygame.display.flip()
-                                pygame.time.delay(590) # Algorithm from module 7.3 in zyBooks, Constant Time Operation
+                                pygame.time.delay(433) # Algorithm from module 7.3 in zyBooks, Constant Time Operation
                                 question_displayed = True
                                 score -= 1
                                 score = update_score(score)
@@ -463,6 +465,22 @@ ButtonQuestionLink = {
 }
 #A dictionary is created to link the buttons to the questions.
 
+CorrectMessages = [
+    "Great Job!",
+    "You're a math master!",
+    "Keep on trucking!",
+    "You got it!",
+    "I expected nothing less!"
+    
+]
+
+IncorrectMessages = [
+    "So close! Try again.",
+    "You're almost there!",
+    "Don't give up!",
+    "I know you can do it!",
+    "Just a little more!"
+]
 
 
 door1 = Door(50, 50, 100, 200, (0, 0, 255), (255, 255, 255))  
