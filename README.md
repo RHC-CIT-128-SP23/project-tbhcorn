@@ -32,6 +32,9 @@ Add a Link to your video demonstration
 For use in VS Code:
 
 You must make sure that pip, python, and pygame are all up to date in order for this program to properly be run.
+
+[Pygame MUST be up to date for this game to run.]
+
 Here is how you can do so.
 
 In your VS Code terminal (click "new terminal" from terminal in upper left hand corner), type:
@@ -41,6 +44,8 @@ In your VS Code terminal (click "new terminal" from terminal in upper left hand 
 * python -m pip install pygame ( should be version 2.3.0)
 
 Since the game itself imports pygame, this should be everything required for the player of said game. 
+
+The user will then access this github repository, and open the project in VS Code. Then, the user will access the main.py file, and click "Run - Start Debugging". The game will initialize for a moment, and then the user will be able to play it!
 
 {Add any install instructions, if needed. This includes how to install included modules or libraries as well as configurations. You may remove this section if no special instructions are required.}
 
@@ -61,7 +66,7 @@ For my testing script, the core mechanics of my game will be discussed with the 
 4) When the user presses the right arrow key, the character will move to the right.
 5) When the user presses the left arrow key, the character will move to the right.
 6) If the character did not move upon clicking any of these keys, that would be an issue. Luckily, this is not the case.
-*Score Validation:
+* Score Validation:
 1) For any of the math rooms, the user enters their answer.
 2) Using a for loop and a dictionary, the game verifies the user's answer.
 3) If the user's answer is correct, the game shuffles 1 of 5 possible congratulatory output messages and outputs it, in addition to incrementing the score.
