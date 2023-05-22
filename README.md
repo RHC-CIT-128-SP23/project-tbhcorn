@@ -65,7 +65,7 @@ For my testing script, the core mechanics of my game will be discussed with the 
 3) When the user presses the down arrow key, the character will move downwards.
 4) When the user presses the right arrow key, the character will move to the right.
 5) When the user presses the left arrow key, the character will move to the right.
-6) If the character did not move upon clicking any of these keys, that would be an issue. Luckily, this is not the case.
+6) If the character did not move upon pressing any of these keys, that would be an issue. Luckily, this is not the case.
 * Score Validation:
 1) For any of the math rooms, the user enters their answer.
 2) Using a for loop and a dictionary, the game verifies the user's answer.
@@ -73,12 +73,12 @@ For my testing script, the core mechanics of my game will be discussed with the 
 4) If the user's answer is incorrect, the game shuffles 1 of possible encouraging output messages and outputs it, in addition to decrementing the score. 
 5) If this function did not work properly, the game would neither decrement nor increment properly upon user input. It also would not shuffle through the output messages.
 * Buttons:
-1)In this game, there is a button in each of the character's rooms as well as on the game screen. By clicking each of these buttons, the game properly sends the user to the right place. 
-2)When the multiplication button is clicked, the game screen with multiplication questions is shown. 
-3)When the division button is clicked, the game screen with division questions is shown. 
-4)When the addition button is clicked, the game screen with addition questions is shown. 
-5)When the subtraction button is clicked, the game screen with subtraction questions is shown. 
-6)When the home button is clicked on the game screen (for any set of questions), the user returns to the room that they originated from.  
+1) In this game, there is a button in each of the character's rooms as well as on the game screen. By clicking each of these buttons, the game properly sends the user to the right place. 
+2) When the multiplication button is clicked, the game screen with multiplication questions is shown. 
+3) When the division button is clicked, the game screen with division questions is shown. 
+4) When the addition button is clicked, the game screen with addition questions is shown. 
+5) When the subtraction button is clicked, the game screen with subtraction questions is shown. 
+6) When the home button is clicked on the game screen (for any set of questions), the user returns to the room that they originated from.  
 7) If the game did not use the button directory correctly, the user would not see the corresponding questions or return to their home room.
 * Doors:
 1) This game has 4 doors that correspond to the subdivision of math which they are testing.
