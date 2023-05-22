@@ -54,7 +54,7 @@ I created three classes (character, button, and door) as I drew multiple charact
 ## Testing Script
 
 For my testing script, the core mechanics of my game will be discussed with the expected output upon given action for an interaction.
-*Character Movement: 
+* Character Movement: 
 1) The user's character moves around our game using the arrow keys, bounded by the game window.
 2) When the user presses the up arrow key, the character will move upwards.
 3) When the user presses the down arrow key, the character will move downwards.
@@ -67,7 +67,7 @@ For my testing script, the core mechanics of my game will be discussed with the 
 3) If the user's answer is correct, the game shuffles 1 of 5 possible congratulatory output messages and outputs it, in addition to incrementing the score.
 4) If the user's answer is incorrect, the game shuffles 1 of possible encouraging output messages and outputs it, in addition to decrementing the score. 
 5) If this function did not work properly, the game would neither decrement nor increment properly upon user input. It also would not shuffle through the output messages.
-*Buttons:
+* Buttons:
 1)In this game, there is a button in each of the character's rooms as well as on the game screen. By clicking each of these buttons, the game properly sends the user to the right place. 
 2)When the multiplication button is clicked, the game screen with multiplication questions is shown. 
 3)When the division button is clicked, the game screen with division questions is shown. 
@@ -75,7 +75,7 @@ For my testing script, the core mechanics of my game will be discussed with the 
 5)When the subtraction button is clicked, the game screen with subtraction questions is shown. 
 6)When the home button is clicked on the game screen (for any set of questions), the user returns to the room that they originated from.  
 7) If the game did not use the button directory correctly, the user would not see the corresponding questions or return to their home room.
-*Doors:
+* Doors:
 1) This game has 4 doors that correspond to the subdivision of math which they are testing.
 2) When the user's character collides with the addition door, they travel to the addition room.
 3) When the user's character collides with the subtraction door, they travel to the subtraction room.
