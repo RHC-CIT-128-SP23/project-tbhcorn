@@ -109,7 +109,7 @@ depending on which button was clicked.
 """
 
 def update_score(score):
-    score_text = font.render("Score: " + str(score), True, (255, 255, 255))
+    score_text = font.render("Score: " + str(score), True, (128, 79, 199))
     score_text_rect = score_text.get_rect()
     score_text_rect.center = (gameWindowWidth // 2, 50)
     gameWindow.blit(score_text, score_text_rect)
@@ -148,7 +148,7 @@ def GameMechanic(questions):
             gameWindow.fill((128, 73, 8))
             escape_button_group.draw(gameWindow)
             font = pygame.font.SysFont("comicsansms", 22)
-            text = font.render(question, True, (255, 255, 255))
+            text = font.render(question, True, (128, 79, 199))
             text_rect = text.get_rect()
             text_rect.center = (gameWindowWidth // 2, gameWindowHeight // 2 - 50)
             gameWindow.blit(text, text_rect)
