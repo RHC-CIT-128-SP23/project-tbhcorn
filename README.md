@@ -53,21 +53,35 @@ I created three classes (character, button, and door) as I drew multiple charact
 
 ## Testing Script
 
-My testing script will be described and broken up by the major game elements that I struggled the hardest with while buildng this game.
-
-* Triggering Questions: 
-  Initially, I was going to trigger the math questions displayed on the screen by colliding the user's character with the opponents. Initially, I tried to trigger an event when the user's character "char1" touched the x and y coordinates of each other character. This did not work for hours, and it drove me crazy. I then tried using the built-in colliderect method with the variables of the characters themselves. For example, if "char1 collided with char2, display char2questions". Unfortunately, despite the code logically making sense, I still could not figure how to work this out. All I wanted was for the user to see the questions associated with the opponent upon opponent collision. I then had an epiphany and realized that I could display these questions upon clicking a button. Therefore, I then gave each opponent their own button and was finally able to display the questions. Once I had implemented this, I was able to finally trigger the events required.  
-* Moving Character within scope of game:
-  When curating my program initially, I was unsure how I would be able to move my character around. I was not sure if I would be able to use the arrow keys or the mousepad to move my character. I settled on the arrow keys, and I was able to move the character using these. However, I had soon realized that I was caught in an infinite issue in which my character could move forever in any direction. I then had to add conditionals into my function that moves my character to bound the character to the pygame window itself, in order to properly keep my character bounded.
-* Button Clickability & triggering:
-  Once I had realized that I was going to use buttons to trigger the event that displayed the various questions on the screen, I used my button class and made 4 different buttons with different text that led to 4 different sets of questions. However, they all had the same x and y coordinates, so even though these buttons were only visible in their corresponding rooms, all buttons led to the same set of questions (the first initialized button's questions). Once I had realized this, I gave each button unique x and y coordinates so that each button would not conflict with one another.
-* Displaying other sprites:
-  Upon program start, I was unsure on how I would get my characters and opponents to be displayed on the screen, as most google images had built in backgrounds. I was first going to use a graphics software to make all of these images have a transparent background so that they could be easily manipulated and imported in my game. However, once I had tried using some software, I had realized that this was way out of my league and tried figuring out another way to do this. I then downloaded sprite JPGs from a popular video game series, as these are easily manipulatible and have transparent backgrounds. This allowed me to import unique opponents and my character as unique without having to get bogged down with additional graphics software.
-* Incrementing the score:
-  In my game, I created a game mechanic function that is used in tandem with the a score function. This GameMechanic function randomizes the questions, checks if the answer is correct, displays the home button, and links other functions. This function has another function nested into it, which displays the score variable on the screen and increments/decrements the score accordingly. This score function provided me trouble as I was not sure exactly how to take the score variable into account in the function, and I had to figure out where to increment/decrement this function. I tried doing this in the called score function itself, and this led to an infinite loop. I took a step back from this issue and looked at it a few days later. I realized that I could increment/decrement my score variable in the GameMechanic function in the line before the function was called where score is passed as the parameter. This now makes the score mechanic function propelerly. 
-
-
-
+For my testing script, the core mechanics of my game will be discussed with the expected output upon given action for an interaction.
+*Character Movement: 
+1) The user's character moves around our game using the arrow keys, bounded by the game window.
+2) When the user presses the up arrow key, the character will move upwards.
+3) When the user presses the down arrow key, the character will move downwards.
+4) When the user presses the right arrow key, the character will move to the right.
+5) When the user presses the left arrow key, the character will move to the right.
+6) If the character did not move upon clicking any of these keys, that would be an issue. Luckily, this is not the case.
+*Score Validation:
+1) For any of the math rooms, the user enters their answer.
+2) Using a for loop and a dictionary, the game verifies the user's answer.
+3) If the user's answer is correct, the game shuffles 1 of 5 possible congratulatory output messages and outputs it, in addition to incrementing the score.
+4) If the user's answer is incorrect, the game shuffles 1 of possible encouraging output messages and outputs it, in addition to decrementing the score. 
+5) If this function did not work properly, the game would neither decrement nor increment properly upon user input. It also would not shuffle through the output messages.
+*Buttons:
+1)In this game, there is a button in each of the character's rooms as well as on the game screen. By clicking each of these buttons, the game properly sends the user to the right place. 
+2)When the multiplication button is clicked, the game screen with multiplication questions is shown. 
+3)When the division button is clicked, the game screen with division questions is shown. 
+4)When the addition button is clicked, the game screen with addition questions is shown. 
+5)When the subtraction button is clicked, the game screen with subtraction questions is shown. 
+6)When the home button is clicked on the game screen (for any set of questions), the user returns to the room that they originated from.  
+7) If the game did not use the button directory correctly, the user would not see the corresponding questions or return to their home room.
+*Doors:
+1) This game has 4 doors that correspond to the subdivision of math which they are testing.
+2) When the user's character collides with the addition door, they travel to the addition room.
+3) When the user's character collides with the subtraction door, they travel to the subtraction room.
+4) When the user's character collides with the division door, they travel to the division room. 
+5) When the user's character collides with the multiplication door, they travel to the multiplication room.
+6) If the collision detection function did not work properly, the user's character would not travel upon collision and would stay in the welcome room. 
 
 {Describe the testing process using paragraphs and numbered bullet lists how to manually test the software here.}
 
