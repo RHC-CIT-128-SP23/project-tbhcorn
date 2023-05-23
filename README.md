@@ -23,8 +23,8 @@ The overarching goals for this program are as follows:
 
 ### Video Demonstration
 
-Add a Link to your video demonstration
-
+[Add a Link to your video demonstration
+https://youtu.be/JFYFD-PJuCE
 [Posted to youtube but view by link only]
 
 ### Install Instructions
