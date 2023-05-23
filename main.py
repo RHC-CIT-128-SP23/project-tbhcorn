@@ -123,17 +123,6 @@ depending on whether the user gets the question correct or not.
 The score is then blitted onto the screen.
 """
 
-def DelayFunction():
-    start_time = pygame.time.get_ticks()
-    while pygame.time.get_ticks() - start_time < 1000:
-        pass
-    
-    """This function is used to delay the program for 1 second.
-    
-    This function delays the program for one second after the user answers
-    a question. This allows the user to see the output corresponding to
-    the validity of their answer. (correct/incorrect)
-    """
 
 def GameMechanic(questions):
     score = 0
@@ -174,7 +163,7 @@ def GameMechanic(questions):
                                 text_rect.center = (gameWindowWidth // 2, gameWindowHeight // 2 + 100)
                                 gameWindow.blit(text, text_rect)
                                 pygame.display.flip()
-                                DelayFunction() # Algorithm from module 7.3 in zyBooks - Constant Time Operation
+                                pygame.time.delay(1000)# Algorithm from module 7.3 in zyBooks - Constant Time Operation
                                 question_displayed = True
                                 score += 1
                                 score = update_score(score)
@@ -187,7 +176,7 @@ def GameMechanic(questions):
                                 text_rect.center = (gameWindowWidth // 2, gameWindowHeight // 2 + 100)
                                 gameWindow.blit(text, text_rect)
                                 pygame.display.flip()
-                                DelayFunction() # Algorithm from module 7.3 in zyBooks - Constant Time Operation
+                                pygame.time.delay(1000) # Algorithm from module 7.3 in zyBooks - Constant Time Operation
                                 question_displayed = True
                                 score -= 1
                                 score = update_score(score)
@@ -288,40 +277,48 @@ def RoomText():
         BackgroundWarning = BackgroundFont.render("Time to divide and conquer.", True, (0, 0, 0))
         BackgroundDisclaimer = BackgroundFont.render("Note: use commas when your answer has 4 digits! Ex: 1,234", True, (0, 0, 0))
         BackgroundInstructions = BackgroundFont.render("Click the button to begin your division journey.", True, (0, 0, 0))
+        BackgroundSpecs = BackgroundFont.render("Feel free to use the backspace key as needed. Press enter when ready!", True, (0, 0, 0))
         background.blit(BackgroundHeader, (BackgroundX, BackgroundY))
         background.blit(BackgroundWarning, (BackgroundX, BackgroundY + 25))
         background.blit(BackgroundDisclaimer, (234, 300))
         background.blit(BackgroundInstructions, (BackgroundX, BackgroundY + 50))
+        background.blit(BackgroundSpecs, (135, 278))
         pygame.display.update()
     elif background == backgrounds["GiratinaLocation"]:
         BackgroundHeader = BackgroundFont.render("Welcome to Giratina's Multiplication Room!", True, (0, 0, 0))
         BackgroundWarning = BackgroundFont.render("Let the time fly by while you multiply.", True, (0, 0, 0))
         BackgroundDisclaimer = BackgroundFont.render("Note: use commas when your answer has 4 digits! Ex: 1,234", True, (255,255,255))
         BackgroundInstructions = BackgroundFont.render("Click the button to multiply as high as the sky.", True, (0, 0, 0))
+        BackgroundSpecs = BackgroundFont.render("Feel free to use the backspace key as needed. Press enter when ready!", True, (255,255,255))
         background.blit(BackgroundHeader, (BackgroundX, BackgroundY))
         background.blit(BackgroundWarning, (BackgroundX, BackgroundY + 25))
         background.blit(BackgroundDisclaimer, (234, 300))
         background.blit(BackgroundInstructions, (BackgroundX, BackgroundY + 50))
+        background.blit(BackgroundSpecs, (135, 278))
         pygame.display.update()
     elif background == backgrounds["RayquazaLocation"]:
         BackgroundHeader = BackgroundFont.render("Welcome to Rayquaza's Subtraction Room!", True, (0, 0, 0))
         BackgroundWarning = BackgroundFont.render("Don't forget how to act when it's time to subtract.", True, (0, 0, 0))
         BackgroundDisclaimer = BackgroundFont.render("Note: use commas when your answer has 4 digits! Ex: 1,234", True, (255,255,255))
         BackgroundInstructions = BackgroundFont.render("Click the button to subtract and be exact.", True, (0, 0, 0))
+        BackgroundSpecs = BackgroundFont.render("Feel free to use the backspace key as needed. Press enter when ready!", True, (0,0,0))
         background.blit(BackgroundHeader, (BackgroundX, BackgroundY))
         background.blit(BackgroundWarning, (BackgroundX, BackgroundY + 25))
         background.blit(BackgroundDisclaimer, (234, 300))
         background.blit(BackgroundInstructions, (BackgroundX, BackgroundY + 50))
+        background.blit(BackgroundSpecs, (135, 550))
         pygame.display.update()
     elif background == backgrounds["DeoxysLocation"]:
         BackgroundHeader = BackgroundFont.render("Welcome to Deoxys' Addition Room!", True, (0, 0, 0))
         BackgroundWarning = BackgroundFont.render("It is now your mission to master addition.", True, (0, 0, 0))
         BackgroundDisclaimer = BackgroundFont.render("Note: use commas when your answer has 4 digits! Ex: 1,234", True, (0, 0, 0))
         BackgroundInstructions = BackgroundFont.render("Click the button to add and don't be sad!", True, (0, 0, 0))
+        BackgroundSpecs = BackgroundFont.render("Feel free to use the backspace key as needed. Press enter when ready!", True, (0, 0, 0))
         background.blit(BackgroundHeader, (BackgroundX, BackgroundY))
         background.blit(BackgroundWarning, (BackgroundX, BackgroundY + 25))
         background.blit(BackgroundDisclaimer, (234, 300))
         background.blit(BackgroundInstructions, (BackgroundX, BackgroundY + 50))
+        background.blit(BackgroundSpecs, (135, 278))
         pygame.display.update()
 
 """All of the dialogue is drawn here.
