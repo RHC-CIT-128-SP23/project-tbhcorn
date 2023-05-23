@@ -23,7 +23,6 @@ The overarching goals for this program are as follows:
 
 ### Video Demonstration
 
-[Add a Link to your video demonstration] 
 https://youtu.be/JFYFD-PJuCE - viewable by link only
 
 
@@ -47,14 +46,10 @@ Since the game itself imports pygame, this should be everything required for the
 
 The user will then access this github repository, and open the project in VS Code. Then, the user will access the main.py file, and click "Run - Start Debugging". The game will initialize for a moment, and then the user will be able to play it!
 
-{Add any install instructions, if needed. This includes how to install included modules or libraries as well as configurations. You may remove this section if no special instructions are required.}
-
 ## Software Engineering
 
 Designing and developing this program, I used object-oriented programming techniques to follow the given rubric while also fostering clarity within my code. 
 I created three classes (character, button, and door) as I drew multiple characters, buttons, and doors within my program. This allowed me to avoid code redundancy and foster legibility within my code. I also gave each one of my major game events their own function, so that I could just call these functions in the main game loop for ease of use. This includes the: game mechanic, background/opponent changes upon the user entering a door, character movement (for the user), opponents being drawn on the screen, and for corresponding text to be shown when a certain opponent/background is displayed. Below these functions and classes, I have similar code grouped near each other. This subsequent code involves the use of dictionaries to link questions and their answers, and then these questions and their answers are correspondingly linked to the button that displays them upon click.
-
-{Describe the software engineering techniques used for the design and development of this program.}
 
 ## Testing Script
 
@@ -89,10 +84,8 @@ For my testing script, the core mechanics of my game will be discussed with the 
 18) When the user's character collides with the multiplication door, they travel to the multiplication room.
 19) If the collision detection function did not work properly, the user's character would not travel upon collision and would stay in the welcome room. 
 
-{Describe the testing process using paragraphs and numbered bullet lists how to manually test the software here.}
-
 ## Directions and Grading Rubric
 
-To review the project directions or update the grading rubric review the [DIRECTIONS.md](DIRECTIONS.md) file.
-
 All rights reserved to The Pokemon Company for their character sprites, and to Nintendo for their background images. No profit will be made off of this project, and this was solely made for educational purposes. 
+
+To review the project directions or update the grading rubric review the [DIRECTIONS.md](DIRECTIONS.md) file.
