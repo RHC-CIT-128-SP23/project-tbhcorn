@@ -72,21 +72,22 @@ For my testing script, the core mechanics of my game will be discussed with the 
 3) If the user's answer is correct, the game shuffles 1 of 5 possible congratulatory output messages and outputs it, in addition to incrementing the score.
 4) If the user's answer is incorrect, the game shuffles 1 of possible encouraging output messages and outputs it, in addition to decrementing the score. 
 5) If this function did not work properly, the game would neither decrement nor increment properly upon user input. It also would not shuffle through the output messages.
+6) The user can type in any sort of input values from the keyboard to test this feature, and the score validation will still occur in the same method. To my knowledge, there is no set of values that explicitly trigger errors.
 * Buttons:
-1) In this game, there is a button in each of the character's rooms as well as on the game screen. By clicking each of these buttons, the game properly sends the user to the right place. 
-2) When the multiplication button is clicked, the game screen with multiplication questions is shown. 
-3) When the division button is clicked, the game screen with division questions is shown. 
-4) When the addition button is clicked, the game screen with addition questions is shown. 
-5) When the subtraction button is clicked, the game screen with subtraction questions is shown. 
-6) When the home button is clicked on the game screen (for any set of questions), the user returns to the room that they originated from.  
-7) If the game did not use the button directory correctly, the user would not see the corresponding questions or return to their home room.
+7) In this game, there is a button in each of the character's rooms as well as on the game screen. By clicking each of these buttons, the game properly sends the user to the right place. 
+8) When the multiplication button is clicked, the game screen with multiplication questions is shown. 
+9) When the division button is clicked, the game screen with division questions is shown. 
+10) When the addition button is clicked, the game screen with addition questions is shown. 
+11) When the subtraction button is clicked, the game screen with subtraction questions is shown. 
+12) When the home button is clicked on the game screen (for any set of questions), the user returns to the room that they originated from.  
+13) If the game did not use the button directory correctly, the user would not see the corresponding questions or return to their home room.
 * Doors:
-1) This game has 4 doors that correspond to the subdivision of math which they are testing.
-2) When the user's character collides with the addition door, they travel to the addition room.
-3) When the user's character collides with the subtraction door, they travel to the subtraction room.
-4) When the user's character collides with the division door, they travel to the division room. 
-5) When the user's character collides with the multiplication door, they travel to the multiplication room.
-6) If the collision detection function did not work properly, the user's character would not travel upon collision and would stay in the welcome room. 
+14) This game has 4 doors that correspond to the subdivision of math which they are testing.
+15) When the user's character collides with the addition door, they travel to the addition room.
+16) When the user's character collides with the subtraction door, they travel to the subtraction room.
+17) When the user's character collides with the division door, they travel to the division room. 
+18) When the user's character collides with the multiplication door, they travel to the multiplication room.
+19) If the collision detection function did not work properly, the user's character would not travel upon collision and would stay in the welcome room. 
 
 {Describe the testing process using paragraphs and numbered bullet lists how to manually test the software here.}
 
